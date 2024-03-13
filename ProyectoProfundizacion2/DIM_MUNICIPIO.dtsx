@@ -1,0 +1,1171 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="3/13/2024 1:19:49 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="DESKTOP-54L8G8U"
+  DTS:CreatorName="DESKTOP-54L8G8U\Cristian"
+  DTS:DTSID="{F9FCF8D8-F432-4E49-8F40-FF6ACD564033}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.5270.0"
+  DTS:LocaleID="9226"
+  DTS:ObjectName="Package"
+  DTS:PackageType="5"
+  DTS:VersionBuild="27"
+  DTS:VersionGUID="{BC522F81-278A-44BC-ACA7-A2BA6590654F}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[DESKTOP-54L8G8U.OBSERVATORIO_MUNICIPIOS]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{A0D1EE68-7BC6-4A3B-B227-27CE8B52B22F}"
+      DTS:ObjectName="DESKTOP-54L8G8U.OBSERVATORIO_MUNICIPIOS">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=DESKTOP-54L8G8U;Initial Catalog=OBSERVATORIO_MUNICIPIOS;Provider=SQLNCLI11.1;Integrated Security=SSPI;Application Name=SSIS-Package-{A0D1EE68-7BC6-4A3B-B227-27CE8B52B22F}DESKTOP-54L8G8U.OBSERVATORIO_MUNICIPIOS;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Excel Connection Manager]"
+      DTS:CreationName="EXCEL"
+      DTS:DTSID="{1DF9E991-C6ED-4369-9A40-6BD77E90C0E9}"
+      DTS:ObjectName="Excel Connection Manager">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="0"
+          DTS:ConnectRetryInterval="0"
+          DTS:ConnectionString="Provider=Microsoft.Jet.OLEDB.4.0;Data Source=C:\Users\Cristian\source\repos\ProyectoProfundizacion2\Sources\observatirio-municipios.xls;Extended Properties=&quot;EXCEL 8.0;HDR=YES&quot;;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{2D3C4210-2F02-412E-B8A2-3512B0930B04}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="ETLExecution">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{3D7DE87C-09C1-4D2C-8BCC-3DD6DF1C4573}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="RowCounts">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\DF_Municipio"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{17B070E8-D882-49FD-9FAB-D40A1B87DBCF}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="DF_Municipio"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\DF_Municipio\Aggregate"
+              componentClassID="Microsoft.Aggregate"
+              contactInfo="Aggregate;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;3"
+              description="Aggregates data with functions such as Average, Sum, Count, Max, and Min. For example, group data to compute the sum of sales per product or the average visits per day."
+              name="Aggregate"
+              version="3">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the approximate number of group by keys that the aggregation produces. Low indicates 500,000 key values, Medium indicates 5 million key values, and High indicates more than 25 million key values. Unspecified indicates no KeyScale value is used."
+                  name="KeyScale"
+                  typeConverter="KeyScaleType">0</property>
+                <property
+                  dataType="System.Null"
+                  description="Specifies the exact number of group by keys that the aggregation produces. If a KeyScale value is specified, the value in Keys takes precedence."
+                  name="Keys" />
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the approximate number of distinct values in a column that the aggregation counts distinctly. Low indicates 500,000 key values, Medium indicates 5 million key values, and High indicates more than 25 million key values. Unspecified indicates no CountDistinctScale value is used."
+                  name="CountDistinctScale"
+                  typeConverter="KeyScaleType">0</property>
+                <property
+                  dataType="System.Null"
+                  description="Specifies the exact number of distinct values in a column that the aggregation counts distinctly. If a CountDistinctScale value is specified, the value in CountDistinctKeys takes precedence."
+                  name="CountDistinctKeys" />
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the percentage by which memory can be extended during the aggregation. Valid values are between 1 and 100."
+                  name="AutoExtendFactor">25</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\DF_Municipio\Aggregate.Inputs[Aggregate Input 1]"
+                  name="Aggregate Input 1">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DF_Municipio\Aggregate.Inputs[Aggregate Input 1].Columns[Area]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Area"
+                      cachedSortKeyPosition="1"
+                      lineageId="Package\DF_Municipio\Sort.Outputs[Sort Output].Columns[Area]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DF_Municipio\Aggregate.Outputs[Aggregate Output 1]"
+                  name="Aggregate Output 1">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the approximate number of group by keys that the aggregation produces. Low indicates 500,000 key values, Medium indicates 5 million key values, and High indicates more than 25 million key values. Unspecified indicates no KeyScale value is used."
+                      name="KeyScale"
+                      typeConverter="KeyScaleType">0</property>
+                    <property
+                      dataType="System.Null"
+                      description="Specifies the exact number of group by keys that the aggregation produces. If a KeyScale value is specified, the value in Keys takes precedence."
+                      name="Keys" />
+                  </properties>
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DF_Municipio\Aggregate.Outputs[Aggregate Output 1].Columns[Area]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\DF_Municipio\Aggregate.Outputs[Aggregate Output 1].Columns[Area]"
+                      name="Area">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the ID of the input column used in the aggregation."
+                          name="AggregationColumnId">#{Package\DF_Municipio\Sort.Outputs[Sort Output].Columns[Area]}</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the type of aggregation."
+                          name="AggregationType"
+                          typeConverter="AggregationType">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Indicates whether the column requires special handling because it may contain oversized data or it requires precision beyond a float data type."
+                          name="IsBig">1</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the string comparison options."
+                          name="AggregationComparisonFlags">0</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DF_Municipio\Data Conversion"
+              componentClassID="Microsoft.DataConvert"
+              contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Data Conversion"
+              name="Data Conversion"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\DF_Municipio\Data Conversion.Inputs[Data Conversion Input]"
+                  name="Data Conversion Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DF_Municipio\Data Conversion.Inputs[Data Conversion Input].Columns[Area]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Area"
+                      lineageId="Package\DF_Municipio\Aggregate.Outputs[Aggregate Output 1].Columns[Area]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DF_Municipio\Data Conversion.Outputs[Data Conversion Output]"
+                  exclusionGroup="1"
+                  name="Data Conversion Output"
+                  synchronousInputId="Package\DF_Municipio\Data Conversion.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DF_Municipio\Data Conversion.Outputs[Data Conversion Output].Columns[Municipio]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="40"
+                      lineageId="Package\DF_Municipio\Data Conversion.Outputs[Data Conversion Output].Columns[Municipio]"
+                      name="Municipio"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\DF_Municipio\Aggregate.Outputs[Aggregate Output 1].Columns[Area]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DF_Municipio\Data Conversion.Outputs[Data Conversion Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Data Conversion Error Output"
+                  synchronousInputId="Package\DF_Municipio\Data Conversion.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DF_Municipio\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DF_Municipio\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DF_Municipio\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DF_Municipio\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DF_Municipio\DataReaderDest"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="Exposes data in a data flow to other applications by using the ADO.NET DataReader interface. For example, send data to a custom application, written in C#, that requires a DataReader interface.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Exposes data in a data flow to other applications by using the ADO.NET DataReader interface. For example, send data to a custom application, written in C#, that requires a DataReader interface."
+              name="DataReaderDest">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the number of milliseconds before the component times out."
+                  name="ReadTimeout">30000</property>
+                <property
+                  dataType="System.Null"
+                  description="Specifies an object that implements the IDataReader interface."
+                  name="DataReader" />
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the component fails when a read time-out occurs."
+                  name="FailOnTimeout">false</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">Microsoft.DataReaderDestinationAdapter</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\DF_Municipio\DataReaderDest.Inputs[DataReader Destination Input]"
+                  hasSideEffects="true"
+                  name="DataReader Destination Input">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+            </component>
+            <component
+              refId="Package\DF_Municipio\Excel Source"
+              componentClassID="Microsoft.ExcelSource"
+              contactInfo="Excel Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Excel Source"
+              name="Excel Source"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">'Manizales en cifras$'</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mapping from parameters in the SQL command to variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DF_Municipio\Excel Source.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[Excel Connection Manager]"
+                  connectionManagerRefId="Package.ConnectionManagers[Excel Connection Manager]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\DF_Municipio\Excel Source.Outputs[Excel Source Output]"
+                  name="Excel Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DF_Municipio\Excel Source.Outputs[Excel Source Output].Columns[genero]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF_Municipio\Excel Source.Outputs[Excel Source Output].ExternalColumns[genero]"
+                      length="255"
+                      lineageId="Package\DF_Municipio\Excel Source.Outputs[Excel Source Output].Columns[genero]"
+                      name="genero"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DF_Municipio\Excel Source.Outputs[Excel Source Output].Columns[agrupa]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF_Municipio\Excel Source.Outputs[Excel Source Output].ExternalColumns[agrupa]"
+                      length="255"
+                      lineageId="Package\DF_Municipio\Excel Source.Outputs[Excel Source Output].Columns[agrupa]"
+                      name="agrupa"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DF_Municipio\Excel Source.Outputs[Excel Source Output].Columns[valor]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF_Municipio\Excel Source.Outputs[Excel Source Output].ExternalColumns[valor]"
+                      lineageId="Package\DF_Municipio\Excel Source.Outputs[Excel Source Output].Columns[valor]"
+                      name="valor"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DF_Municipio\Excel Source.Outputs[Excel Source Output].Columns[mes]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF_Municipio\Excel Source.Outputs[Excel Source Output].ExternalColumns[mes]"
+                      length="255"
+                      lineageId="Package\DF_Municipio\Excel Source.Outputs[Excel Source Output].Columns[mes]"
+                      name="mes"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DF_Municipio\Excel Source.Outputs[Excel Source Output].Columns[indicador]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF_Municipio\Excel Source.Outputs[Excel Source Output].ExternalColumns[indicador]"
+                      length="255"
+                      lineageId="Package\DF_Municipio\Excel Source.Outputs[Excel Source Output].Columns[indicador]"
+                      name="indicador"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DF_Municipio\Excel Source.Outputs[Excel Source Output].Columns[año]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF_Municipio\Excel Source.Outputs[Excel Source Output].ExternalColumns[año]"
+                      lineageId="Package\DF_Municipio\Excel Source.Outputs[Excel Source Output].Columns[año]"
+                      name="año"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DF_Municipio\Excel Source.Outputs[Excel Source Output].Columns[area]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF_Municipio\Excel Source.Outputs[Excel Source Output].ExternalColumns[area]"
+                      length="255"
+                      lineageId="Package\DF_Municipio\Excel Source.Outputs[Excel Source Output].Columns[area]"
+                      name="area"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DF_Municipio\Excel Source.Outputs[Excel Source Output].Columns[categoria]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF_Municipio\Excel Source.Outputs[Excel Source Output].ExternalColumns[categoria]"
+                      length="255"
+                      lineageId="Package\DF_Municipio\Excel Source.Outputs[Excel Source Output].Columns[categoria]"
+                      name="categoria"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DF_Municipio\Excel Source.Outputs[Excel Source Output].ExternalColumns[genero]"
+                      dataType="wstr"
+                      length="255"
+                      name="genero" />
+                    <externalMetadataColumn
+                      refId="Package\DF_Municipio\Excel Source.Outputs[Excel Source Output].ExternalColumns[agrupa]"
+                      dataType="wstr"
+                      length="255"
+                      name="agrupa" />
+                    <externalMetadataColumn
+                      refId="Package\DF_Municipio\Excel Source.Outputs[Excel Source Output].ExternalColumns[valor]"
+                      dataType="r8"
+                      name="valor" />
+                    <externalMetadataColumn
+                      refId="Package\DF_Municipio\Excel Source.Outputs[Excel Source Output].ExternalColumns[mes]"
+                      dataType="wstr"
+                      length="255"
+                      name="mes" />
+                    <externalMetadataColumn
+                      refId="Package\DF_Municipio\Excel Source.Outputs[Excel Source Output].ExternalColumns[indicador]"
+                      dataType="wstr"
+                      length="255"
+                      name="indicador" />
+                    <externalMetadataColumn
+                      refId="Package\DF_Municipio\Excel Source.Outputs[Excel Source Output].ExternalColumns[año]"
+                      dataType="r8"
+                      name="año" />
+                    <externalMetadataColumn
+                      refId="Package\DF_Municipio\Excel Source.Outputs[Excel Source Output].ExternalColumns[area]"
+                      dataType="wstr"
+                      length="255"
+                      name="area" />
+                    <externalMetadataColumn
+                      refId="Package\DF_Municipio\Excel Source.Outputs[Excel Source Output].ExternalColumns[categoria]"
+                      dataType="wstr"
+                      length="255"
+                      name="categoria" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\DF_Municipio\Excel Source.Outputs[Excel Source Error Output]"
+                  isErrorOut="true"
+                  name="Excel Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DF_Municipio\Excel Source.Outputs[Excel Source Error Output].Columns[area]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\DF_Municipio\Excel Source.Outputs[Excel Source Error Output].Columns[area]"
+                      name="area" />
+                    <outputColumn
+                      refId="Package\DF_Municipio\Excel Source.Outputs[Excel Source Error Output].Columns[categoria]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\DF_Municipio\Excel Source.Outputs[Excel Source Error Output].Columns[categoria]"
+                      name="categoria" />
+                    <outputColumn
+                      refId="Package\DF_Municipio\Excel Source.Outputs[Excel Source Error Output].Columns[genero]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\DF_Municipio\Excel Source.Outputs[Excel Source Error Output].Columns[genero]"
+                      name="genero" />
+                    <outputColumn
+                      refId="Package\DF_Municipio\Excel Source.Outputs[Excel Source Error Output].Columns[agrupa]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\DF_Municipio\Excel Source.Outputs[Excel Source Error Output].Columns[agrupa]"
+                      name="agrupa" />
+                    <outputColumn
+                      refId="Package\DF_Municipio\Excel Source.Outputs[Excel Source Error Output].Columns[valor]"
+                      dataType="r8"
+                      lineageId="Package\DF_Municipio\Excel Source.Outputs[Excel Source Error Output].Columns[valor]"
+                      name="valor" />
+                    <outputColumn
+                      refId="Package\DF_Municipio\Excel Source.Outputs[Excel Source Error Output].Columns[año]"
+                      dataType="r8"
+                      lineageId="Package\DF_Municipio\Excel Source.Outputs[Excel Source Error Output].Columns[año]"
+                      name="año" />
+                    <outputColumn
+                      refId="Package\DF_Municipio\Excel Source.Outputs[Excel Source Error Output].Columns[mes]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\DF_Municipio\Excel Source.Outputs[Excel Source Error Output].Columns[mes]"
+                      name="mes" />
+                    <outputColumn
+                      refId="Package\DF_Municipio\Excel Source.Outputs[Excel Source Error Output].Columns[indicador]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\DF_Municipio\Excel Source.Outputs[Excel Source Error Output].Columns[indicador]"
+                      name="indicador" />
+                    <outputColumn
+                      refId="Package\DF_Municipio\Excel Source.Outputs[Excel Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DF_Municipio\Excel Source.Outputs[Excel Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DF_Municipio\Excel Source.Outputs[Excel Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DF_Municipio\Excel Source.Outputs[Excel Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DF_Municipio\OLE DB Destination"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="OLE DB Destination"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[Dim_Municipio]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DF_Municipio\OLE DB Destination.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DESKTOP-54L8G8U.OBSERVATORIO_MUNICIPIOS]"
+                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-54L8G8U.OBSERVATORIO_MUNICIPIOS]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DF_Municipio\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DF_Municipio\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Municipio]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="40"
+                      cachedName="Municipio"
+                      externalMetadataColumnId="Package\DF_Municipio\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Municipio_Nombre]"
+                      lineageId="Package\DF_Municipio\Data Conversion.Outputs[Data Conversion Output].Columns[Municipio]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DF_Municipio\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Municipio_SKey]"
+                      dataType="i4"
+                      name="Municipio_SKey" />
+                    <externalMetadataColumn
+                      refId="Package\DF_Municipio\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Municipio_Nombre]"
+                      codePage="1252"
+                      dataType="str"
+                      length="40"
+                      name="Municipio_Nombre" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DF_Municipio\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\DF_Municipio\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DF_Municipio\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DF_Municipio\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DF_Municipio\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DF_Municipio\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DF_Municipio\Sort"
+              componentClassID="Microsoft.Sort"
+              contactInfo="Sort;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Sorts input data in ascending or descending order when it cannot be sorted at its source. For example, sort sales data by 'customer id' before it is written to a flat file and delivered to another department. Note: We do not recommend this transformation for large data flows."
+              name="Sort"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the Sort transformation removes rows with duplicate sort values."
+                  name="EliminateDuplicates">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the maximum number of threads to use for sorting."
+                  expressionType="Notify"
+                  name="MaximumThreads">-1</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\DF_Municipio\Sort.Inputs[Sort Input]"
+                  name="Sort Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DF_Municipio\Sort.Inputs[Sort Input].Columns[area]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="area"
+                      lineageId="Package\DF_Municipio\Excel Source.Outputs[Excel Source Output].Columns[area]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">1</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DF_Municipio\Sort.Inputs[Sort Input].Columns[categoria]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="categoria"
+                      lineageId="Package\DF_Municipio\Excel Source.Outputs[Excel Source Output].Columns[categoria]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DF_Municipio\Sort.Inputs[Sort Input].Columns[genero]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="genero"
+                      lineageId="Package\DF_Municipio\Excel Source.Outputs[Excel Source Output].Columns[genero]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DF_Municipio\Sort.Inputs[Sort Input].Columns[agrupa]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="agrupa"
+                      lineageId="Package\DF_Municipio\Excel Source.Outputs[Excel Source Output].Columns[agrupa]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DF_Municipio\Sort.Inputs[Sort Input].Columns[valor]"
+                      cachedDataType="r8"
+                      cachedName="valor"
+                      lineageId="Package\DF_Municipio\Excel Source.Outputs[Excel Source Output].Columns[valor]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DF_Municipio\Sort.Inputs[Sort Input].Columns[mes]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="mes"
+                      lineageId="Package\DF_Municipio\Excel Source.Outputs[Excel Source Output].Columns[mes]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DF_Municipio\Sort.Inputs[Sort Input].Columns[indicador]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="indicador"
+                      lineageId="Package\DF_Municipio\Excel Source.Outputs[Excel Source Output].Columns[indicador]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DF_Municipio\Sort.Inputs[Sort Input].Columns[año]"
+                      cachedDataType="r8"
+                      cachedName="año"
+                      lineageId="Package\DF_Municipio\Excel Source.Outputs[Excel Source Output].Columns[año]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DF_Municipio\Sort.Outputs[Sort Output]"
+                  isSorted="true"
+                  name="Sort Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DF_Municipio\Sort.Outputs[Sort Output].Columns[Area]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\DF_Municipio\Sort.Outputs[Sort Output].Columns[Area]"
+                      name="Area"
+                      sortKeyPosition="1">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\DF_Municipio\Excel Source.Outputs[Excel Source Output].Columns[area]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DF_Municipio\Sort.Outputs[Sort Output].Columns[categoria]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\DF_Municipio\Sort.Outputs[Sort Output].Columns[categoria]"
+                      name="categoria">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\DF_Municipio\Excel Source.Outputs[Excel Source Output].Columns[categoria]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DF_Municipio\Sort.Outputs[Sort Output].Columns[genero]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\DF_Municipio\Sort.Outputs[Sort Output].Columns[genero]"
+                      name="genero">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\DF_Municipio\Excel Source.Outputs[Excel Source Output].Columns[genero]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DF_Municipio\Sort.Outputs[Sort Output].Columns[agrupa]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\DF_Municipio\Sort.Outputs[Sort Output].Columns[agrupa]"
+                      name="agrupa">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\DF_Municipio\Excel Source.Outputs[Excel Source Output].Columns[agrupa]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DF_Municipio\Sort.Outputs[Sort Output].Columns[valor]"
+                      dataType="r8"
+                      lineageId="Package\DF_Municipio\Sort.Outputs[Sort Output].Columns[valor]"
+                      name="valor">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\DF_Municipio\Excel Source.Outputs[Excel Source Output].Columns[valor]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DF_Municipio\Sort.Outputs[Sort Output].Columns[mes]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\DF_Municipio\Sort.Outputs[Sort Output].Columns[mes]"
+                      name="mes">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\DF_Municipio\Excel Source.Outputs[Excel Source Output].Columns[mes]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DF_Municipio\Sort.Outputs[Sort Output].Columns[indicador]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\DF_Municipio\Sort.Outputs[Sort Output].Columns[indicador]"
+                      name="indicador">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\DF_Municipio\Excel Source.Outputs[Excel Source Output].Columns[indicador]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DF_Municipio\Sort.Outputs[Sort Output].Columns[año]"
+                      dataType="r8"
+                      lineageId="Package\DF_Municipio\Sort.Outputs[Sort Output].Columns[año]"
+                      name="año">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\DF_Municipio\Excel Source.Outputs[Excel Source Output].Columns[año]}</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\DF_Municipio.Paths[Aggregate Output 1]"
+              endId="Package\DF_Municipio\Data Conversion.Inputs[Data Conversion Input]"
+              name="Aggregate Output 1"
+              startId="Package\DF_Municipio\Aggregate.Outputs[Aggregate Output 1]" />
+            <path
+              refId="Package\DF_Municipio.Paths[Data Conversion Output]"
+              endId="Package\DF_Municipio\OLE DB Destination.Inputs[OLE DB Destination Input]"
+              name="Data Conversion Output"
+              startId="Package\DF_Municipio\Data Conversion.Outputs[Data Conversion Output]" />
+            <path
+              refId="Package\DF_Municipio.Paths[Excel Source Output]"
+              endId="Package\DF_Municipio\Sort.Inputs[Sort Input]"
+              name="Excel Source Output"
+              startId="Package\DF_Municipio\Excel Source.Outputs[Excel Source Output]" />
+            <path
+              refId="Package\DF_Municipio.Paths[Sort Output]"
+              endId="Package\DF_Municipio\Aggregate.Inputs[Aggregate Input 1]"
+              name="Sort Output"
+              startId="Package\DF_Municipio\Sort.Outputs[Sort Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="145.333333333334,42.6666666666667"
+          Id="Package\DF_Municipio"
+          TopLeft="278.124995855615,171.052634798589" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\DF_Municipio">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="158.666666666667,42.6666666666667"
+          Id="Package\DF_Municipio\DataReaderDest"
+          TopLeft="190.072598177799,317.570447232127" />
+        <NodeLayout
+          Size="98.6666666666667,42.6666666666667"
+          Id="Package\DF_Municipio\Sort"
+          TopLeft="459.722215371827,162.828285893121" />
+        <NodeLayout
+          Size="174.666666666667,42.6666666666667"
+          Id="Package\DF_Municipio\OLE DB Destination"
+          TopLeft="417.363810519612,479.671080647058" />
+        <NodeLayout
+          Size="129.333333333334,42.6666666666667"
+          Id="Package\DF_Municipio\Aggregate"
+          TopLeft="481.818174638532,274.44444961018" />
+        <NodeLayout
+          Size="158.666666666667,42.6666666666667"
+          Id="Package\DF_Municipio\Data Conversion"
+          TopLeft="446.158002009736,367.321340551036" />
+        <NodeLayout
+          Size="142.666666666667,42.6666666666667"
+          Id="Package\DF_Municipio\Excel Source"
+          TopLeft="454.905296251685,37.6730469610953" />
+        <EdgeLayout
+          Id="Package\DF_Municipio.Paths[Sort Output]"
+          TopLeft="509.055548705161,205.494952559788">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="37.4292926000376,68.949497050392"
+              Start="0,0"
+              End="37.4292926000376,61.449497050392">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,30.474748525196" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,30.474748525196"
+                    Point2="0,34.474748525196"
+                    Point3="4,34.474748525196" />
+                  <mssgle:LineSegment
+                    End="33.4292926000376,34.474748525196" />
+                  <mssgle:CubicBezierSegment
+                    Point1="33.4292926000376,34.474748525196"
+                    Point2="37.4292926000376,34.474748525196"
+                    Point3="37.4292926000376,38.474748525196" />
+                  <mssgle:LineSegment
+                    End="37.4292926000376,61.449497050392" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DF_Municipio.Paths[Excel Source Output]"
+          TopLeft="526.238629585019,80.3397136277619">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-17.1830808798582,82.4885722653594"
+              Start="0,0"
+              End="-17.1830808798582,74.9885722653594">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,37.2442861326797" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,37.2442861326797"
+                    Point2="0,41.2442861326797"
+                    Point3="-4,41.2442861326797" />
+                  <mssgle:LineSegment
+                    End="-13.1830808798582,41.2442861326797" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-13.1830808798582,41.2442861326797"
+                    Point2="-17.1830808798582,41.2442861326797"
+                    Point3="-17.1830808798582,45.2442861326797" />
+                  <mssgle:LineSegment
+                    End="-17.1830808798582,74.9885722653594" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DF_Municipio.Paths[Data Conversion Output]"
+          TopLeft="525.49133534307,409.988007217702">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-20.7941914901248,69.6830734293559"
+              Start="0,0"
+              End="-20.7941914901248,62.1830734293559">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,30.841536714678" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,30.841536714678"
+                    Point2="0,34.841536714678"
+                    Point3="-4,34.841536714678" />
+                  <mssgle:LineSegment
+                    End="-16.7941914901248,34.841536714678" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-16.7941914901248,34.841536714678"
+                    Point2="-20.7941914901248,34.841536714678"
+                    Point3="-20.7941914901248,38.841536714678" />
+                  <mssgle:LineSegment
+                    End="-20.7941914901248,62.1830734293559" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DF_Municipio.Paths[Aggregate Output 1]"
+          TopLeft="546.484841305198,317.111116276847">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-20.9935059621284,50.2102242741891"
+              Start="0,0"
+              End="-20.9935059621284,42.7102242741891">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,21.1051121370946" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,21.1051121370946"
+                    Point2="0,25.1051121370946"
+                    Point3="-4,25.1051121370946" />
+                  <mssgle:LineSegment
+                    End="-16.9935059621284,25.1051121370946" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-16.9935059621284,25.1051121370946"
+                    Point2="-20.9935059621284,25.1051121370946"
+                    Point3="-20.9935059621284,29.1051121370946" />
+                  <mssgle:LineSegment
+                    End="-20.9935059621284,42.7102242741891" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\DF_Municipio\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DF_Municipio\Excel Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
