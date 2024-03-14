@@ -140,24 +140,24 @@ SET QUOTED_IDENTIFIER ON
 GO
 
 CREATE TABLE [dbo].[Municipio_Stats](
-	[Municipio_SKey] [int] NOT NULL,
-	[Indicador_SKey] [int] NOT NULL,
-	[Categoria_SKey] [int] NOT NULL,
-	[Genero_SKey] [int] NOT NULL,
-	[Agrupacion_SKey] [int] NOT NULL,
-	[Anio_SKey] [int] NOT NULL,
-	[Mes_SKey] [int] NOT NULL,
-	[Valor]  [decimal](10, 8) NOT NULL,
+    [Municipio_SKey] [int] NOT NULL,
+    [Indicador_SKey] [int] NOT NULL,
+    [Categoria_SKey] [int] NOT NULL,
+    [Genero_SKey] [int] NOT NULL,
+    [Agrupacion_SKey] [int] NOT NULL,
+    [Anio_SKey] [int] NOT NULL,
+    [Mes_SKey] [int] NOT NULL,
+    [Valor]  [decimal](13, 3) NOT NULL,
  CONSTRAINT [PK_Municipio_Stats] PRIMARY KEY CLUSTERED 
 (
-	[Municipio_SKey] ASC,
-	[Indicador_SKey] ASC,
-	[Categoria_SKey] ASC,
-	[Genero_SKey] ASC,
-	[Agrupacion_SKey] ASC,
-	[Anio_SKey] ASC,
-	[Mes_SKey] ASC
-)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+    [Municipio_SKey] ASC,
+    [Indicador_SKey] ASC,
+    [Categoria_SKey] ASC,
+    [Genero_SKey] ASC,
+    [Agrupacion_SKey] ASC,
+    [Anio_SKey] ASC,
+    [Mes_SKey] ASC
+) WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = ON, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
 
@@ -209,4 +209,3 @@ GO
 
 ALTER TABLE [dbo].[Municipio_Stats] CHECK CONSTRAINT [FK_Municipio_Stats_Dim_Mes]
 GO
-
