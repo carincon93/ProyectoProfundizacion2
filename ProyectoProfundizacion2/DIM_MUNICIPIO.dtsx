@@ -11,8 +11,8 @@
   DTS:LocaleID="9226"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionBuild="27"
-  DTS:VersionGUID="{BC522F81-278A-44BC-ACA7-A2BA6590654F}">
+  DTS:VersionBuild="39"
+  DTS:VersionGUID="{62374E3F-A3EA-4082-B8EB-C95F32174195}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -172,6 +172,96 @@
               </outputs>
             </component>
             <component
+              refId="Package\DF_Municipio\Conditional Split"
+              componentClassID="Microsoft.ConditionalSplit"
+              contactInfo="Conditional Split;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Routes data rows to different outputs depending on the content of the data. Use conditions (SSIS expressions) to specify which rows are routed. For example, separate records that need to be cleaned from those that are ready to be loaded or route only a subset of records."
+              name="Conditional Split"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\DF_Municipio\Conditional Split.Inputs[Conditional Split Input]"
+                  description="Input to the Conditional Split Transformation"
+                  name="Conditional Split Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DF_Municipio\Conditional Split.Inputs[Conditional Split Input].Columns[area]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="area"
+                      lineageId="Package\DF_Municipio\Excel Source.Outputs[Excel Source Output].Columns[area]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DF_Municipio\Conditional Split.Outputs[Case 1]"
+                  description="Output 1 of the Conditional Split Transformation"
+                  errorOrTruncationOperation="Computation"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="Case 1"
+                  synchronousInputId="Package\DF_Municipio\Conditional Split.Inputs[Conditional Split Input]"
+                  truncationRowDisposition="FailComponent">
+                  <properties>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the expression. This expression version uses lineage identifiers instead of column names."
+                      name="Expression">[ISNULL](#{Package\DF_Municipio\Excel Source.Outputs[Excel Source Output].Columns[area]}) ==  FALSE  &amp;&amp; #{Package\DF_Municipio\Excel Source.Outputs[Excel Source Output].Columns[area]} != "" &amp;&amp; [LEN](#{Package\DF_Municipio\Excel Source.Outputs[Excel Source Output].Columns[area]}) &gt; 2</property>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the friendly version of the expression. This expression version uses column names."
+                      expressionType="Notify"
+                      name="FriendlyExpression">ISNULL(area) ==  FALSE  &amp;&amp; area != "" &amp;&amp; LEN(area) &gt; 2</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the position of the condition in the list of conditions that the transformation evaluates. The evaluation order is from the lowest to the highest value."
+                      name="EvaluationOrder">0</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DF_Municipio\Conditional Split.Outputs[Conditional Split Default Output]"
+                  description="Default Output of the Conditional Split Transformation"
+                  exclusionGroup="1"
+                  name="Conditional Split Default Output"
+                  synchronousInputId="Package\DF_Municipio\Conditional Split.Inputs[Conditional Split Input]">
+                  <properties>
+                    <property
+                      dataType="System.Boolean"
+                      name="IsDefaultOut">true</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DF_Municipio\Conditional Split.Outputs[Conditional Split Error Output]"
+                  description="Error Output of the Conditional Split Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Conditional Split Error Output"
+                  synchronousInputId="Package\DF_Municipio\Conditional Split.Inputs[Conditional Split Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DF_Municipio\Conditional Split.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DF_Municipio\Conditional Split.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DF_Municipio\Conditional Split.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DF_Municipio\Conditional Split.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
               refId="Package\DF_Municipio\Data Conversion"
               componentClassID="Microsoft.DataConvert"
               contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
@@ -248,38 +338,6 @@
                   <externalMetadataColumns />
                 </output>
               </outputs>
-            </component>
-            <component
-              refId="Package\DF_Municipio\DataReaderDest"
-              componentClassID="Microsoft.ManagedComponentHost"
-              contactInfo="Exposes data in a data flow to other applications by using the ADO.NET DataReader interface. For example, send data to a custom application, written in C#, that requires a DataReader interface.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
-              description="Exposes data in a data flow to other applications by using the ADO.NET DataReader interface. For example, send data to a custom application, written in C#, that requires a DataReader interface."
-              name="DataReaderDest">
-              <properties>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies the number of milliseconds before the component times out."
-                  name="ReadTimeout">30000</property>
-                <property
-                  dataType="System.Null"
-                  description="Specifies an object that implements the IDataReader interface."
-                  name="DataReader" />
-                <property
-                  dataType="System.Boolean"
-                  description="Indicates whether the component fails when a read time-out occurs."
-                  name="FailOnTimeout">false</property>
-                <property
-                  dataType="System.String"
-                  name="UserComponentTypeName">Microsoft.DataReaderDestinationAdapter</property>
-              </properties>
-              <inputs>
-                <input
-                  refId="Package\DF_Municipio\DataReaderDest.Inputs[DataReader Destination Input]"
-                  hasSideEffects="true"
-                  name="DataReader Destination Input">
-                  <externalMetadataColumns />
-                </input>
-              </inputs>
             </component>
             <component
               refId="Package\DF_Municipio\Excel Source"
@@ -601,8 +659,9 @@
                       cachedDataType="str"
                       cachedLength="40"
                       cachedName="Municipio"
+                      cachedSortKeyPosition="1"
                       externalMetadataColumnId="Package\DF_Municipio\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Municipio_Nombre]"
-                      lineageId="Package\DF_Municipio\Data Conversion.Outputs[Data Conversion Output].Columns[Municipio]" />
+                      lineageId="Package\DF_Municipio\Sort 1.Outputs[Sort Output].Columns[Municipio]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -927,6 +986,109 @@
                 </output>
               </outputs>
             </component>
+            <component
+              refId="Package\DF_Municipio\Sort 1"
+              componentClassID="Microsoft.Sort"
+              contactInfo="Sort;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Sorts input data in ascending or descending order when it cannot be sorted at its source. For example, sort sales data by 'customer id' before it is written to a flat file and delivered to another department. Note: We do not recommend this transformation for large data flows."
+              name="Sort 1"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the Sort transformation removes rows with duplicate sort values."
+                  name="EliminateDuplicates">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the maximum number of threads to use for sorting."
+                  expressionType="Notify"
+                  name="MaximumThreads">-1</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\DF_Municipio\Sort 1.Inputs[Sort Input]"
+                  name="Sort Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DF_Municipio\Sort 1.Inputs[Sort Input].Columns[Area]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Area"
+                      lineageId="Package\DF_Municipio\Aggregate.Outputs[Aggregate Output 1].Columns[Area]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DF_Municipio\Sort 1.Inputs[Sort Input].Columns[Municipio]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="40"
+                      cachedName="Municipio"
+                      lineageId="Package\DF_Municipio\Data Conversion.Outputs[Data Conversion Output].Columns[Municipio]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">1</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DF_Municipio\Sort 1.Outputs[Sort Output]"
+                  isSorted="true"
+                  name="Sort Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DF_Municipio\Sort 1.Outputs[Sort Output].Columns[Area]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\DF_Municipio\Sort 1.Outputs[Sort Output].Columns[Area]"
+                      name="Area">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\DF_Municipio\Aggregate.Outputs[Aggregate Output 1].Columns[Area]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DF_Municipio\Sort 1.Outputs[Sort Output].Columns[Municipio]"
+                      codePage="1252"
+                      dataType="str"
+                      length="40"
+                      lineageId="Package\DF_Municipio\Sort 1.Outputs[Sort Output].Columns[Municipio]"
+                      name="Municipio"
+                      sortKeyPosition="1">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\DF_Municipio\Data Conversion.Outputs[Data Conversion Output].Columns[Municipio]}</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
           </components>
           <paths>
             <path
@@ -935,13 +1097,18 @@
               name="Aggregate Output 1"
               startId="Package\DF_Municipio\Aggregate.Outputs[Aggregate Output 1]" />
             <path
+              refId="Package\DF_Municipio.Paths[Case 1]"
+              endId="Package\DF_Municipio\Sort.Inputs[Sort Input]"
+              name="Case 1"
+              startId="Package\DF_Municipio\Conditional Split.Outputs[Case 1]" />
+            <path
               refId="Package\DF_Municipio.Paths[Data Conversion Output]"
-              endId="Package\DF_Municipio\OLE DB Destination.Inputs[OLE DB Destination Input]"
+              endId="Package\DF_Municipio\Sort 1.Inputs[Sort Input]"
               name="Data Conversion Output"
               startId="Package\DF_Municipio\Data Conversion.Outputs[Data Conversion Output]" />
             <path
               refId="Package\DF_Municipio.Paths[Excel Source Output]"
-              endId="Package\DF_Municipio\Sort.Inputs[Sort Input]"
+              endId="Package\DF_Municipio\Conditional Split.Inputs[Conditional Split Input]"
               name="Excel Source Output"
               startId="Package\DF_Municipio\Excel Source.Outputs[Excel Source Output]" />
             <path
@@ -949,11 +1116,43 @@
               endId="Package\DF_Municipio\Aggregate.Inputs[Aggregate Input 1]"
               name="Sort Output"
               startId="Package\DF_Municipio\Sort.Outputs[Sort Output]" />
+            <path
+              refId="Package\DF_Municipio.Paths[Sort Output1]"
+              endId="Package\DF_Municipio\OLE DB Destination.Inputs[OLE DB Destination Input]"
+              name="Sort Output"
+              startId="Package\DF_Municipio\Sort 1.Outputs[Sort Output]" />
           </paths>
         </pipeline>
       </DTS:ObjectData>
     </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\TMP_DELETE"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{90ce9c2f-6a31-4800-9f79-a63fb30b8234}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="TMP_DELETE"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{A0D1EE68-7BC6-4A3B-B227-27CE8B52B22F}"
+          SQLTask:SqlStatementSource="DBCC CHECKIDENT ('Dim_Municipio', RESEED, 0);&#xA;&#xA;DELETE FROM Dim_Municipio;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
   </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{602092BE-855B-436B-947F-834DE09E986E}"
+      DTS:From="Package\TMP_DELETE"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\DF_Municipio" />
+  </DTS:PrecedenceConstraints>
   <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
 <!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
 <!--If you manually edit this section and make a mistake, you can delete it. -->
@@ -965,11 +1164,37 @@
     design-time-name="Package">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="145.333333333334,42.6666666666667"
           Id="Package\DF_Municipio"
           TopLeft="278.124995855615,171.052634798589" />
+        <NodeLayout
+          Size="149.333333333334,42.6666666666667"
+          Id="Package\TMP_DELETE"
+          TopLeft="278.124995855615,60.9298237758111" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="351.791662522282,103.596490442478">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,67.4561443561113"
+              Start="0,0"
+              End="0,59.9561443561113">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,59.9561443561113" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </Package>
@@ -977,57 +1202,57 @@
     design-time-name="Package\DF_Municipio">
     <LayoutInfo>
       <GraphLayout
-        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
-        <NodeLayout
-          Size="158.666666666667,42.6666666666667"
-          Id="Package\DF_Municipio\DataReaderDest"
-          TopLeft="190.072598177799,317.570447232127" />
-        <NodeLayout
-          Size="98.6666666666667,42.6666666666667"
-          Id="Package\DF_Municipio\Sort"
-          TopLeft="459.722215371827,162.828285893121" />
-        <NodeLayout
-          Size="174.666666666667,42.6666666666667"
-          Id="Package\DF_Municipio\OLE DB Destination"
-          TopLeft="417.363810519612,479.671080647058" />
-        <NodeLayout
-          Size="129.333333333334,42.6666666666667"
-          Id="Package\DF_Municipio\Aggregate"
-          TopLeft="481.818174638532,274.44444961018" />
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="158.666666666667,42.6666666666667"
           Id="Package\DF_Municipio\Data Conversion"
-          TopLeft="446.158002009736,367.321340551036" />
+          TopLeft="414.283002484711,407.689762363503" />
+        <NodeLayout
+          Size="98.6666666666667,42.6666666666667"
+          Id="Package\DF_Municipio\Sort"
+          TopLeft="463.472215315948,170.354601824259" />
+        <NodeLayout
+          Size="174.666666666667,42.6666666666667"
+          Id="Package\DF_Municipio\OLE DB Destination"
+          TopLeft="297.988812298438,572.039503438296" />
         <NodeLayout
           Size="142.666666666667,42.6666666666667"
           Id="Package\DF_Municipio\Excel Source"
-          TopLeft="454.905296251685,37.6730469610953" />
+          TopLeft="441.155296456576,30.1467310299574" />
+        <NodeLayout
+          Size="129.333333333334,42.6666666666667"
+          Id="Package\DF_Municipio\Aggregate"
+          TopLeft="439.318175271831,271.023396914208" />
+        <NodeLayout
+          Size="157.333333333334,42.6666666666667"
+          Id="Package\DF_Municipio\Conditional Split"
+          TopLeft="368.749994505197,97.9298259780457" />
         <EdgeLayout
           Id="Package\DF_Municipio.Paths[Sort Output]"
-          TopLeft="509.055548705161,205.494952559788">
+          TopLeft="512.805548649281,213.021268490926">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="37.4292926000376,68.949497050392"
+              EndConnector="-8.82070671078316,58.0021284232828"
               Start="0,0"
-              End="37.4292926000376,61.449497050392">
+              End="-8.82070671078316,50.5021284232828">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,30.474748525196" />
+                    End="0,25.0010642116414" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,30.474748525196"
-                    Point2="0,34.474748525196"
-                    Point3="4,34.474748525196" />
+                    Point1="0,25.0010642116414"
+                    Point2="0,29.0010642116414"
+                    Point3="-4,29.0010642116414" />
                   <mssgle:LineSegment
-                    End="33.4292926000376,34.474748525196" />
+                    End="-4.82070671078316,29.0010642116414" />
                   <mssgle:CubicBezierSegment
-                    Point1="33.4292926000376,34.474748525196"
-                    Point2="37.4292926000376,34.474748525196"
-                    Point3="37.4292926000376,38.474748525196" />
+                    Point1="-4.82070671078316,29.0010642116414"
+                    Point2="-8.82070671078316,29.0010642116414"
+                    Point3="-8.82070671078316,33.0010642116414" />
                   <mssgle:LineSegment
-                    End="37.4292926000376,61.449497050392" />
+                    End="-8.82070671078316,50.5021284232828" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -1038,30 +1263,30 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package\DF_Municipio.Paths[Excel Source Output]"
-          TopLeft="526.238629585019,80.3397136277619">
+          TopLeft="512.488629789909,72.8133976966241">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-17.1830808798582,82.4885722653594"
+              EndConnector="-65.0719686180459,25.1164282814217"
               Start="0,0"
-              End="-17.1830808798582,74.9885722653594">
+              End="-65.0719686180459,17.6164282814217">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,37.2442861326797" />
+                    End="0,8.55821414071084" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,37.2442861326797"
-                    Point2="0,41.2442861326797"
-                    Point3="-4,41.2442861326797" />
+                    Point1="0,8.55821414071084"
+                    Point2="0,12.5582141407108"
+                    Point3="-4,12.5582141407108" />
                   <mssgle:LineSegment
-                    End="-13.1830808798582,41.2442861326797" />
+                    End="-61.0719686180459,12.5582141407108" />
                   <mssgle:CubicBezierSegment
-                    Point1="-13.1830808798582,41.2442861326797"
-                    Point2="-17.1830808798582,41.2442861326797"
-                    Point3="-17.1830808798582,45.2442861326797" />
+                    Point1="-61.0719686180459,12.5582141407108"
+                    Point2="-65.0719686180459,12.5582141407108"
+                    Point3="-65.0719686180459,16.5582141407108" />
                   <mssgle:LineSegment
-                    End="-17.1830808798582,74.9885722653594" />
+                    End="-65.0719686180459,17.6164282814217" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -1071,65 +1296,139 @@
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\DF_Municipio.Paths[Data Conversion Output]"
-          TopLeft="525.49133534307,409.988007217702">
+          Id="Package\DF_Municipio.Paths[Case 1]"
+          TopLeft="447.416661171864,140.596492644712">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-20.7941914901248,69.6830734293559"
+              EndConnector="65.3888874774178,29.7581091795465"
               Start="0,0"
-              End="-20.7941914901248,62.1830734293559">
+              End="65.3888874774178,22.2581091795465">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,30.841536714678" />
+                    End="0,10.8790545897732" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,30.841536714678"
-                    Point2="0,34.841536714678"
-                    Point3="-4,34.841536714678" />
+                    Point1="0,10.8790545897732"
+                    Point2="0,14.8790545897732"
+                    Point3="4,14.8790545897732" />
                   <mssgle:LineSegment
-                    End="-16.7941914901248,34.841536714678" />
+                    End="61.3888874774178,14.8790545897732" />
                   <mssgle:CubicBezierSegment
-                    Point1="-16.7941914901248,34.841536714678"
-                    Point2="-20.7941914901248,34.841536714678"
-                    Point3="-20.7941914901248,38.841536714678" />
+                    Point1="61.3888874774178,14.8790545897732"
+                    Point2="65.3888874774178,14.8790545897732"
+                    Point3="65.3888874774178,18.8790545897732" />
                   <mssgle:LineSegment
-                    End="-20.7941914901248,62.1830734293559" />
+                    End="65.3888874774178,22.2581091795465" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="17.4763578012089,19.8790545897732,30.436171875,9.5537109375"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\DF_Municipio.Paths[Aggregate Output 1]"
-          TopLeft="546.484841305198,317.111116276847">
+          TopLeft="503.984841938498,313.690063580875">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-20.9935059621284,50.2102242741891"
+              EndConnector="-10.3685061204542,93.999698782628"
               Start="0,0"
-              End="-20.9935059621284,42.7102242741891">
+              End="-10.3685061204542,86.499698782628">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,21.1051121370946" />
+                    End="0,42.999849391314" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,21.1051121370946"
-                    Point2="0,25.1051121370946"
-                    Point3="-4,25.1051121370946" />
+                    Point1="0,42.999849391314"
+                    Point2="0,46.999849391314"
+                    Point3="-4,46.999849391314" />
                   <mssgle:LineSegment
-                    End="-16.9935059621284,25.1051121370946" />
+                    End="-6.36850612045419,46.999849391314" />
                   <mssgle:CubicBezierSegment
-                    Point1="-16.9935059621284,25.1051121370946"
-                    Point2="-20.9935059621284,25.1051121370946"
-                    Point3="-20.9935059621284,29.1051121370946" />
+                    Point1="-6.36850612045419,46.999849391314"
+                    Point2="-10.3685061204542,46.999849391314"
+                    Point3="-10.3685061204542,50.999849391314" />
                   <mssgle:LineSegment
-                    End="-20.9935059621284,42.7102242741891" />
+                    End="-10.3685061204542,86.499698782628" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="108,42.6666666666667"
+          Id="Package\DF_Municipio\Sort 1"
+          TopLeft="378.124994365499,482.596496070411" />
+        <EdgeLayout
+          Id="Package\DF_Municipio.Paths[Data Conversion Output]"
+          TopLeft="493.616335818044,450.35642903017">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-61.4913414525457,32.2400670402413"
+              Start="0,0"
+              End="-61.4913414525457,24.7400670402413">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,12.1200335201207" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,12.1200335201207"
+                    Point2="0,16.1200335201207"
+                    Point3="-4,16.1200335201207" />
+                  <mssgle:LineSegment
+                    End="-57.4913414525457,16.1200335201207" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-57.4913414525457,16.1200335201207"
+                    Point2="-61.4913414525457,16.1200335201207"
+                    Point3="-61.4913414525457,20.1200335201207" />
+                  <mssgle:LineSegment
+                    End="-61.4913414525457,24.7400670402413" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DF_Municipio.Paths[Sort Output1]"
+          TopLeft="432.124994365499,525.263162737078">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-46.8028487337275,46.7763407012183"
+              Start="0,0"
+              End="-46.8028487337275,39.2763407012183">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,19.3881703506091" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,19.3881703506091"
+                    Point2="0,23.3881703506091"
+                    Point3="-4,23.3881703506091" />
+                  <mssgle:LineSegment
+                    End="-42.8028487337275,23.3881703506091" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-42.8028487337275,23.3881703506091"
+                    Point2="-46.8028487337275,23.3881703506091"
+                    Point3="-46.8028487337275,27.3881703506091" />
+                  <mssgle:LineSegment
+                    End="-46.8028487337275,39.2763407012183" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>

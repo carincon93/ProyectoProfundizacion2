@@ -11,8 +11,8 @@
   DTS:LocaleID="9226"
   DTS:ObjectName="DIM_INDICADOR"
   DTS:PackageType="5"
-  DTS:VersionBuild="33"
-  DTS:VersionGUID="{515F35A8-B956-4126-9DB8-1B3FFC660B39}">
+  DTS:VersionBuild="39"
+  DTS:VersionGUID="{F4702DD7-CEEA-4308-BCCD-1108184C1983}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -210,13 +210,13 @@
                       containsID="true"
                       dataType="System.String"
                       description="Specifies the expression. This expression version uses lineage identifiers instead of column names."
-                      name="Expression">[ISNULL](#{Package\DF_Indicador\Data Conversion.Outputs[Data Conversion Output].Columns[indicador_transf]}) ==  FALSE </property>
+                      name="Expression">[ISNULL](#{Package\DF_Indicador\Data Conversion.Outputs[Data Conversion Output].Columns[indicador_transf]}) ==  FALSE  &amp;&amp; #{Package\DF_Indicador\Data Conversion.Outputs[Data Conversion Output].Columns[indicador_transf]} != "" &amp;&amp; [LEN](#{Package\DF_Indicador\Data Conversion.Outputs[Data Conversion Output].Columns[indicador_transf]}) &gt; 2</property>
                     <property
                       containsID="true"
                       dataType="System.String"
                       description="Specifies the friendly version of the expression. This expression version uses column names."
                       expressionType="Notify"
-                      name="FriendlyExpression">ISNULL(indicador_transf) ==  FALSE </property>
+                      name="FriendlyExpression">ISNULL(indicador_transf) ==  FALSE  &amp;&amp; indicador_transf != "" &amp;&amp; LEN(indicador_transf) &gt; 2</property>
                     <property
                       dataType="System.Int32"
                       description="Specifies the position of the condition in the list of conditions that the transformation evaluates. The evaluation order is from the lowest to the highest value."
@@ -339,38 +339,6 @@
                   <externalMetadataColumns />
                 </output>
               </outputs>
-            </component>
-            <component
-              refId="Package\DF_Indicador\DataReaderDest"
-              componentClassID="Microsoft.ManagedComponentHost"
-              contactInfo="Exposes data in a data flow to other applications by using the ADO.NET DataReader interface. For example, send data to a custom application, written in C#, that requires a DataReader interface.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
-              description="Exposes data in a data flow to other applications by using the ADO.NET DataReader interface. For example, send data to a custom application, written in C#, that requires a DataReader interface."
-              name="DataReaderDest">
-              <properties>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies the number of milliseconds before the component times out."
-                  name="ReadTimeout">30000</property>
-                <property
-                  dataType="System.Null"
-                  description="Specifies an object that implements the IDataReader interface."
-                  name="DataReader" />
-                <property
-                  dataType="System.Boolean"
-                  description="Indicates whether the component fails when a read time-out occurs."
-                  name="FailOnTimeout">false</property>
-                <property
-                  dataType="System.String"
-                  name="UserComponentTypeName">Microsoft.DataReaderDestinationAdapter</property>
-              </properties>
-              <inputs>
-                <input
-                  refId="Package\DF_Indicador\DataReaderDest.Inputs[DataReader Destination Input]"
-                  hasSideEffects="true"
-                  name="DataReader Destination Input">
-                  <externalMetadataColumns />
-                </input>
-              </inputs>
             </component>
             <component
               refId="Package\DF_Indicador\Excel Source"
@@ -1049,7 +1017,34 @@
         </pipeline>
       </DTS:ObjectData>
     </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\TMP_DELETE"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{bdfd23e8-d838-474f-9382-483a7abdfc21}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="TMP_DELETE"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{FE04E231-22DE-4BB5-A868-FE9205CC0B6E}"
+          SQLTask:SqlStatementSource="DBCC CHECKIDENT ('Dim_Indicador', RESEED, 0);&#xA;&#xA;DELETE FROM Dim_Indicador;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
   </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{DEB1C9AD-C007-45BE-B638-23F1FD3E2B42}"
+      DTS:From="Package\TMP_DELETE"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\DF_Indicador" />
+  </DTS:PrecedenceConstraints>
   <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
 <!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
 <!--If you manually edit this section and make a mistake, you can delete it. -->
@@ -1061,11 +1056,49 @@
     design-time-name="Package">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="144,42.6666666666667"
           Id="Package\DF_Indicador"
           TopLeft="278.124995855615,171.052634798589" />
+        <NodeLayout
+          Size="149.333333333334,42.6666666666667"
+          Id="Package\TMP_DELETE"
+          TopLeft="291.249995660037,76.6666661772812" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="365.916662326704,119.333332843948">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-15.7916664710889,51.7193019546411"
+              Start="0,0"
+              End="-15.7916664710889,44.2193019546411">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,21.8596509773206" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,21.8596509773206"
+                    Point2="0,25.8596509773206"
+                    Point3="-4,25.8596509773206" />
+                  <mssgle:LineSegment
+                    End="-11.7916664710889,25.8596509773206" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-11.7916664710889,25.8596509773206"
+                    Point2="-15.7916664710889,25.8596509773206"
+                    Point3="-15.7916664710889,29.8596509773206" />
+                  <mssgle:LineSegment
+                    End="-15.7916664710889,44.2193019546411" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </Package>
@@ -1075,59 +1108,43 @@
       <GraphLayout
         Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="174.666666666667,42.6666666666667"
-          Id="Package\DF_Indicador\OLE DB Destination"
-          TopLeft="423.61381042648,546.723713488105" />
-        <NodeLayout
           Size="158.666666666667,42.6666666666667"
           Id="Package\DF_Indicador\Data Conversion"
-          TopLeft="433.033002205314,362.531866776675" />
-        <NodeLayout
-          Size="142.666666666667,42.6666666666667"
-          Id="Package\DF_Indicador\Excel Source"
-          TopLeft="426.78029667078,40.4098891178727" />
-        <NodeLayout
-          Size="158.666666666667,42.6666666666667"
-          Id="Package\DF_Indicador\DataReaderDest"
-          TopLeft="190.072598177799,317.570447232127" />
+          TopLeft="420.533002391578,350.216077071177" />
         <NodeLayout
           Size="98.6666666666667,42.6666666666667"
           Id="Package\DF_Indicador\Sort"
           TopLeft="452.222215483586,160.775654275538" />
         <NodeLayout
+          Size="174.666666666667,42.6666666666667"
+          Id="Package\DF_Indicador\OLE DB Destination"
+          TopLeft="415.488810547552,526.197397312274" />
+        <NodeLayout
+          Size="142.666666666667,42.6666666666667"
+          Id="Package\DF_Indicador\Excel Source"
+          TopLeft="426.78029667078,40.4098891178727" />
+        <NodeLayout
           Size="129.333333333334,42.6666666666667"
           Id="Package\DF_Indicador\Aggregate"
-          TopLeft="444.943175188012,268.28655475743" />
+          TopLeft="440.568175253205,248.444449120794" />
         <NodeLayout
           Size="157.333333333334,42.6666666666667"
           Id="Package\DF_Indicador\Conditional Split"
-          TopLeft="426.24999364838,454.315797535666" />
+          TopLeft="421.874993713572,432.421060281447" />
         <EdgeLayout
           Id="Package\DF_Indicador.Paths[Sort Output]"
-          TopLeft="501.555548816919,203.442320942205">
+          TopLeft="503.395195368395,203.442320942205">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="8.05429303775981,64.8442338152257"
+              EndConnector="0,45.002128178589"
               Start="0,0"
-              End="8.05429303775981,57.3442338152257">
+              End="0,37.502128178589">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,28.4221169076129" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,28.4221169076129"
-                    Point2="0,32.4221169076129"
-                    Point3="4,32.4221169076129" />
-                  <mssgle:LineSegment
-                    End="4.05429303775981,32.4221169076129" />
-                  <mssgle:CubicBezierSegment
-                    Point1="4.05429303775981,32.4221169076129"
-                    Point2="8.05429303775981,32.4221169076129"
-                    Point3="8.05429303775981,36.4221169076129" />
-                  <mssgle:LineSegment
-                    End="8.05429303775981,57.3442338152257" />
+                    End="0,37.502128178589" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -1160,18 +1177,18 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package\DF_Indicador.Paths[Data Conversion Output]"
-          TopLeft="508.641497926847,405.198533443342">
+          TopLeft="500.203998052575,392.882743737843">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,49.1172640923248"
+              EndConnector="0,39.5383165436033"
               Start="0,0"
-              End="0,41.6172640923248">
+              End="0,32.0383165436033">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,41.6172640923248" />
+                    End="0,32.0383165436033" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -1182,42 +1199,42 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package\DF_Indicador.Paths[Case 2]"
-          TopLeft="507.93190203743,496.982464202333">
+          TopLeft="501.681902130562,475.087726948113">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,49.7412492857715"
+              EndConnector="0,51.1096703641611"
               Start="0,0"
-              End="0,42.2412492857715">
+              End="0,43.6096703641611">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,42.2412492857715" />
+                    End="0,43.6096703641611" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-15.2180859375,16.3437691741358,30.436171875,9.5537109375"
+              BoundingBox="-15.2180859375,17.0279797133306,30.436171875,9.5537109375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\DF_Indicador.Paths[Aggregate Output 1]"
-          TopLeft="510.988088696663,310.953221424097">
+          TopLeft="502.550588822392,291.11111578746">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,51.5786453525779"
+              EndConnector="0,59.1049612837163"
               Start="0,0"
-              End="0,44.0786453525779">
+              End="0,51.6049612837163">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,44.0786453525779" />
+                    End="0,51.6049612837163" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>

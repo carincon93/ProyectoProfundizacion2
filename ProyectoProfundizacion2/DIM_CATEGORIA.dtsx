@@ -11,8 +11,8 @@
   DTS:LocaleID="9226"
   DTS:ObjectName="DIM_CATEGORIA"
   DTS:PackageType="5"
-  DTS:VersionBuild="32"
-  DTS:VersionGUID="{8F1DD177-6D12-489E-94CE-4FC9508DE622}">
+  DTS:VersionBuild="38"
+  DTS:VersionGUID="{A520D411-C5DE-482A-89CE-05613E54A4E2}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -209,13 +209,13 @@
                       containsID="true"
                       dataType="System.String"
                       description="Specifies the expression. This expression version uses lineage identifiers instead of column names."
-                      name="Expression">[ISNULL](#{Package\DF_Categoria\Aggregate.Outputs[Aggregate Output 1].Columns[categoria]}) ==  FALSE </property>
+                      name="Expression">[ISNULL](#{Package\DF_Categoria\Aggregate.Outputs[Aggregate Output 1].Columns[categoria]}) ==  FALSE  &amp;&amp; #{Package\DF_Categoria\Aggregate.Outputs[Aggregate Output 1].Columns[categoria]} != "" &amp;&amp; [LEN](#{Package\DF_Categoria\Aggregate.Outputs[Aggregate Output 1].Columns[categoria]}) &gt; 2</property>
                     <property
                       containsID="true"
                       dataType="System.String"
                       description="Specifies the friendly version of the expression. This expression version uses column names."
                       expressionType="Notify"
-                      name="FriendlyExpression">ISNULL(categoria) ==  FALSE </property>
+                      name="FriendlyExpression">ISNULL(categoria) ==  FALSE  &amp;&amp; categoria != "" &amp;&amp; LEN(categoria) &gt; 2</property>
                     <property
                       dataType="System.Int32"
                       description="Specifies the position of the condition in the list of conditions that the transformation evaluates. The evaluation order is from the lowest to the highest value."
@@ -338,38 +338,6 @@
                   <externalMetadataColumns />
                 </output>
               </outputs>
-            </component>
-            <component
-              refId="Package\DF_Categoria\DataReaderDest"
-              componentClassID="Microsoft.ManagedComponentHost"
-              contactInfo="Exposes data in a data flow to other applications by using the ADO.NET DataReader interface. For example, send data to a custom application, written in C#, that requires a DataReader interface.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
-              description="Exposes data in a data flow to other applications by using the ADO.NET DataReader interface. For example, send data to a custom application, written in C#, that requires a DataReader interface."
-              name="DataReaderDest">
-              <properties>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies the number of milliseconds before the component times out."
-                  name="ReadTimeout">30000</property>
-                <property
-                  dataType="System.Null"
-                  description="Specifies an object that implements the IDataReader interface."
-                  name="DataReader" />
-                <property
-                  dataType="System.Boolean"
-                  description="Indicates whether the component fails when a read time-out occurs."
-                  name="FailOnTimeout">false</property>
-                <property
-                  dataType="System.String"
-                  name="UserComponentTypeName">Microsoft.DataReaderDestinationAdapter</property>
-              </properties>
-              <inputs>
-                <input
-                  refId="Package\DF_Categoria\DataReaderDest.Inputs[DataReader Destination Input]"
-                  hasSideEffects="true"
-                  name="DataReader Destination Input">
-                  <externalMetadataColumns />
-                </input>
-              </inputs>
             </component>
             <component
               refId="Package\DF_Categoria\Excel Source"
@@ -1048,7 +1016,34 @@
         </pipeline>
       </DTS:ObjectData>
     </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\TMP_DELETE"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{446c60db-3de6-4081-b643-3e289b5305ed}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="TMP_DELETE"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{10E29495-1E4D-4D62-A134-6FFACB43D6F8}"
+          SQLTask:SqlStatementSource="DBCC CHECKIDENT ('Dim_Categoria', RESEED, 0);&#xA;&#xA;DELETE FROM Dim_Categoria;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
   </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{8EE17485-A61B-41AE-B176-4B7D96577DFE}"
+      DTS:From="Package\TMP_DELETE"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\DF_Categoria" />
+  </DTS:PrecedenceConstraints>
   <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
 <!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
 <!--If you manually edit this section and make a mistake, you can delete it. -->
@@ -1060,11 +1055,37 @@
     design-time-name="Package">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="146.666666666667,42.6666666666667"
           Id="Package\DF_Categoria"
-          TopLeft="278.124995855615,171.052634798589" />
+          TopLeft="298.124995557592,175.842108572949" />
+        <NodeLayout
+          Size="149.333333333334,42"
+          Id="Package\TMP_DELETE"
+          TopLeft="297.499995566905,46.5263166652161" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="371.812495562248,88.5263166652161">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,87.3157919077329"
+              Start="0,0"
+              End="0,79.8157919077329">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,79.8157919077329" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </Package>
@@ -1074,21 +1095,9 @@
       <GraphLayout
         Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="158.666666666667,42.6666666666667"
-          Id="Package\DF_Categoria\DataReaderDest"
-          TopLeft="190.072598177799,317.570447232127" />
-        <NodeLayout
-          Size="98.6666666666667,42.6666666666667"
-          Id="Package\DF_Categoria\Sort"
-          TopLeft="452.222215483586,160.775654275538" />
-        <NodeLayout
           Size="174.666666666667,42.6666666666667"
           Id="Package\DF_Categoria\OLE DB Destination"
           TopLeft="423.61381042648,546.723713488105" />
-        <NodeLayout
-          Size="129.333333333334,42.6666666666667"
-          Id="Package\DF_Categoria\Aggregate"
-          TopLeft="444.943175188012,268.28655475743" />
         <NodeLayout
           Size="158.666666666667,42.6666666666667"
           Id="Package\DF_Categoria\Data Conversion"
@@ -1097,6 +1106,18 @@
           Size="142.666666666667,42.6666666666667"
           Id="Package\DF_Categoria\Excel Source"
           TopLeft="426.78029667078,40.4098891178727" />
+        <NodeLayout
+          Size="98.6666666666667,42.6666666666667"
+          Id="Package\DF_Categoria\Sort"
+          TopLeft="452.222215483586,160.775654275538" />
+        <NodeLayout
+          Size="129.333333333334,42.6666666666667"
+          Id="Package\DF_Categoria\Aggregate"
+          TopLeft="444.943175188012,268.28655475743" />
+        <NodeLayout
+          Size="157.333333333334,42.6666666666667"
+          Id="Package\DF_Categoria\Conditional Split"
+          TopLeft="426.24999364838,454.315797535666" />
         <EdgeLayout
           Id="Package\DF_Categoria.Paths[Sort Output]"
           TopLeft="501.555548816919,203.442320942205">
@@ -1154,32 +1175,6 @@
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\DF_Categoria.Paths[Aggregate Output 1]"
-          TopLeft="510.988088696663,310.953221424097">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,51.5786453525779"
-              Start="0,0"
-              End="0,44.0786453525779">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,44.0786453525779" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="157.333333333334,42.6666666666667"
-          Id="Package\DF_Categoria\Conditional Split"
-          TopLeft="426.24999364838,454.315797535666" />
-        <EdgeLayout
           Id="Package\DF_Categoria.Paths[Data Conversion Output]"
           TopLeft="508.641497926847,405.198533443342">
           <EdgeLayout.Curve>
@@ -1221,8 +1216,30 @@
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-15.4036328125,16.3340035491357,30.807265625,9.5732421875"
+              BoundingBox="-15.4036328125,16.3340035491358,30.807265625,9.5732421875"
               RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DF_Categoria.Paths[Aggregate Output 1]"
+          TopLeft="510.988088696663,310.953221424097">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,51.5786453525779"
+              Start="0,0"
+              End="0,44.0786453525779">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,44.0786453525779" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>

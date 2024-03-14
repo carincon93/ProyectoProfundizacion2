@@ -9,6 +9,8 @@ Project("{C9674DCB-5085-4A16-B785-4C70DD1589BD}") = "DataMart_Northwnd", "..\Dat
 EndProject
 Project("{C9674DCB-5085-4A16-B785-4C70DD1589BD}") = "Integration Services Project2", "..\Integration Services Project2\Integration Services Project2\Integration Services Project2.dtproj", "{6FF9123A-7700-4C36-B4C7-6D2082185F6E}"
 EndProject
+Project("{C9674DCB-5085-4A16-B785-4C70DD1589BD}") = "LOAD_ NORTHWND", "..\LOAD_ NORTHWND\LOAD_ NORTHWND\LOAD_ NORTHWND.dtproj", "{BC29E097-FF85-4ACC-948B-AA9B6CEBEF1C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Development|Default = Development|Default
@@ -20,6 +22,8 @@ Global
 		{C240B717-42E7-46B8-BB88-52AA6122B134}.Development|Default.Build.0 = Development
 		{6FF9123A-7700-4C36-B4C7-6D2082185F6E}.Development|Default.ActiveCfg = Development
 		{6FF9123A-7700-4C36-B4C7-6D2082185F6E}.Development|Default.Build.0 = Development
+		{BC29E097-FF85-4ACC-948B-AA9B6CEBEF1C}.Development|Default.ActiveCfg = Development
+		{BC29E097-FF85-4ACC-948B-AA9B6CEBEF1C}.Development|Default.Build.0 = Development
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

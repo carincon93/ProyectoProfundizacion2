@@ -79,7 +79,7 @@ CREATE TABLE [dbo].[Municipio_Stats](
 	[Agrupacion] [varchar](20) NULL,
 	[Valor]  [decimal](10, 8) NOT NULL,
 	[Anio] [int] NOT NULL,
-	[Mes] [int] NOT NULL,
+	[Mes] [varchar](20) NULL,
  CONSTRAINT [PK_Municipio_Stats] PRIMARY KEY CLUSTERED 
 (
 	[Municipio_SKey] ASC,
