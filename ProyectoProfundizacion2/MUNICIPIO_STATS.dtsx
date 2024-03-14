@@ -11,21 +11,21 @@
   DTS:LocaleID="9226"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="47"
-  DTS:VersionGUID="{598F96B1-8CE7-4F2F-910F-25C5352F3BEB}">
+  DTS:VersionBuild="57"
+  DTS:VersionGUID="{223FB64A-323F-4D1D-9382-AD0324775FF9}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
     <DTS:ConnectionManager
       DTS:refId="Package.ConnectionManagers[DESKTOP-54L8G8U.OBSERVATORIO_MUNICIPIOS]"
       DTS:CreationName="OLEDB"
-      DTS:DTSID="{1B60D3FD-E815-44F4-BFDC-4A3BD425D7B7}"
+      DTS:DTSID="{FE38CFD5-B1A8-4D76-B5CD-5F6C471DB42B}"
       DTS:ObjectName="DESKTOP-54L8G8U.OBSERVATORIO_MUNICIPIOS">
       <DTS:ObjectData>
         <DTS:ConnectionManager
           DTS:ConnectRetryCount="1"
           DTS:ConnectRetryInterval="5"
-          DTS:ConnectionString="Data Source=DESKTOP-54L8G8U;Initial Catalog=OBSERVATORIO_MUNICIPIOS;Provider=SQLNCLI11.1;Integrated Security=SSPI;Application Name=SSIS-Package1-{1B60D3FD-E815-44F4-BFDC-4A3BD425D7B7}DESKTOP-54L8G8U.OBSERVATORIO_MUNICIPIOS;Auto Translate=False;" />
+          DTS:ConnectionString="Data Source=DESKTOP-54L8G8U;Initial Catalog=OBSERVATORIO_MUNICIPIOS;Provider=SQLNCLI11.1;Integrated Security=SSPI;Application Name=SSIS-Package1-{FE38CFD5-B1A8-4D76-B5CD-5F6C471DB42B}DESKTOP-54L8G8U.OBSERVATORIO_MUNICIPIOS;Auto Translate=False;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
     <DTS:ConnectionManager
@@ -37,7 +37,7 @@
         <DTS:ConnectionManager
           DTS:ConnectRetryCount="0"
           DTS:ConnectRetryInterval="0"
-          DTS:ConnectionString="Provider=Microsoft.Jet.OLEDB.4.0;Data Source=C:\Users\Cristian\source\repos\ProyectoProfundizacion2\Sources\observatirio-municipios.xls;Extended Properties=&quot;Excel 8.0;HDR=YES&quot;;" />
+          DTS:ConnectionString="Provider=Microsoft.Jet.OLEDB.4.0;Data Source=C:\Users\Cristian\source\repos\ProyectoProfundizacion2\Sources\observatirio-municipios.xls;Extended Properties=&quot;EXCEL 8.0;HDR=YES&quot;;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
   </DTS:ConnectionManagers>
@@ -107,13 +107,13 @@
                       refId="Package\DF_Municipio_Stats\Aggregate.Inputs[Aggregate Input 1].Columns[Categoria_SKey]"
                       cachedDataType="i4"
                       cachedName="Categoria_SKey"
-                      cachedSortKeyPosition="1"
+                      cachedSortKeyPosition="2"
                       lineageId="Package\DF_Municipio_Stats\Sort.Outputs[Sort Output].Columns[Categoria_SKey]" />
                     <inputColumn
                       refId="Package\DF_Municipio_Stats\Aggregate.Inputs[Aggregate Input 1].Columns[Indicador_SKey]"
                       cachedDataType="i4"
                       cachedName="Indicador_SKey"
-                      cachedSortKeyPosition="2"
+                      cachedSortKeyPosition="1"
                       lineageId="Package\DF_Municipio_Stats\Sort.Outputs[Sort Output].Columns[Indicador_SKey]" />
                     <inputColumn
                       refId="Package\DF_Municipio_Stats\Aggregate.Inputs[Aggregate Input 1].Columns[Municipio_SKey]"
@@ -141,20 +141,27 @@
                       refId="Package\DF_Municipio_Stats\Aggregate.Inputs[Aggregate Input 1].Columns[anio_trans]"
                       cachedDataType="i4"
                       cachedName="anio_trans"
-                      cachedSortKeyPosition="4"
+                      cachedSortKeyPosition="8"
                       lineageId="Package\DF_Municipio_Stats\Sort.Outputs[Sort Output].Columns[anio_trans]" />
-                    <inputColumn
-                      refId="Package\DF_Municipio_Stats\Aggregate.Inputs[Aggregate Input 1].Columns[mes]"
-                      cachedDataType="wstr"
-                      cachedLength="255"
-                      cachedName="mes"
-                      cachedSortKeyPosition="7"
-                      lineageId="Package\DF_Municipio_Stats\Sort.Outputs[Sort Output].Columns[mes]" />
                     <inputColumn
                       refId="Package\DF_Municipio_Stats\Aggregate.Inputs[Aggregate Input 1].Columns[valor]"
                       cachedDataType="r8"
                       cachedName="valor"
                       lineageId="Package\DF_Municipio_Stats\Sort.Outputs[Sort Output].Columns[valor]" />
+                    <inputColumn
+                      refId="Package\DF_Municipio_Stats\Aggregate.Inputs[Aggregate Input 1].Columns[mes_trans]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="20"
+                      cachedName="mes_trans"
+                      cachedSortKeyPosition="4"
+                      lineageId="Package\DF_Municipio_Stats\Sort.Outputs[Sort Output].Columns[mes_trans]" />
+                    <inputColumn
+                      refId="Package\DF_Municipio_Stats\Aggregate.Inputs[Aggregate Input 1].Columns[valor_trans]"
+                      cachedDataType="r8"
+                      cachedName="valor_trans"
+                      cachedSortKeyPosition="7"
+                      lineageId="Package\DF_Municipio_Stats\Sort.Outputs[Sort Output].Columns[valor_trans]" />
                   </inputColumns>
                   <externalMetadataColumns />
                 </input>
@@ -336,17 +343,16 @@
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\DF_Municipio_Stats\Aggregate.Outputs[Aggregate Output 1].Columns[mes]"
-                      dataType="wstr"
-                      length="255"
-                      lineageId="Package\DF_Municipio_Stats\Aggregate.Outputs[Aggregate Output 1].Columns[mes]"
-                      name="mes">
+                      refId="Package\DF_Municipio_Stats\Aggregate.Outputs[Aggregate Output 1].Columns[valor]"
+                      dataType="r8"
+                      lineageId="Package\DF_Municipio_Stats\Aggregate.Outputs[Aggregate Output 1].Columns[valor]"
+                      name="valor">
                       <properties>
                         <property
                           containsID="true"
                           dataType="System.Int32"
                           description="Specifies the ID of the input column used in the aggregation."
-                          name="AggregationColumnId">#{Package\DF_Municipio_Stats\Sort.Outputs[Sort Output].Columns[mes]}</property>
+                          name="AggregationColumnId">#{Package\DF_Municipio_Stats\Sort.Outputs[Sort Output].Columns[valor]}</property>
                         <property
                           dataType="System.Int32"
                           description="Specifies the type of aggregation."
@@ -363,21 +369,49 @@
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\DF_Municipio_Stats\Aggregate.Outputs[Aggregate Output 1].Columns[valor]"
-                      dataType="r8"
-                      lineageId="Package\DF_Municipio_Stats\Aggregate.Outputs[Aggregate Output 1].Columns[valor]"
-                      name="valor">
+                      refId="Package\DF_Municipio_Stats\Aggregate.Outputs[Aggregate Output 1].Columns[mes_trans]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      lineageId="Package\DF_Municipio_Stats\Aggregate.Outputs[Aggregate Output 1].Columns[mes_trans]"
+                      name="mes_trans">
                       <properties>
                         <property
                           containsID="true"
                           dataType="System.Int32"
                           description="Specifies the ID of the input column used in the aggregation."
-                          name="AggregationColumnId">#{Package\DF_Municipio_Stats\Sort.Outputs[Sort Output].Columns[valor]}</property>
+                          name="AggregationColumnId">#{Package\DF_Municipio_Stats\Sort.Outputs[Sort Output].Columns[mes_trans]}</property>
                         <property
                           dataType="System.Int32"
                           description="Specifies the type of aggregation."
                           name="AggregationType"
                           typeConverter="AggregationType">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Indicates whether the column requires special handling because it may contain oversized data or it requires precision beyond a float data type."
+                          name="IsBig">1</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the string comparison options."
+                          name="AggregationComparisonFlags">0</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DF_Municipio_Stats\Aggregate.Outputs[Aggregate Output 1].Columns[valor_trans]"
+                      dataType="r8"
+                      lineageId="Package\DF_Municipio_Stats\Aggregate.Outputs[Aggregate Output 1].Columns[valor_trans]"
+                      name="valor_trans">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the ID of the input column used in the aggregation."
+                          name="AggregationColumnId">#{Package\DF_Municipio_Stats\Sort.Outputs[Sort Output].Columns[valor_trans]}</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the type of aggregation."
+                          name="AggregationType"
+                          typeConverter="AggregationType">4</property>
                         <property
                           dataType="System.Int32"
                           description="Indicates whether the column requires special handling because it may contain oversized data or it requires precision beyond a float data type."
@@ -445,6 +479,12 @@
                       cachedLength="255"
                       cachedName="genero"
                       lineageId="Package\DF_Municipio_Stats\Excel Source.Outputs[Excel Source Output].Columns[genero]" />
+                    <inputColumn
+                      refId="Package\DF_Municipio_Stats\Data Conversion.Inputs[Data Conversion Input].Columns[mes]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="mes"
+                      lineageId="Package\DF_Municipio_Stats\Excel Source.Outputs[Excel Source Output].Columns[mes]" />
                   </inputColumns>
                   <externalMetadataColumns />
                 </input>
@@ -606,6 +646,28 @@
                           name="FastParse">false</property>
                       </properties>
                     </outputColumn>
+                    <outputColumn
+                      refId="Package\DF_Municipio_Stats\Data Conversion.Outputs[Data Conversion Output].Columns[mes_trans]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="20"
+                      lineageId="Package\DF_Municipio_Stats\Data Conversion.Outputs[Data Conversion Output].Columns[mes_trans]"
+                      name="mes_trans"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\DF_Municipio_Stats\Excel Source.Outputs[Excel Source Output].Columns[mes]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
                   </outputColumns>
                   <externalMetadataColumns />
                 </output>
@@ -626,87 +688,6 @@
                       refId="Package\DF_Municipio_Stats\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
                       dataType="i4"
                       lineageId="Package\DF_Municipio_Stats\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
-                      name="ErrorColumn"
-                      specialFlags="2" />
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-              </outputs>
-            </component>
-            <component
-              refId="Package\DF_Municipio_Stats\Derived Column"
-              componentClassID="Microsoft.DerivedColumn"
-              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
-              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
-              name="Derived Column"
-              usesDispositions="true">
-              <inputs>
-                <input
-                  refId="Package\DF_Municipio_Stats\Derived Column.Inputs[Derived Column Input]"
-                  description="Input to the Derived Column Transformation"
-                  name="Derived Column Input">
-                  <inputColumns>
-                    <inputColumn
-                      refId="Package\DF_Municipio_Stats\Derived Column.Inputs[Derived Column Input].Columns[mes]"
-                      cachedDataType="wstr"
-                      cachedLength="255"
-                      cachedName="mes"
-                      lineageId="Package\DF_Municipio_Stats\Excel Source.Outputs[Excel Source Output].Columns[mes]" />
-                  </inputColumns>
-                  <externalMetadataColumns />
-                </input>
-              </inputs>
-              <outputs>
-                <output
-                  refId="Package\DF_Municipio_Stats\Derived Column.Outputs[Derived Column Output]"
-                  description="Default Output of the Derived Column Transformation"
-                  exclusionGroup="1"
-                  name="Derived Column Output"
-                  synchronousInputId="Package\DF_Municipio_Stats\Derived Column.Inputs[Derived Column Input]">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\DF_Municipio_Stats\Derived Column.Outputs[Derived Column Output].Columns[mes_derived]"
-                      dataType="i4"
-                      errorOrTruncationOperation="Computation"
-                      errorRowDisposition="FailComponent"
-                      lineageId="Package\DF_Municipio_Stats\Derived Column.Outputs[Derived Column Output].Columns[mes_derived]"
-                      name="mes_derived"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.String"
-                          description="Derived Column Expression"
-                          name="Expression">(DT_I4)([CEILING](([FINDSTRING]("Enero|Febrero|Marzo|Abril|Mayo|Junio|Julio|Agosto|Septiembre|Octubre|Noviembre|Diciembre",#{Package\DF_Municipio_Stats\Excel Source.Outputs[Excel Source Output].Columns[mes]},1)) / 7.0)) + 1</property>
-                        <property
-                          containsID="true"
-                          dataType="System.String"
-                          description="Derived Column Friendly Expression"
-                          expressionType="Notify"
-                          name="FriendlyExpression">(DT_I4)(CEILING((FINDSTRING("Enero|Febrero|Marzo|Abril|Mayo|Junio|Julio|Agosto|Septiembre|Octubre|Noviembre|Diciembre",mes,1)) / 7.0)) + 1</property>
-                      </properties>
-                    </outputColumn>
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-                <output
-                  refId="Package\DF_Municipio_Stats\Derived Column.Outputs[Derived Column Error Output]"
-                  description="Error Output of the Derived Column Transformation"
-                  exclusionGroup="1"
-                  isErrorOut="true"
-                  name="Derived Column Error Output"
-                  synchronousInputId="Package\DF_Municipio_Stats\Derived Column.Inputs[Derived Column Input]">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\DF_Municipio_Stats\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
-                      dataType="i4"
-                      lineageId="Package\DF_Municipio_Stats\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
-                      name="ErrorCode"
-                      specialFlags="1" />
-                    <outputColumn
-                      refId="Package\DF_Municipio_Stats\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
-                      dataType="i4"
-                      lineageId="Package\DF_Municipio_Stats\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -970,17 +951,13 @@
                   description="Specifies the SQL statement that generates the lookup table."
                   expressionType="Notify"
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT [Municipio_SKey], [Municipio_Nombre] 
-FROM [OBSERVATORIO_MUNICIPIOS].[dbo].[Dim_Municipio]
-ORDER BY [Municipio_SKey]</property>
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from [dbo].[Dim_Municipio]</property>
                 <property
                   dataType="System.String"
                   description="Specifies a SQL statement that uses parameters to generate the lookup table."
                   expressionType="Notify"
                   name="SqlCommandParam"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (SELECT [Municipio_SKey], [Municipio_Nombre] 
-FROM [OBSERVATORIO_MUNICIPIOS].[dbo].[Dim_Municipio]
-ORDER BY [Municipio_SKey]) [refTable]
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select * from [dbo].[Dim_Municipio]) [refTable]
 where [refTable].[Municipio_Nombre] = ?</property>
                 <property
                   dataType="System.Int32"
@@ -1133,180 +1110,13 @@ where [refTable].[Municipio_Nombre] = ?</property>
                   description="Specifies the SQL statement that generates the lookup table."
                   expressionType="Notify"
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT [Indicador_SKey], [Indicador_Nombre] 
-FROM [OBSERVATORIO_MUNICIPIOS].[dbo].[Dim_Indicador]
-ORDER BY [Indicador_SKey]</property>
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from [dbo].[Dim_Categoria]</property>
                 <property
                   dataType="System.String"
                   description="Specifies a SQL statement that uses parameters to generate the lookup table."
                   expressionType="Notify"
                   name="SqlCommandParam"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (SELECT [Indicador_SKey], [Indicador_Nombre] 
-FROM [OBSERVATORIO_MUNICIPIOS].[dbo].[Dim_Indicador]
-ORDER BY [Indicador_SKey]) [refTable]
-where [refTable].[Indicador_Nombre] = ?</property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies the type of connection used to access the reference dataset."
-                  name="ConnectionType"
-                  typeConverter="LookupConnectionType">0</property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies the cache type of the lookup table."
-                  name="CacheType"
-                  typeConverter="CacheType">0</property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
-                  name="NoMatchBehavior"
-                  typeConverter="LookupNoMatchBehavior">1</property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
-                  name="NoMatchCachePercentage">0</property>
-                <property
-                  dataType="System.Int32"
-                  description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
-                  name="MaxMemoryUsage">25</property>
-                <property
-                  dataType="System.Int64"
-                  description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
-                  name="MaxMemoryUsage64">25</property>
-                <property
-                  dataType="System.String"
-                  description="Indicates whether to reference metadata in an XML format."
-                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="Indicador_SKey" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Indicador_Nombre" dataType="DT_STR" length="70" precision="0" scale="0" codePage="1252"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
-                <property
-                  containsID="true"
-                  dataType="System.String"
-                  description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
-                  name="ParameterMap">#{Package\DF_Municipio_Stats\Data Conversion.Outputs[Data Conversion Output].Columns[indicador_trans]};</property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies the column code page to use when code page information is unavailable from the data source."
-                  name="DefaultCodePage">1252</property>
-                <property
-                  dataType="System.Boolean"
-                  description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
-                  name="TreatDuplicateKeysAsError">false</property>
-              </properties>
-              <connections>
-                <connection
-                  refId="Package\DF_Municipio_Stats\Lookup 1.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[DESKTOP-54L8G8U.OBSERVATORIO_MUNICIPIOS]"
-                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-54L8G8U.OBSERVATORIO_MUNICIPIOS]"
-                  description="Connection manager used to access lookup data."
-                  name="OleDbConnection" />
-              </connections>
-              <inputs>
-                <input
-                  refId="Package\DF_Municipio_Stats\Lookup 1.Inputs[Lookup Input]"
-                  name="Lookup Input">
-                  <inputColumns>
-                    <inputColumn
-                      refId="Package\DF_Municipio_Stats\Lookup 1.Inputs[Lookup Input].Columns[indicador_trans]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="70"
-                      cachedName="indicador_trans"
-                      lineageId="Package\DF_Municipio_Stats\Data Conversion.Outputs[Data Conversion Output].Columns[indicador_trans]">
-                      <properties>
-                        <property
-                          dataType="System.String"
-                          description="Specifies the column in the reference table that a column joins."
-                          name="JoinToReferenceColumn">Indicador_Nombre</property>
-                        <property
-                          dataType="System.Null"
-                          description="Specifies the column in the reference table from which a column is copied."
-                          name="CopyFromReferenceColumn" />
-                      </properties>
-                    </inputColumn>
-                  </inputColumns>
-                  <externalMetadataColumns />
-                </input>
-              </inputs>
-              <outputs>
-                <output
-                  refId="Package\DF_Municipio_Stats\Lookup 1.Outputs[Lookup Match Output]"
-                  errorOrTruncationOperation="Lookup"
-                  exclusionGroup="1"
-                  name="Lookup Match Output"
-                  synchronousInputId="Package\DF_Municipio_Stats\Lookup 1.Inputs[Lookup Input]">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\DF_Municipio_Stats\Lookup 1.Outputs[Lookup Match Output].Columns[Indicador_SKey]"
-                      dataType="i4"
-                      errorOrTruncationOperation="Copy Column"
-                      lineageId="Package\DF_Municipio_Stats\Lookup 1.Outputs[Lookup Match Output].Columns[Indicador_SKey]"
-                      name="Indicador_SKey"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          dataType="System.String"
-                          description="Specifies the column in the reference table from which a column is copied."
-                          name="CopyFromReferenceColumn">Indicador_SKey</property>
-                      </properties>
-                    </outputColumn>
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-                <output
-                  refId="Package\DF_Municipio_Stats\Lookup 1.Outputs[Lookup No Match Output]"
-                  description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
-                  exclusionGroup="1"
-                  name="Lookup No Match Output"
-                  synchronousInputId="Package\DF_Municipio_Stats\Lookup 1.Inputs[Lookup Input]">
-                  <externalMetadataColumns />
-                </output>
-                <output
-                  refId="Package\DF_Municipio_Stats\Lookup 1.Outputs[Lookup Error Output]"
-                  exclusionGroup="1"
-                  isErrorOut="true"
-                  name="Lookup Error Output"
-                  synchronousInputId="Package\DF_Municipio_Stats\Lookup 1.Inputs[Lookup Input]">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\DF_Municipio_Stats\Lookup 1.Outputs[Lookup Error Output].Columns[ErrorCode]"
-                      dataType="i4"
-                      lineageId="Package\DF_Municipio_Stats\Lookup 1.Outputs[Lookup Error Output].Columns[ErrorCode]"
-                      name="ErrorCode"
-                      specialFlags="1" />
-                    <outputColumn
-                      refId="Package\DF_Municipio_Stats\Lookup 1.Outputs[Lookup Error Output].Columns[ErrorColumn]"
-                      dataType="i4"
-                      lineageId="Package\DF_Municipio_Stats\Lookup 1.Outputs[Lookup Error Output].Columns[ErrorColumn]"
-                      name="ErrorColumn"
-                      specialFlags="2" />
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-              </outputs>
-            </component>
-            <component
-              refId="Package\DF_Municipio_Stats\Lookup 1 1"
-              componentClassID="Microsoft.Lookup"
-              contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
-              description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
-              name="Lookup 1 1"
-              usesDispositions="true"
-              version="6">
-              <properties>
-                <property
-                  dataType="System.String"
-                  description="Specifies the SQL statement that generates the lookup table."
-                  expressionType="Notify"
-                  name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT [Categoria_SKey], [Categoria_Nombre] 
-FROM [OBSERVATORIO_MUNICIPIOS].[dbo].[Dim_Categoria]
-ORDER BY [Categoria_SKey]</property>
-                <property
-                  dataType="System.String"
-                  description="Specifies a SQL statement that uses parameters to generate the lookup table."
-                  expressionType="Notify"
-                  name="SqlCommandParam"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (SELECT [Categoria_SKey], [Categoria_Nombre] 
-FROM [OBSERVATORIO_MUNICIPIOS].[dbo].[Dim_Categoria]
-ORDER BY [Categoria_SKey]) [refTable]
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select * from [dbo].[Dim_Categoria]) [refTable]
 where [refTable].[Categoria_Nombre] = ?</property>
                 <property
                   dataType="System.Int32"
@@ -1355,7 +1165,7 @@ where [refTable].[Categoria_Nombre] = ?</property>
               </properties>
               <connections>
                 <connection
-                  refId="Package\DF_Municipio_Stats\Lookup 1 1.Connections[OleDbConnection]"
+                  refId="Package\DF_Municipio_Stats\Lookup 1.Connections[OleDbConnection]"
                   connectionManagerID="Package.ConnectionManagers[DESKTOP-54L8G8U.OBSERVATORIO_MUNICIPIOS]"
                   connectionManagerRefId="Package.ConnectionManagers[DESKTOP-54L8G8U.OBSERVATORIO_MUNICIPIOS]"
                   description="Connection manager used to access lookup data."
@@ -1363,11 +1173,11 @@ where [refTable].[Categoria_Nombre] = ?</property>
               </connections>
               <inputs>
                 <input
-                  refId="Package\DF_Municipio_Stats\Lookup 1 1.Inputs[Lookup Input]"
+                  refId="Package\DF_Municipio_Stats\Lookup 1.Inputs[Lookup Input]"
                   name="Lookup Input">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\DF_Municipio_Stats\Lookup 1 1.Inputs[Lookup Input].Columns[categoria_trans]"
+                      refId="Package\DF_Municipio_Stats\Lookup 1.Inputs[Lookup Input].Columns[categoria_trans]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="70"
@@ -1390,17 +1200,17 @@ where [refTable].[Categoria_Nombre] = ?</property>
               </inputs>
               <outputs>
                 <output
-                  refId="Package\DF_Municipio_Stats\Lookup 1 1.Outputs[Lookup Match Output]"
+                  refId="Package\DF_Municipio_Stats\Lookup 1.Outputs[Lookup Match Output]"
                   errorOrTruncationOperation="Lookup"
                   exclusionGroup="1"
                   name="Lookup Match Output"
-                  synchronousInputId="Package\DF_Municipio_Stats\Lookup 1 1.Inputs[Lookup Input]">
+                  synchronousInputId="Package\DF_Municipio_Stats\Lookup 1.Inputs[Lookup Input]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\DF_Municipio_Stats\Lookup 1 1.Outputs[Lookup Match Output].Columns[Categoria_SKey]"
+                      refId="Package\DF_Municipio_Stats\Lookup 1.Outputs[Lookup Match Output].Columns[Categoria_SKey]"
                       dataType="i4"
                       errorOrTruncationOperation="Copy Column"
-                      lineageId="Package\DF_Municipio_Stats\Lookup 1 1.Outputs[Lookup Match Output].Columns[Categoria_SKey]"
+                      lineageId="Package\DF_Municipio_Stats\Lookup 1.Outputs[Lookup Match Output].Columns[Categoria_SKey]"
                       name="Categoria_SKey"
                       truncationRowDisposition="FailComponent">
                       <properties>
@@ -1414,30 +1224,189 @@ where [refTable].[Categoria_Nombre] = ?</property>
                   <externalMetadataColumns />
                 </output>
                 <output
-                  refId="Package\DF_Municipio_Stats\Lookup 1 1.Outputs[Lookup No Match Output]"
+                  refId="Package\DF_Municipio_Stats\Lookup 1.Outputs[Lookup No Match Output]"
                   description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
                   exclusionGroup="1"
                   name="Lookup No Match Output"
-                  synchronousInputId="Package\DF_Municipio_Stats\Lookup 1 1.Inputs[Lookup Input]">
+                  synchronousInputId="Package\DF_Municipio_Stats\Lookup 1.Inputs[Lookup Input]">
                   <externalMetadataColumns />
                 </output>
                 <output
-                  refId="Package\DF_Municipio_Stats\Lookup 1 1.Outputs[Lookup Error Output]"
+                  refId="Package\DF_Municipio_Stats\Lookup 1.Outputs[Lookup Error Output]"
                   exclusionGroup="1"
                   isErrorOut="true"
                   name="Lookup Error Output"
-                  synchronousInputId="Package\DF_Municipio_Stats\Lookup 1 1.Inputs[Lookup Input]">
+                  synchronousInputId="Package\DF_Municipio_Stats\Lookup 1.Inputs[Lookup Input]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\DF_Municipio_Stats\Lookup 1 1.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      refId="Package\DF_Municipio_Stats\Lookup 1.Outputs[Lookup Error Output].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\DF_Municipio_Stats\Lookup 1 1.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      lineageId="Package\DF_Municipio_Stats\Lookup 1.Outputs[Lookup Error Output].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\DF_Municipio_Stats\Lookup 1 1.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      refId="Package\DF_Municipio_Stats\Lookup 1.Outputs[Lookup Error Output].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\DF_Municipio_Stats\Lookup 1 1.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      lineageId="Package\DF_Municipio_Stats\Lookup 1.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DF_Municipio_Stats\Lookup 2"
+              componentClassID="Microsoft.Lookup"
+              contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
+              description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
+              name="Lookup 2"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SQL statement that generates the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from [dbo].[Dim_Indicador]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select * from [dbo].[Dim_Indicador]) [refTable]
+where [refTable].[Indicador_Nombre] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the type of connection used to access the reference dataset."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the cache type of the lookup table."
+                  name="CacheType"
+                  typeConverter="CacheType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">1</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                  name="NoMatchCachePercentage">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indicates whether to reference metadata in an XML format."
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="Indicador_SKey" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Indicador_Nombre" dataType="DT_STR" length="70" precision="0" scale="0" codePage="1252"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                  name="ParameterMap">#{Package\DF_Municipio_Stats\Data Conversion.Outputs[Data Conversion Output].Columns[indicador_trans]};</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DF_Municipio_Stats\Lookup 2.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DESKTOP-54L8G8U.OBSERVATORIO_MUNICIPIOS]"
+                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-54L8G8U.OBSERVATORIO_MUNICIPIOS]"
+                  description="Connection manager used to access lookup data."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DF_Municipio_Stats\Lookup 2.Inputs[Lookup Input]"
+                  name="Lookup Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DF_Municipio_Stats\Lookup 2.Inputs[Lookup Input].Columns[indicador_trans]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="70"
+                      cachedName="indicador_trans"
+                      lineageId="Package\DF_Municipio_Stats\Data Conversion.Outputs[Data Conversion Output].Columns[indicador_trans]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">Indicador_Nombre</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DF_Municipio_Stats\Lookup 2.Outputs[Lookup Match Output]"
+                  errorOrTruncationOperation="Lookup"
+                  exclusionGroup="1"
+                  name="Lookup Match Output"
+                  synchronousInputId="Package\DF_Municipio_Stats\Lookup 2.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DF_Municipio_Stats\Lookup 2.Outputs[Lookup Match Output].Columns[Indicador_SKey]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Copy Column"
+                      lineageId="Package\DF_Municipio_Stats\Lookup 2.Outputs[Lookup Match Output].Columns[Indicador_SKey]"
+                      name="Indicador_SKey"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">Indicador_SKey</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DF_Municipio_Stats\Lookup 2.Outputs[Lookup No Match Output]"
+                  description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                  exclusionGroup="1"
+                  name="Lookup No Match Output"
+                  synchronousInputId="Package\DF_Municipio_Stats\Lookup 2.Inputs[Lookup Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DF_Municipio_Stats\Lookup 2.Outputs[Lookup Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Lookup Error Output"
+                  synchronousInputId="Package\DF_Municipio_Stats\Lookup 2.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DF_Municipio_Stats\Lookup 2.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DF_Municipio_Stats\Lookup 2.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DF_Municipio_Stats\Lookup 2.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DF_Municipio_Stats\Lookup 2.Outputs[Lookup Error Output].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -1536,18 +1505,11 @@ where [refTable].[Categoria_Nombre] = ?</property>
                       externalMetadataColumnId="Package\DF_Municipio_Stats\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Municipio_SKey]"
                       lineageId="Package\DF_Municipio_Stats\Aggregate.Outputs[Aggregate Output 1].Columns[Municipio_SKey]" />
                     <inputColumn
-                      refId="Package\DF_Municipio_Stats\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[mes]"
-                      cachedDataType="wstr"
-                      cachedLength="255"
-                      cachedName="mes"
-                      externalMetadataColumnId="Package\DF_Municipio_Stats\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Mes]"
-                      lineageId="Package\DF_Municipio_Stats\Aggregate.Outputs[Aggregate Output 1].Columns[mes]" />
-                    <inputColumn
-                      refId="Package\DF_Municipio_Stats\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[valor]"
+                      refId="Package\DF_Municipio_Stats\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[valor_trans]"
                       cachedDataType="r8"
-                      cachedName="valor"
+                      cachedName="valor_trans"
                       externalMetadataColumnId="Package\DF_Municipio_Stats\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Valor]"
-                      lineageId="Package\DF_Municipio_Stats\Aggregate.Outputs[Aggregate Output 1].Columns[valor]" />
+                      lineageId="Package\DF_Municipio_Stats\Aggregate.Outputs[Aggregate Output 1].Columns[valor_trans]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -1564,31 +1526,27 @@ where [refTable].[Categoria_Nombre] = ?</property>
                       dataType="i4"
                       name="Categoria_SKey" />
                     <externalMetadataColumn
-                      refId="Package\DF_Municipio_Stats\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Genero]"
-                      codePage="1252"
-                      dataType="str"
-                      length="10"
-                      name="Genero" />
-                    <externalMetadataColumn
-                      refId="Package\DF_Municipio_Stats\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Agrupacion]"
-                      codePage="1252"
-                      dataType="str"
-                      length="20"
-                      name="Agrupacion" />
-                    <externalMetadataColumn
                       refId="Package\DF_Municipio_Stats\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Valor]"
                       dataType="numeric"
                       name="Valor"
                       precision="10"
                       scale="8" />
                     <externalMetadataColumn
-                      refId="Package\DF_Municipio_Stats\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Anio]"
+                      refId="Package\DF_Municipio_Stats\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Genero_SKey]"
                       dataType="i4"
-                      name="Anio" />
+                      name="Genero_SKey" />
                     <externalMetadataColumn
-                      refId="Package\DF_Municipio_Stats\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Mes]"
+                      refId="Package\DF_Municipio_Stats\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Agrupacion_SKey]"
                       dataType="i4"
-                      name="Mes" />
+                      name="Agrupacion_SKey" />
+                    <externalMetadataColumn
+                      refId="Package\DF_Municipio_Stats\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Anio_SKey]"
+                      dataType="i4"
+                      name="Anio_SKey" />
+                    <externalMetadataColumn
+                      refId="Package\DF_Municipio_Stats\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Mes_SKey]"
+                      dataType="i4"
+                      name="Mes_SKey" />
                   </externalMetadataColumns>
                 </input>
               </inputs>
@@ -1754,7 +1712,7 @@ where [refTable].[Categoria_Nombre] = ?</property>
                         <property
                           dataType="System.Int32"
                           description="Specifies the sort order of the column."
-                          name="NewSortKeyPosition">7</property>
+                          name="NewSortKeyPosition">0</property>
                       </properties>
                     </inputColumn>
                     <inputColumn
@@ -1841,7 +1799,7 @@ where [refTable].[Categoria_Nombre] = ?</property>
                         <property
                           dataType="System.Int32"
                           description="Specifies the sort order of the column."
-                          name="NewSortKeyPosition">4</property>
+                          name="NewSortKeyPosition">8</property>
                       </properties>
                     </inputColumn>
                     <inputColumn
@@ -1857,7 +1815,7 @@ where [refTable].[Categoria_Nombre] = ?</property>
                         <property
                           dataType="System.Int32"
                           description="Specifies the sort order of the column."
-                          name="NewSortKeyPosition">0</property>
+                          name="NewSortKeyPosition">7</property>
                       </properties>
                     </inputColumn>
                     <inputColumn
@@ -1897,10 +1855,12 @@ where [refTable].[Categoria_Nombre] = ?</property>
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\DF_Municipio_Stats\Sort.Inputs[Sort Input].Columns[mes_derived]"
-                      cachedDataType="i4"
-                      cachedName="mes_derived"
-                      lineageId="Package\DF_Municipio_Stats\Derived Column.Outputs[Derived Column Output].Columns[mes_derived]">
+                      refId="Package\DF_Municipio_Stats\Sort.Inputs[Sort Input].Columns[mes_trans]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="20"
+                      cachedName="mes_trans"
+                      lineageId="Package\DF_Municipio_Stats\Data Conversion.Outputs[Data Conversion Output].Columns[mes_trans]">
                       <properties>
                         <property
                           dataType="System.Int32"
@@ -1909,7 +1869,7 @@ where [refTable].[Categoria_Nombre] = ?</property>
                         <property
                           dataType="System.Int32"
                           description="Specifies the sort order of the column."
-                          name="NewSortKeyPosition">0</property>
+                          name="NewSortKeyPosition">4</property>
                       </properties>
                     </inputColumn>
                     <inputColumn
@@ -1929,10 +1889,10 @@ where [refTable].[Categoria_Nombre] = ?</property>
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\DF_Municipio_Stats\Sort.Inputs[Sort Input].Columns[Indicador_SKey]"
+                      refId="Package\DF_Municipio_Stats\Sort.Inputs[Sort Input].Columns[Categoria_SKey]"
                       cachedDataType="i4"
-                      cachedName="Indicador_SKey"
-                      lineageId="Package\DF_Municipio_Stats\Lookup 1.Outputs[Lookup Match Output].Columns[Indicador_SKey]">
+                      cachedName="Categoria_SKey"
+                      lineageId="Package\DF_Municipio_Stats\Lookup 1.Outputs[Lookup Match Output].Columns[Categoria_SKey]">
                       <properties>
                         <property
                           dataType="System.Int32"
@@ -1945,10 +1905,10 @@ where [refTable].[Categoria_Nombre] = ?</property>
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\DF_Municipio_Stats\Sort.Inputs[Sort Input].Columns[Categoria_SKey]"
+                      refId="Package\DF_Municipio_Stats\Sort.Inputs[Sort Input].Columns[Indicador_SKey]"
                       cachedDataType="i4"
-                      cachedName="Categoria_SKey"
-                      lineageId="Package\DF_Municipio_Stats\Lookup 1 1.Outputs[Lookup Match Output].Columns[Categoria_SKey]">
+                      cachedName="Indicador_SKey"
+                      lineageId="Package\DF_Municipio_Stats\Lookup 2.Outputs[Lookup Match Output].Columns[Indicador_SKey]">
                       <properties>
                         <property
                           dataType="System.Int32"
@@ -2057,8 +2017,7 @@ where [refTable].[Categoria_Nombre] = ?</property>
                       dataType="wstr"
                       length="255"
                       lineageId="Package\DF_Municipio_Stats\Sort.Outputs[Sort Output].Columns[mes]"
-                      name="mes"
-                      sortKeyPosition="7">
+                      name="mes">
                       <properties>
                         <property
                           containsID="true"
@@ -2131,7 +2090,7 @@ where [refTable].[Categoria_Nombre] = ?</property>
                       dataType="i4"
                       lineageId="Package\DF_Municipio_Stats\Sort.Outputs[Sort Output].Columns[anio_trans]"
                       name="anio_trans"
-                      sortKeyPosition="4">
+                      sortKeyPosition="8">
                       <properties>
                         <property
                           containsID="true"
@@ -2144,7 +2103,8 @@ where [refTable].[Categoria_Nombre] = ?</property>
                       refId="Package\DF_Municipio_Stats\Sort.Outputs[Sort Output].Columns[valor_trans]"
                       dataType="r8"
                       lineageId="Package\DF_Municipio_Stats\Sort.Outputs[Sort Output].Columns[valor_trans]"
-                      name="valor_trans">
+                      name="valor_trans"
+                      sortKeyPosition="7">
                       <properties>
                         <property
                           containsID="true"
@@ -2186,16 +2146,19 @@ where [refTable].[Categoria_Nombre] = ?</property>
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\DF_Municipio_Stats\Sort.Outputs[Sort Output].Columns[mes_derived]"
-                      dataType="i4"
-                      lineageId="Package\DF_Municipio_Stats\Sort.Outputs[Sort Output].Columns[mes_derived]"
-                      name="mes_derived">
+                      refId="Package\DF_Municipio_Stats\Sort.Outputs[Sort Output].Columns[mes_trans]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      lineageId="Package\DF_Municipio_Stats\Sort.Outputs[Sort Output].Columns[mes_trans]"
+                      name="mes_trans"
+                      sortKeyPosition="4">
                       <properties>
                         <property
                           containsID="true"
                           dataType="System.Int32"
                           description="Specifies the lineage identifier of the input column that is associated with this output column."
-                          name="SortColumnId">#{Package\DF_Municipio_Stats\Derived Column.Outputs[Derived Column Output].Columns[mes_derived]}</property>
+                          name="SortColumnId">#{Package\DF_Municipio_Stats\Data Conversion.Outputs[Data Conversion Output].Columns[mes_trans]}</property>
                       </properties>
                     </outputColumn>
                     <outputColumn
@@ -2213,31 +2176,31 @@ where [refTable].[Categoria_Nombre] = ?</property>
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\DF_Municipio_Stats\Sort.Outputs[Sort Output].Columns[Indicador_SKey]"
+                      refId="Package\DF_Municipio_Stats\Sort.Outputs[Sort Output].Columns[Categoria_SKey]"
                       dataType="i4"
-                      lineageId="Package\DF_Municipio_Stats\Sort.Outputs[Sort Output].Columns[Indicador_SKey]"
-                      name="Indicador_SKey"
+                      lineageId="Package\DF_Municipio_Stats\Sort.Outputs[Sort Output].Columns[Categoria_SKey]"
+                      name="Categoria_SKey"
                       sortKeyPosition="2">
                       <properties>
                         <property
                           containsID="true"
                           dataType="System.Int32"
                           description="Specifies the lineage identifier of the input column that is associated with this output column."
-                          name="SortColumnId">#{Package\DF_Municipio_Stats\Lookup 1.Outputs[Lookup Match Output].Columns[Indicador_SKey]}</property>
+                          name="SortColumnId">#{Package\DF_Municipio_Stats\Lookup 1.Outputs[Lookup Match Output].Columns[Categoria_SKey]}</property>
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\DF_Municipio_Stats\Sort.Outputs[Sort Output].Columns[Categoria_SKey]"
+                      refId="Package\DF_Municipio_Stats\Sort.Outputs[Sort Output].Columns[Indicador_SKey]"
                       dataType="i4"
-                      lineageId="Package\DF_Municipio_Stats\Sort.Outputs[Sort Output].Columns[Categoria_SKey]"
-                      name="Categoria_SKey"
+                      lineageId="Package\DF_Municipio_Stats\Sort.Outputs[Sort Output].Columns[Indicador_SKey]"
+                      name="Indicador_SKey"
                       sortKeyPosition="1">
                       <properties>
                         <property
                           containsID="true"
                           dataType="System.Int32"
                           description="Specifies the lineage identifier of the input column that is associated with this output column."
-                          name="SortColumnId">#{Package\DF_Municipio_Stats\Lookup 1 1.Outputs[Lookup Match Output].Columns[Categoria_SKey]}</property>
+                          name="SortColumnId">#{Package\DF_Municipio_Stats\Lookup 2.Outputs[Lookup Match Output].Columns[Indicador_SKey]}</property>
                       </properties>
                     </outputColumn>
                   </outputColumns>
@@ -2254,14 +2217,9 @@ where [refTable].[Categoria_Nombre] = ?</property>
               startId="Package\DF_Municipio_Stats\Aggregate.Outputs[Aggregate Output 1]" />
             <path
               refId="Package\DF_Municipio_Stats.Paths[Data Conversion Output]"
-              endId="Package\DF_Municipio_Stats\Derived Column.Inputs[Derived Column Input]"
+              endId="Package\DF_Municipio_Stats\Lookup.Inputs[Lookup Input]"
               name="Data Conversion Output"
               startId="Package\DF_Municipio_Stats\Data Conversion.Outputs[Data Conversion Output]" />
-            <path
-              refId="Package\DF_Municipio_Stats.Paths[Derived Column Output]"
-              endId="Package\DF_Municipio_Stats\Lookup.Inputs[Lookup Input]"
-              name="Derived Column Output"
-              startId="Package\DF_Municipio_Stats\Derived Column.Outputs[Derived Column Output]" />
             <path
               refId="Package\DF_Municipio_Stats.Paths[Excel Source Output]"
               endId="Package\DF_Municipio_Stats\Data Conversion.Inputs[Data Conversion Input]"
@@ -2274,14 +2232,14 @@ where [refTable].[Categoria_Nombre] = ?</property>
               startId="Package\DF_Municipio_Stats\Lookup.Outputs[Lookup Match Output]" />
             <path
               refId="Package\DF_Municipio_Stats.Paths[Lookup Match Output1]"
-              endId="Package\DF_Municipio_Stats\Lookup 1 1.Inputs[Lookup Input]"
+              endId="Package\DF_Municipio_Stats\Lookup 2.Inputs[Lookup Input]"
               name="Lookup Match Output"
               startId="Package\DF_Municipio_Stats\Lookup 1.Outputs[Lookup Match Output]" />
             <path
               refId="Package\DF_Municipio_Stats.Paths[Lookup Match Output2]"
               endId="Package\DF_Municipio_Stats\Sort.Inputs[Sort Input]"
               name="Lookup Match Output"
-              startId="Package\DF_Municipio_Stats\Lookup 1 1.Outputs[Lookup Match Output]" />
+              startId="Package\DF_Municipio_Stats\Lookup 2.Outputs[Lookup Match Output]" />
             <path
               refId="Package\DF_Municipio_Stats.Paths[Sort Output]"
               endId="Package\DF_Municipio_Stats\Aggregate.Inputs[Aggregate Input 1]"
@@ -2291,7 +2249,34 @@ where [refTable].[Categoria_Nombre] = ?</property>
         </pipeline>
       </DTS:ObjectData>
     </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\TMP_DELETE"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{ec2b23b3-734b-473e-a91a-99f8599fb895}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="TMP_DELETE"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{FE38CFD5-B1A8-4D76-B5CD-5F6C471DB42B}"
+          SQLTask:SqlStatementSource="DELETE FROM Municipio_Stats;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
   </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{E2F91000-97D9-4399-9ACB-04BFB3981534}"
+      DTS:From="Package\TMP_DELETE"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\DF_Municipio_Stats" />
+  </DTS:PrecedenceConstraints>
   <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
 <!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
 <!--If you manually edit this section and make a mistake, you can delete it. -->
@@ -2303,11 +2288,49 @@ where [refTable].[Categoria_Nombre] = ?</property>
     design-time-name="Package">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="174.666666666667,42.6666666666667"
           Id="Package\DF_Municipio_Stats"
           TopLeft="369.374994495884,196.36842474878" />
+        <NodeLayout
+          Size="149.333333333334,42.6666666666667"
+          Id="Package\TMP_DELETE"
+          TopLeft="361.874994607643,96.5087718139174" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="436.541661274309,139.175438480584">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="20.1666665549079,57.1929862681959"
+              Start="0,0"
+              End="20.1666665549079,49.6929862681959">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,24.596493134098" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,24.596493134098"
+                    Point2="0,28.596493134098"
+                    Point3="4,28.596493134098" />
+                  <mssgle:LineSegment
+                    End="16.1666665549079,28.596493134098" />
+                  <mssgle:CubicBezierSegment
+                    Point1="16.1666665549079,28.596493134098"
+                    Point2="20.1666665549079,28.596493134098"
+                    Point3="20.1666665549079,32.596493134098" />
+                  <mssgle:LineSegment
+                    End="20.1666665549079,49.6929862681959" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </Package>
@@ -2315,215 +2338,65 @@ where [refTable].[Categoria_Nombre] = ?</property>
     design-time-name="Package\DF_Municipio_Stats">
     <LayoutInfo>
       <GraphLayout
-        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="158.666666666667,42.6666666666667"
+          Id="Package\DF_Municipio_Stats\Data Conversion"
+          TopLeft="345.624994849786,144.368423770009" />
+        <NodeLayout
+          Size="124,42.6666666666667"
+          Id="Package\DF_Municipio_Stats\Lookup 1"
+          TopLeft="246.874996321276,396.824567881427" />
+        <NodeLayout
+          Size="174.666666666667,42.6666666666667"
+          Id="Package\DF_Municipio_Stats\OLE DB Destination"
+          TopLeft="548.749991822988,563.210534545193" />
         <NodeLayout
           Size="142.666666666667,42.6666666666667"
           Id="Package\DF_Municipio_Stats\Excel Source"
           TopLeft="353.124994738028,49.947369361188" />
         <NodeLayout
-          Size="158.666666666667,42.6666666666667"
-          Id="Package\DF_Municipio_Stats\Data Conversion"
-          TopLeft="342.499994896352,124.526318133373" />
+          Size="98.6666666666667,42.6666666666667"
+          Id="Package\DF_Municipio_Stats\Sort"
+          TopLeft="164.374997550622,566.789478668215" />
         <NodeLayout
           Size="114.666666666667,42.6666666666667"
           Id="Package\DF_Municipio_Stats\Lookup"
-          TopLeft="238.124996451661,314.736848029403" />
+          TopLeft="272.499995939434,261.350881120945" />
         <NodeLayout
-          Size="114.666666666667,42.6666666666667"
-          Id="Package\DF_Municipio_Stats\Lookup 1"
-          TopLeft="234.999996498227,401.631586507087" />
-        <EdgeLayout
-          Id="Package\DF_Municipio_Stats.Paths[Lookup Match Output]"
-          TopLeft="293.895829808277,357.40351469607">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,44.2280718110167"
-              Start="0,0"
-              End="0,36.7280718110167">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,36.7280718110167" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-48.19138671875,12.5593484055083,96.3827734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="114.666666666667,42.6666666666667"
-          Id="Package\DF_Municipio_Stats\Lookup 1 1"
-          TopLeft="239.374996433035,485.140358076312" />
-        <EdgeLayout
-          Id="Package\DF_Municipio_Stats.Paths[Lookup Match Output1]"
-          TopLeft="294.520829798964,444.298253173753">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,40.8421049025582"
-              Start="0,0"
-              End="0,33.3421049025582">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,33.3421049025582" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-48.19138671875,10.8663649512791,96.3827734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="156,42.6666666666667"
-          Id="Package\DF_Municipio_Stats\Derived Column"
-          TopLeft="439.374993452802,314.98246126602" />
-        <EdgeLayout
-          Id="Package\DF_Municipio_Stats.Paths[Data Conversion Output]"
-          TopLeft="421.833328229686,167.192984800039">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="95.5416652231167,147.789476465981"
-              Start="0,0"
-              End="95.5416652231167,140.289476465981">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,69.8947382329904" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,69.8947382329904"
-                    Point2="0,73.8947382329904"
-                    Point3="4,73.8947382329904" />
-                  <mssgle:LineSegment
-                    End="91.5416652231167,73.8947382329904" />
-                  <mssgle:CubicBezierSegment
-                    Point1="91.5416652231167,73.8947382329904"
-                    Point2="95.5416652231167,73.8947382329904"
-                    Point3="95.5416652231167,77.8947382329904" />
-                  <mssgle:LineSegment
-                    End="95.5416652231167,140.289476465981" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\DF_Municipio_Stats.Paths[Derived Column Output]"
-          TopLeft="439.374993452802,336.192987981045">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-86.5833303344747,0"
-              Start="0,0"
-              End="-79.0833303344747,0">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="-79.0833303344747,0" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\DF_Municipio_Stats.Paths[Excel Source Output]"
-          TopLeft="423.145828150523,92.6140360278546">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,31.9122821055181"
-              Start="0,0"
-              End="0,24.4122821055181">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,24.4122821055181" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="98.6666666666667,42.6666666666667"
-          Id="Package\DF_Municipio_Stats\Sort"
-          TopLeft="193.7499971129,582.947379393591" />
-        <EdgeLayout
-          Id="Package\DF_Municipio_Stats.Paths[Lookup Match Output2]"
-          TopLeft="296.708329766368,527.807024742978">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-53.6249993201347,55.1403546506125"
-              Start="0,0"
-              End="-53.6249993201347,47.6403546506125">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,23.5701773253062" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,23.5701773253062"
-                    Point2="0,27.5701773253062"
-                    Point3="-4,27.5701773253062" />
-                  <mssgle:LineSegment
-                    End="-49.6249993201347,27.5701773253062" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-49.6249993201347,27.5701773253062"
-                    Point2="-53.6249993201347,27.5701773253062"
-                    Point3="-53.6249993201347,31.5701773253062" />
-                  <mssgle:LineSegment
-                    End="-53.6249993201347,47.6403546506125" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-83.8725387225674,32.5701773253062,114.120078125,16"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
+          Size="124,42.6666666666667"
+          Id="Package\DF_Municipio_Stats\Lookup 2"
+          TopLeft="71.874998928979,479.087724501186" />
         <NodeLayout
           Size="129.333333333334,42.6666666666667"
           Id="Package\DF_Municipio_Stats\Aggregate"
           TopLeft="364.999994561076,582.192989449201" />
         <EdgeLayout
           Id="Package\DF_Municipio_Stats.Paths[Sort Output]"
-          TopLeft="292.416663779567,603.90351775473">
+          TopLeft="263.041664217288,588.122812001549">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="72.5833307815096,0"
+              EndConnector="101.958330343788,15.4035107809856"
               Start="0,0"
-              End="65.0833307815096,0">
+              End="94.4583303437876,15.4035107809856">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="65.0833307815096,0" />
+                    End="46.9791651718938,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="46.9791651718938,0"
+                    Point2="50.9791651718938,0"
+                    Point3="50.9791651718938,4" />
+                  <mssgle:LineSegment
+                    End="50.9791651718938,11.4035107809856" />
+                  <mssgle:CubicBezierSegment
+                    Point1="50.9791651718938,11.4035107809856"
+                    Point2="50.9791651718938,15.4035107809856"
+                    Point3="54.9791651718938,15.4035107809856" />
+                  <mssgle:LineSegment
+                    End="94.4583303437876,15.4035107809856" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -2532,47 +2405,245 @@ where [refTable].[Categoria_Nombre] = ?</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="174.666666666667,42.6666666666667"
-          Id="Package\DF_Municipio_Stats\OLE DB Destination"
-          TopLeft="552.499991767109,594.000008808939" />
         <EdgeLayout
-          Id="Package\DF_Municipio_Stats.Paths[Aggregate Output 1]"
-          TopLeft="494.33332789441,603.526322782535">
+          Id="Package\DF_Municipio_Stats.Paths[Lookup Match Output2]"
+          TopLeft="133.874998928979,521.754391167853">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="58.166663872699,11.8070193597378"
+              EndConnector="79.833331954976,45.0350875003624"
               Start="0,0"
-              End="50.666663872699,11.8070193597378">
+              End="79.833331954976,37.5350875003624">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="25.0833319363495,0" />
+                    End="0,18.5175437501812" />
                   <mssgle:CubicBezierSegment
-                    Point1="25.0833319363495,0"
-                    Point2="29.0833319363495,0"
-                    Point3="29.0833319363495,4" />
+                    Point1="0,18.5175437501812"
+                    Point2="0,22.5175437501812"
+                    Point3="4,22.5175437501812" />
                   <mssgle:LineSegment
-                    End="29.0833319363495,7.80701935973775" />
+                    End="75.833331954976,22.5175437501812" />
                   <mssgle:CubicBezierSegment
-                    Point1="29.0833319363495,7.80701935973775"
-                    Point2="29.0833319363495,11.8070193597378"
-                    Point3="33.0833319363495,11.8070193597378" />
+                    Point1="75.833331954976,22.5175437501812"
+                    Point2="79.833331954976,22.5175437501812"
+                    Point3="79.833331954976,26.5175437501812" />
                   <mssgle:LineSegment
-                    End="50.666663872699,11.8070193597378" />
+                    End="79.833331954976,37.5350875003624" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-8.27472074126199,27.5175437501812,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DF_Municipio_Stats.Paths[Lookup Match Output1]"
+          TopLeft="308.874996321276,439.491234548094">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-174.999997392297,39.5964899530923"
+              Start="0,0"
+              End="-174.999997392297,32.0964899530923">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,15.7982449765461" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,15.7982449765461"
+                    Point2="0,19.7982449765461"
+                    Point3="-4,19.7982449765461" />
+                  <mssgle:LineSegment
+                    End="-170.999997392297,19.7982449765461" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-170.999997392297,19.7982449765461"
+                    Point2="-174.999997392297,19.7982449765461"
+                    Point3="-174.999997392297,23.7982449765461" />
+                  <mssgle:LineSegment
+                    End="-174.999997392297,32.0964899530923" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-135.691385414898,24.7982449765461,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DF_Municipio_Stats.Paths[Lookup Match Output]"
+          TopLeft="329.833329272767,304.017547787612">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-20.9583329514911,92.8070200938157"
+              Start="0,0"
+              End="-20.9583329514911,85.3070200938157">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,42.4035100469078" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,42.4035100469078"
+                    Point2="0,46.4035100469078"
+                    Point3="-4,46.4035100469078" />
+                  <mssgle:LineSegment
+                    End="-16.9583329514911,46.4035100469078" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-16.9583329514911,46.4035100469078"
+                    Point2="-20.9583329514911,46.4035100469078"
+                    Point3="-20.9583329514911,50.4035100469078" />
+                  <mssgle:LineSegment
+                    End="-20.9583329514911,85.3070200938157" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-58.6705531944955,51.4035100469078,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DF_Municipio_Stats.Paths[Excel Source Output]"
+          TopLeft="424.70832812724,92.6140360278547">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,51.7543877421547"
+              Start="0,0"
+              End="0,44.2543877421547">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,44.2543877421547" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DF_Municipio_Stats.Paths[Data Conversion Output]"
+          TopLeft="424.958328183119,187.035090436676">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-95.1249989103523,74.3157906842691"
+              Start="0,0"
+              End="-95.1249989103523,66.8157906842691">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,33.1578953421346" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,33.1578953421346"
+                    Point2="0,37.1578953421346"
+                    Point3="-4,37.1578953421346" />
+                  <mssgle:LineSegment
+                    End="-91.1249989103523,37.1578953421346" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-91.1249989103523,37.1578953421346"
+                    Point2="-95.1249989103523,37.1578953421346"
+                    Point3="-95.1249989103523,41.1578953421346" />
+                  <mssgle:LineSegment
+                    End="-95.1249989103523,66.8157906842691" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DF_Municipio_Stats.Paths[Aggregate Output 1]"
+          TopLeft="494.333327894409,603.526322782534">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="54.4166639285787,-18.982454904008"
+              Start="0,0"
+              End="46.9166639285787,-18.982454904008">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="23.2083319642894,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="23.2083319642894,0"
+                    Point2="27.2083319642894,0"
+                    Point3="27.2083319642894,-4" />
+                  <mssgle:LineSegment
+                    End="27.2083319642894,-14.982454904008" />
+                  <mssgle:CubicBezierSegment
+                    Point1="27.2083319642894,-14.982454904008"
+                    Point2="27.2083319642894,-18.982454904008"
+                    Point3="31.2083319642894,-18.982454904008" />
+                  <mssgle:LineSegment
+                    End="46.9166639285787,-18.982454904008" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="19.2083319642894,1,16,16"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\DF_Municipio_Stats\Lookup 1">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[Dim_Categoria]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DF_Municipio_Stats\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
   <PipelineComponentMetadata
     design-time-name="Package\DF_Municipio_Stats\Excel Source">
     <Properties>
@@ -2592,17 +2663,17 @@ where [refTable].[Categoria_Nombre] = ?</property>
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
         <Value
-          type="q2:boolean">false</Value>
+          type="q2:string">false</Value>
       </Property>
       <Property>
         <Name>UsedTableName</Name>
         <Value
-          type="q3:string"></Value>
+          type="q3:string">[dbo].[Dim_Municipio]</Value>
       </Property>
       <Property>
         <Name>TableInfoObjectType</Name>
         <Value
-          type="q4:int">0</Value>
+          type="q4:string">0</Value>
       </Property>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -2610,61 +2681,25 @@ where [refTable].[Categoria_Nombre] = ?</property>
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\DF_Municipio_Stats\Lookup 1">
+    design-time-name="Package\DF_Municipio_Stats\Lookup 2">
     <Properties>
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
         <Value
-          type="q2:boolean">false</Value>
+          type="q2:string">false</Value>
       </Property>
       <Property>
         <Name>UsedTableName</Name>
         <Value
-          type="q3:string"></Value>
+          type="q3:string">[dbo].[Dim_Indicador]</Value>
       </Property>
       <Property>
         <Name>TableInfoObjectType</Name>
         <Value
-          type="q4:int">0</Value>
+          type="q4:string">0</Value>
       </Property>
       <Property>
         <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\DF_Municipio_Stats\Lookup 1 1">
-    <Properties>
-      <Property>
-        <Name>OverwriteParamsSQLProp</Name>
-        <Value
-          type="q2:boolean">false</Value>
-      </Property>
-      <Property>
-        <Name>UsedTableName</Name>
-        <Value
-          type="q3:string"></Value>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q4:int">0</Value>
-      </Property>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\DF_Municipio_Stats\OLE DB Destination">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
       </Property>
     </Properties>
   </PipelineComponentMetadata>

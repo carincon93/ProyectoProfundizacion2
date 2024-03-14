@@ -5,33 +5,33 @@
   DTS:CreationName="Microsoft.Package"
   DTS:CreatorComputerName="DESKTOP-54L8G8U"
   DTS:CreatorName="DESKTOP-54L8G8U\Cristian"
-  DTS:DTSID="{470CBDF0-E7B6-440F-9DC7-F6457B875F56}"
+  DTS:DTSID="{94C6EE31-102F-465F-A821-C90539ADF5AA}"
   DTS:ExecutableType="Microsoft.Package"
   DTS:LastModifiedProductVersion="16.0.5270.0"
   DTS:LocaleID="9226"
-  DTS:ObjectName="DIM_INDICADOR"
+  DTS:ObjectName="DIM_Anio"
   DTS:PackageType="5"
-  DTS:VersionBuild="40"
-  DTS:VersionGUID="{0FECA9B6-0798-4998-BF3C-875FB7615345}">
+  DTS:VersionBuild="48"
+  DTS:VersionGUID="{113139F5-AA73-4F63-B96C-31474F4C9E67}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
     <DTS:ConnectionManager
       DTS:refId="Package.ConnectionManagers[DESKTOP-54L8G8U.OBSERVATORIO_MUNICIPIOS]"
       DTS:CreationName="OLEDB"
-      DTS:DTSID="{FE04E231-22DE-4BB5-A868-FE9205CC0B6E}"
+      DTS:DTSID="{280BCF61-D7A3-4E84-8662-D6B256C9E058}"
       DTS:ObjectName="DESKTOP-54L8G8U.OBSERVATORIO_MUNICIPIOS">
       <DTS:ObjectData>
         <DTS:ConnectionManager
           DTS:ConnectRetryCount="1"
           DTS:ConnectRetryInterval="5"
-          DTS:ConnectionString="Data Source=DESKTOP-54L8G8U;Initial Catalog=OBSERVATORIO_MUNICIPIOS;Provider=SQLNCLI11.1;Integrated Security=SSPI;Application Name=SSIS-Package-{FE04E231-22DE-4BB5-A868-FE9205CC0B6E}DESKTOP-54L8G8U.OBSERVATORIO_MUNICIPIOS;Auto Translate=False;" />
+          DTS:ConnectionString="Data Source=DESKTOP-54L8G8U;Initial Catalog=OBSERVATORIO_MUNICIPIOS;Provider=SQLNCLI11.1;Integrated Security=SSPI;Application Name=SSIS-Package-{280BCF61-D7A3-4E84-8662-D6B256C9E058}DESKTOP-54L8G8U.OBSERVATORIO_MUNICIPIOS;Auto Translate=False;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
     <DTS:ConnectionManager
       DTS:refId="Package.ConnectionManagers[Excel Connection Manager]"
       DTS:CreationName="EXCEL"
-      DTS:DTSID="{AB4B759A-CF63-4A7A-B360-2396EAB526E0}"
+      DTS:DTSID="{BBB3D86D-9569-4860-BEDC-EB12C21A89B7}"
       DTS:ObjectName="Excel Connection Manager">
       <DTS:ObjectData>
         <DTS:ConnectionManager
@@ -44,7 +44,7 @@
   <DTS:Variables>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{DB404D1F-295C-4D64-BE96-C2A197134D75}"
+      DTS:DTSID="{9826F902-B5A2-4BE2-AB20-ED3E6ACAF7D6}"
       DTS:IncludeInDebugDump="6789"
       DTS:Namespace="User"
       DTS:ObjectName="ETLExecution">
@@ -53,7 +53,7 @@
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{D20EE0B9-D11E-4BCD-B049-989DB31DC719}"
+      DTS:DTSID="{E7662141-390E-4289-B3B4-765E5285B1FA}"
       DTS:IncludeInDebugDump="6789"
       DTS:Namespace="User"
       DTS:ObjectName="RowCounts">
@@ -63,13 +63,13 @@
   </DTS:Variables>
   <DTS:Executables>
     <DTS:Executable
-      DTS:refId="Package\DF_Indicador"
+      DTS:refId="Package\DF_Anio"
       DTS:CreationName="Microsoft.Pipeline"
       DTS:Description="Data Flow Task"
-      DTS:DTSID="{42AFBD83-AD79-45E0-99DE-71AD04394A72}"
+      DTS:DTSID="{8CB4EDCF-9EF0-4EED-994F-562FF5358CF0}"
       DTS:ExecutableType="Microsoft.Pipeline"
       DTS:LocaleID="-1"
-      DTS:ObjectName="DF_Indicador"
+      DTS:ObjectName="DF_Anio"
       DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
       <DTS:Variables />
       <DTS:ObjectData>
@@ -77,7 +77,7 @@
           version="1">
           <components>
             <component
-              refId="Package\DF_Indicador\Aggregate"
+              refId="Package\DF_Anio\Aggregate"
               componentClassID="Microsoft.Aggregate"
               contactInfo="Aggregate;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;3"
               description="Aggregates data with functions such as Average, Sum, Count, Max, and Min. For example, group data to compute the sum of sales per product or the average visits per day."
@@ -109,23 +109,22 @@
               </properties>
               <inputs>
                 <input
-                  refId="Package\DF_Indicador\Aggregate.Inputs[Aggregate Input 1]"
+                  refId="Package\DF_Anio\Aggregate.Inputs[Aggregate Input 1]"
                   name="Aggregate Input 1">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\DF_Indicador\Aggregate.Inputs[Aggregate Input 1].Columns[indicador]"
-                      cachedDataType="wstr"
-                      cachedLength="255"
-                      cachedName="indicador"
+                      refId="Package\DF_Anio\Aggregate.Inputs[Aggregate Input 1].Columns[año]"
+                      cachedDataType="r8"
+                      cachedName="año"
                       cachedSortKeyPosition="1"
-                      lineageId="Package\DF_Indicador\Sort.Outputs[Sort Output].Columns[indicador]" />
+                      lineageId="Package\DF_Anio\Sort.Outputs[Sort Output].Columns[año]" />
                   </inputColumns>
                   <externalMetadataColumns />
                 </input>
               </inputs>
               <outputs>
                 <output
-                  refId="Package\DF_Indicador\Aggregate.Outputs[Aggregate Output 1]"
+                  refId="Package\DF_Anio\Aggregate.Outputs[Aggregate Output 1]"
                   name="Aggregate Output 1">
                   <properties>
                     <property
@@ -140,17 +139,16 @@
                   </properties>
                   <outputColumns>
                     <outputColumn
-                      refId="Package\DF_Indicador\Aggregate.Outputs[Aggregate Output 1].Columns[indicador]"
-                      dataType="wstr"
-                      length="255"
-                      lineageId="Package\DF_Indicador\Aggregate.Outputs[Aggregate Output 1].Columns[indicador]"
-                      name="indicador">
+                      refId="Package\DF_Anio\Aggregate.Outputs[Aggregate Output 1].Columns[año]"
+                      dataType="r8"
+                      lineageId="Package\DF_Anio\Aggregate.Outputs[Aggregate Output 1].Columns[año]"
+                      name="año">
                       <properties>
                         <property
                           containsID="true"
                           dataType="System.Int32"
                           description="Specifies the ID of the input column used in the aggregation."
-                          name="AggregationColumnId">#{Package\DF_Indicador\Sort.Outputs[Sort Output].Columns[indicador]}</property>
+                          name="AggregationColumnId">#{Package\DF_Anio\Sort.Outputs[Sort Output].Columns[año]}</property>
                         <property
                           dataType="System.Int32"
                           description="Specifies the type of aggregation."
@@ -172,7 +170,7 @@
               </outputs>
             </component>
             <component
-              refId="Package\DF_Indicador\Conditional Split"
+              refId="Package\DF_Anio\Conditional Split"
               componentClassID="Microsoft.ConditionalSplit"
               contactInfo="Conditional Split;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
               description="Routes data rows to different outputs depending on the content of the data. Use conditions (SSIS expressions) to specify which rows are routed. For example, separate records that need to be cleaned from those that are ready to be loaded or route only a subset of records."
@@ -180,43 +178,41 @@
               usesDispositions="true">
               <inputs>
                 <input
-                  refId="Package\DF_Indicador\Conditional Split.Inputs[Conditional Split Input]"
+                  refId="Package\DF_Anio\Conditional Split.Inputs[Conditional Split Input]"
                   description="Input to the Conditional Split Transformation"
                   name="Conditional Split Input">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\DF_Indicador\Conditional Split.Inputs[Conditional Split Input].Columns[indicador_transf]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="70"
-                      cachedName="indicador_transf"
-                      lineageId="Package\DF_Indicador\Data Conversion.Outputs[Data Conversion Output].Columns[indicador_transf]" />
+                      refId="Package\DF_Anio\Conditional Split.Inputs[Conditional Split Input].Columns[anio_transf]"
+                      cachedDataType="r8"
+                      cachedName="anio_transf"
+                      lineageId="Package\DF_Anio\Data Conversion.Outputs[Data Conversion Output].Columns[anio_transf]" />
                   </inputColumns>
                   <externalMetadataColumns />
                 </input>
               </inputs>
               <outputs>
                 <output
-                  refId="Package\DF_Indicador\Conditional Split.Outputs[Case 1]"
+                  refId="Package\DF_Anio\Conditional Split.Outputs[Case 2]"
                   description="Output 2 of the Conditional Split Transformation"
                   errorOrTruncationOperation="Computation"
                   errorRowDisposition="FailComponent"
                   exclusionGroup="1"
-                  name="Case 1"
-                  synchronousInputId="Package\DF_Indicador\Conditional Split.Inputs[Conditional Split Input]"
+                  name="Case 2"
+                  synchronousInputId="Package\DF_Anio\Conditional Split.Inputs[Conditional Split Input]"
                   truncationRowDisposition="FailComponent">
                   <properties>
                     <property
                       containsID="true"
                       dataType="System.String"
                       description="Specifies the expression. This expression version uses lineage identifiers instead of column names."
-                      name="Expression">[ISNULL](#{Package\DF_Indicador\Data Conversion.Outputs[Data Conversion Output].Columns[indicador_transf]}) ==  FALSE  &amp;&amp; #{Package\DF_Indicador\Data Conversion.Outputs[Data Conversion Output].Columns[indicador_transf]} != "" &amp;&amp; [LEN](#{Package\DF_Indicador\Data Conversion.Outputs[Data Conversion Output].Columns[indicador_transf]}) &gt; 2</property>
+                      name="Expression">[ISNULL](#{Package\DF_Anio\Data Conversion.Outputs[Data Conversion Output].Columns[anio_transf]}) ==  FALSE  &amp;&amp; #{Package\DF_Anio\Data Conversion.Outputs[Data Conversion Output].Columns[anio_transf]} &gt; 0 &amp;&amp; #{Package\DF_Anio\Data Conversion.Outputs[Data Conversion Output].Columns[anio_transf]} &lt; 2099</property>
                     <property
                       containsID="true"
                       dataType="System.String"
                       description="Specifies the friendly version of the expression. This expression version uses column names."
                       expressionType="Notify"
-                      name="FriendlyExpression">ISNULL(indicador_transf) ==  FALSE  &amp;&amp; indicador_transf != "" &amp;&amp; LEN(indicador_transf) &gt; 2</property>
+                      name="FriendlyExpression">ISNULL(anio_transf) ==  FALSE  &amp;&amp; anio_transf &gt; 0 &amp;&amp; anio_transf &lt; 2099</property>
                     <property
                       dataType="System.Int32"
                       description="Specifies the position of the condition in the list of conditions that the transformation evaluates. The evaluation order is from the lowest to the highest value."
@@ -225,11 +221,11 @@
                   <externalMetadataColumns />
                 </output>
                 <output
-                  refId="Package\DF_Indicador\Conditional Split.Outputs[Conditional Split Default Output]"
+                  refId="Package\DF_Anio\Conditional Split.Outputs[Conditional Split Default Output]"
                   description="Default Output of the Conditional Split Transformation"
                   exclusionGroup="1"
                   name="Conditional Split Default Output"
-                  synchronousInputId="Package\DF_Indicador\Conditional Split.Inputs[Conditional Split Input]">
+                  synchronousInputId="Package\DF_Anio\Conditional Split.Inputs[Conditional Split Input]">
                   <properties>
                     <property
                       dataType="System.Boolean"
@@ -238,23 +234,23 @@
                   <externalMetadataColumns />
                 </output>
                 <output
-                  refId="Package\DF_Indicador\Conditional Split.Outputs[Conditional Split Error Output]"
+                  refId="Package\DF_Anio\Conditional Split.Outputs[Conditional Split Error Output]"
                   description="Error Output of the Conditional Split Transformation"
                   exclusionGroup="1"
                   isErrorOut="true"
                   name="Conditional Split Error Output"
-                  synchronousInputId="Package\DF_Indicador\Conditional Split.Inputs[Conditional Split Input]">
+                  synchronousInputId="Package\DF_Anio\Conditional Split.Inputs[Conditional Split Input]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\DF_Indicador\Conditional Split.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
+                      refId="Package\DF_Anio\Conditional Split.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\DF_Indicador\Conditional Split.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
+                      lineageId="Package\DF_Anio\Conditional Split.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\DF_Indicador\Conditional Split.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
+                      refId="Package\DF_Anio\Conditional Split.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\DF_Indicador\Conditional Split.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
+                      lineageId="Package\DF_Anio\Conditional Split.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -263,7 +259,7 @@
               </outputs>
             </component>
             <component
-              refId="Package\DF_Indicador\Data Conversion"
+              refId="Package\DF_Anio\Data Conversion"
               componentClassID="Microsoft.DataConvert"
               contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
               description="Data Conversion"
@@ -271,42 +267,39 @@
               usesDispositions="true">
               <inputs>
                 <input
-                  refId="Package\DF_Indicador\Data Conversion.Inputs[Data Conversion Input]"
+                  refId="Package\DF_Anio\Data Conversion.Inputs[Data Conversion Input]"
                   name="Data Conversion Input">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\DF_Indicador\Data Conversion.Inputs[Data Conversion Input].Columns[indicador]"
-                      cachedDataType="wstr"
-                      cachedLength="255"
-                      cachedName="indicador"
-                      lineageId="Package\DF_Indicador\Aggregate.Outputs[Aggregate Output 1].Columns[indicador]" />
+                      refId="Package\DF_Anio\Data Conversion.Inputs[Data Conversion Input].Columns[año]"
+                      cachedDataType="r8"
+                      cachedName="año"
+                      lineageId="Package\DF_Anio\Aggregate.Outputs[Aggregate Output 1].Columns[año]" />
                   </inputColumns>
                   <externalMetadataColumns />
                 </input>
               </inputs>
               <outputs>
                 <output
-                  refId="Package\DF_Indicador\Data Conversion.Outputs[Data Conversion Output]"
+                  refId="Package\DF_Anio\Data Conversion.Outputs[Data Conversion Output]"
                   exclusionGroup="1"
                   name="Data Conversion Output"
-                  synchronousInputId="Package\DF_Indicador\Data Conversion.Inputs[Data Conversion Input]">
+                  synchronousInputId="Package\DF_Anio\Data Conversion.Inputs[Data Conversion Input]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\DF_Indicador\Data Conversion.Outputs[Data Conversion Output].Columns[indicador_transf]"
-                      codePage="1252"
-                      dataType="str"
+                      refId="Package\DF_Anio\Data Conversion.Outputs[Data Conversion Output].Columns[anio_transf]"
+                      dataType="r8"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      length="70"
-                      lineageId="Package\DF_Indicador\Data Conversion.Outputs[Data Conversion Output].Columns[indicador_transf]"
-                      name="indicador_transf"
+                      lineageId="Package\DF_Anio\Data Conversion.Outputs[Data Conversion Output].Columns[anio_transf]"
+                      name="anio_transf"
                       truncationRowDisposition="FailComponent">
                       <properties>
                         <property
                           containsID="true"
                           dataType="System.Int32"
                           description="Specifies the input column used as the source of data for the conversion."
-                          name="SourceInputColumnLineageID">#{Package\DF_Indicador\Aggregate.Outputs[Aggregate Output 1].Columns[indicador]}</property>
+                          name="SourceInputColumnLineageID">#{Package\DF_Anio\Aggregate.Outputs[Aggregate Output 1].Columns[año]}</property>
                         <property
                           dataType="System.Boolean"
                           description="Indicates whether the column uses the faster, locale-neutral parsing routines."
@@ -317,22 +310,22 @@
                   <externalMetadataColumns />
                 </output>
                 <output
-                  refId="Package\DF_Indicador\Data Conversion.Outputs[Data Conversion Error Output]"
+                  refId="Package\DF_Anio\Data Conversion.Outputs[Data Conversion Error Output]"
                   exclusionGroup="1"
                   isErrorOut="true"
                   name="Data Conversion Error Output"
-                  synchronousInputId="Package\DF_Indicador\Data Conversion.Inputs[Data Conversion Input]">
+                  synchronousInputId="Package\DF_Anio\Data Conversion.Inputs[Data Conversion Input]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\DF_Indicador\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      refId="Package\DF_Anio\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\DF_Indicador\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      lineageId="Package\DF_Anio\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\DF_Indicador\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      refId="Package\DF_Anio\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\DF_Indicador\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      lineageId="Package\DF_Anio\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -341,7 +334,7 @@
               </outputs>
             </component>
             <component
-              refId="Package\DF_Indicador\Excel Source"
+              refId="Package\DF_Anio\Excel Source"
               componentClassID="Microsoft.ExcelSource"
               contactInfo="Excel Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
               description="Excel Source"
@@ -382,7 +375,7 @@
               </properties>
               <connections>
                 <connection
-                  refId="Package\DF_Indicador\Excel Source.Connections[OleDbConnection]"
+                  refId="Package\DF_Anio\Excel Source.Connections[OleDbConnection]"
                   connectionManagerID="Package.ConnectionManagers[Excel Connection Manager]"
                   connectionManagerRefId="Package.ConnectionManagers[Excel Connection Manager]"
                   description="The OLE DB runtime connection used to access the database."
@@ -390,200 +383,200 @@
               </connections>
               <outputs>
                 <output
-                  refId="Package\DF_Indicador\Excel Source.Outputs[Excel Source Output]"
+                  refId="Package\DF_Anio\Excel Source.Outputs[Excel Source Output]"
                   name="Excel Source Output">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\DF_Indicador\Excel Source.Outputs[Excel Source Output].Columns[genero]"
+                      refId="Package\DF_Anio\Excel Source.Outputs[Excel Source Output].Columns[genero]"
                       dataType="wstr"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\DF_Indicador\Excel Source.Outputs[Excel Source Output].ExternalColumns[genero]"
+                      externalMetadataColumnId="Package\DF_Anio\Excel Source.Outputs[Excel Source Output].ExternalColumns[genero]"
                       length="255"
-                      lineageId="Package\DF_Indicador\Excel Source.Outputs[Excel Source Output].Columns[genero]"
+                      lineageId="Package\DF_Anio\Excel Source.Outputs[Excel Source Output].Columns[genero]"
                       name="genero"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\DF_Indicador\Excel Source.Outputs[Excel Source Output].Columns[agrupa]"
+                      refId="Package\DF_Anio\Excel Source.Outputs[Excel Source Output].Columns[agrupa]"
                       dataType="wstr"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\DF_Indicador\Excel Source.Outputs[Excel Source Output].ExternalColumns[agrupa]"
+                      externalMetadataColumnId="Package\DF_Anio\Excel Source.Outputs[Excel Source Output].ExternalColumns[agrupa]"
                       length="255"
-                      lineageId="Package\DF_Indicador\Excel Source.Outputs[Excel Source Output].Columns[agrupa]"
+                      lineageId="Package\DF_Anio\Excel Source.Outputs[Excel Source Output].Columns[agrupa]"
                       name="agrupa"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\DF_Indicador\Excel Source.Outputs[Excel Source Output].Columns[valor]"
+                      refId="Package\DF_Anio\Excel Source.Outputs[Excel Source Output].Columns[valor]"
                       dataType="r8"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\DF_Indicador\Excel Source.Outputs[Excel Source Output].ExternalColumns[valor]"
-                      lineageId="Package\DF_Indicador\Excel Source.Outputs[Excel Source Output].Columns[valor]"
+                      externalMetadataColumnId="Package\DF_Anio\Excel Source.Outputs[Excel Source Output].ExternalColumns[valor]"
+                      lineageId="Package\DF_Anio\Excel Source.Outputs[Excel Source Output].Columns[valor]"
                       name="valor"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\DF_Indicador\Excel Source.Outputs[Excel Source Output].Columns[mes]"
+                      refId="Package\DF_Anio\Excel Source.Outputs[Excel Source Output].Columns[mes]"
                       dataType="wstr"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\DF_Indicador\Excel Source.Outputs[Excel Source Output].ExternalColumns[mes]"
+                      externalMetadataColumnId="Package\DF_Anio\Excel Source.Outputs[Excel Source Output].ExternalColumns[mes]"
                       length="255"
-                      lineageId="Package\DF_Indicador\Excel Source.Outputs[Excel Source Output].Columns[mes]"
+                      lineageId="Package\DF_Anio\Excel Source.Outputs[Excel Source Output].Columns[mes]"
                       name="mes"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\DF_Indicador\Excel Source.Outputs[Excel Source Output].Columns[indicador]"
+                      refId="Package\DF_Anio\Excel Source.Outputs[Excel Source Output].Columns[indicador]"
                       dataType="wstr"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\DF_Indicador\Excel Source.Outputs[Excel Source Output].ExternalColumns[indicador]"
+                      externalMetadataColumnId="Package\DF_Anio\Excel Source.Outputs[Excel Source Output].ExternalColumns[indicador]"
                       length="255"
-                      lineageId="Package\DF_Indicador\Excel Source.Outputs[Excel Source Output].Columns[indicador]"
+                      lineageId="Package\DF_Anio\Excel Source.Outputs[Excel Source Output].Columns[indicador]"
                       name="indicador"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\DF_Indicador\Excel Source.Outputs[Excel Source Output].Columns[año]"
+                      refId="Package\DF_Anio\Excel Source.Outputs[Excel Source Output].Columns[año]"
                       dataType="r8"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\DF_Indicador\Excel Source.Outputs[Excel Source Output].ExternalColumns[año]"
-                      lineageId="Package\DF_Indicador\Excel Source.Outputs[Excel Source Output].Columns[año]"
+                      externalMetadataColumnId="Package\DF_Anio\Excel Source.Outputs[Excel Source Output].ExternalColumns[año]"
+                      lineageId="Package\DF_Anio\Excel Source.Outputs[Excel Source Output].Columns[año]"
                       name="año"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\DF_Indicador\Excel Source.Outputs[Excel Source Output].Columns[area]"
+                      refId="Package\DF_Anio\Excel Source.Outputs[Excel Source Output].Columns[area]"
                       dataType="wstr"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\DF_Indicador\Excel Source.Outputs[Excel Source Output].ExternalColumns[area]"
+                      externalMetadataColumnId="Package\DF_Anio\Excel Source.Outputs[Excel Source Output].ExternalColumns[area]"
                       length="255"
-                      lineageId="Package\DF_Indicador\Excel Source.Outputs[Excel Source Output].Columns[area]"
+                      lineageId="Package\DF_Anio\Excel Source.Outputs[Excel Source Output].Columns[area]"
                       name="area"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\DF_Indicador\Excel Source.Outputs[Excel Source Output].Columns[categoria]"
+                      refId="Package\DF_Anio\Excel Source.Outputs[Excel Source Output].Columns[categoria]"
                       dataType="wstr"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\DF_Indicador\Excel Source.Outputs[Excel Source Output].ExternalColumns[categoria]"
+                      externalMetadataColumnId="Package\DF_Anio\Excel Source.Outputs[Excel Source Output].ExternalColumns[categoria]"
                       length="255"
-                      lineageId="Package\DF_Indicador\Excel Source.Outputs[Excel Source Output].Columns[categoria]"
+                      lineageId="Package\DF_Anio\Excel Source.Outputs[Excel Source Output].Columns[categoria]"
                       name="categoria"
                       truncationRowDisposition="FailComponent" />
                   </outputColumns>
                   <externalMetadataColumns
                     isUsed="True">
                     <externalMetadataColumn
-                      refId="Package\DF_Indicador\Excel Source.Outputs[Excel Source Output].ExternalColumns[genero]"
+                      refId="Package\DF_Anio\Excel Source.Outputs[Excel Source Output].ExternalColumns[genero]"
                       dataType="wstr"
                       length="255"
                       name="genero" />
                     <externalMetadataColumn
-                      refId="Package\DF_Indicador\Excel Source.Outputs[Excel Source Output].ExternalColumns[agrupa]"
+                      refId="Package\DF_Anio\Excel Source.Outputs[Excel Source Output].ExternalColumns[agrupa]"
                       dataType="wstr"
                       length="255"
                       name="agrupa" />
                     <externalMetadataColumn
-                      refId="Package\DF_Indicador\Excel Source.Outputs[Excel Source Output].ExternalColumns[valor]"
+                      refId="Package\DF_Anio\Excel Source.Outputs[Excel Source Output].ExternalColumns[valor]"
                       dataType="r8"
                       name="valor" />
                     <externalMetadataColumn
-                      refId="Package\DF_Indicador\Excel Source.Outputs[Excel Source Output].ExternalColumns[mes]"
+                      refId="Package\DF_Anio\Excel Source.Outputs[Excel Source Output].ExternalColumns[mes]"
                       dataType="wstr"
                       length="255"
                       name="mes" />
                     <externalMetadataColumn
-                      refId="Package\DF_Indicador\Excel Source.Outputs[Excel Source Output].ExternalColumns[indicador]"
+                      refId="Package\DF_Anio\Excel Source.Outputs[Excel Source Output].ExternalColumns[indicador]"
                       dataType="wstr"
                       length="255"
                       name="indicador" />
                     <externalMetadataColumn
-                      refId="Package\DF_Indicador\Excel Source.Outputs[Excel Source Output].ExternalColumns[año]"
+                      refId="Package\DF_Anio\Excel Source.Outputs[Excel Source Output].ExternalColumns[año]"
                       dataType="r8"
                       name="año" />
                     <externalMetadataColumn
-                      refId="Package\DF_Indicador\Excel Source.Outputs[Excel Source Output].ExternalColumns[area]"
+                      refId="Package\DF_Anio\Excel Source.Outputs[Excel Source Output].ExternalColumns[area]"
                       dataType="wstr"
                       length="255"
                       name="area" />
                     <externalMetadataColumn
-                      refId="Package\DF_Indicador\Excel Source.Outputs[Excel Source Output].ExternalColumns[categoria]"
+                      refId="Package\DF_Anio\Excel Source.Outputs[Excel Source Output].ExternalColumns[categoria]"
                       dataType="wstr"
                       length="255"
                       name="categoria" />
                   </externalMetadataColumns>
                 </output>
                 <output
-                  refId="Package\DF_Indicador\Excel Source.Outputs[Excel Source Error Output]"
+                  refId="Package\DF_Anio\Excel Source.Outputs[Excel Source Error Output]"
                   isErrorOut="true"
                   name="Excel Source Error Output">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\DF_Indicador\Excel Source.Outputs[Excel Source Error Output].Columns[area]"
-                      dataType="wstr"
-                      length="255"
-                      lineageId="Package\DF_Indicador\Excel Source.Outputs[Excel Source Error Output].Columns[area]"
-                      name="area" />
-                    <outputColumn
-                      refId="Package\DF_Indicador\Excel Source.Outputs[Excel Source Error Output].Columns[categoria]"
-                      dataType="wstr"
-                      length="255"
-                      lineageId="Package\DF_Indicador\Excel Source.Outputs[Excel Source Error Output].Columns[categoria]"
-                      name="categoria" />
-                    <outputColumn
-                      refId="Package\DF_Indicador\Excel Source.Outputs[Excel Source Error Output].Columns[genero]"
-                      dataType="wstr"
-                      length="255"
-                      lineageId="Package\DF_Indicador\Excel Source.Outputs[Excel Source Error Output].Columns[genero]"
-                      name="genero" />
-                    <outputColumn
-                      refId="Package\DF_Indicador\Excel Source.Outputs[Excel Source Error Output].Columns[agrupa]"
-                      dataType="wstr"
-                      length="255"
-                      lineageId="Package\DF_Indicador\Excel Source.Outputs[Excel Source Error Output].Columns[agrupa]"
-                      name="agrupa" />
-                    <outputColumn
-                      refId="Package\DF_Indicador\Excel Source.Outputs[Excel Source Error Output].Columns[valor]"
-                      dataType="r8"
-                      lineageId="Package\DF_Indicador\Excel Source.Outputs[Excel Source Error Output].Columns[valor]"
-                      name="valor" />
-                    <outputColumn
-                      refId="Package\DF_Indicador\Excel Source.Outputs[Excel Source Error Output].Columns[año]"
-                      dataType="r8"
-                      lineageId="Package\DF_Indicador\Excel Source.Outputs[Excel Source Error Output].Columns[año]"
-                      name="año" />
-                    <outputColumn
-                      refId="Package\DF_Indicador\Excel Source.Outputs[Excel Source Error Output].Columns[mes]"
-                      dataType="wstr"
-                      length="255"
-                      lineageId="Package\DF_Indicador\Excel Source.Outputs[Excel Source Error Output].Columns[mes]"
-                      name="mes" />
-                    <outputColumn
-                      refId="Package\DF_Indicador\Excel Source.Outputs[Excel Source Error Output].Columns[indicador]"
-                      dataType="wstr"
-                      length="255"
-                      lineageId="Package\DF_Indicador\Excel Source.Outputs[Excel Source Error Output].Columns[indicador]"
-                      name="indicador" />
-                    <outputColumn
-                      refId="Package\DF_Indicador\Excel Source.Outputs[Excel Source Error Output].Columns[ErrorCode]"
+                      refId="Package\DF_Anio\Excel Source.Outputs[Excel Source Error Output].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\DF_Indicador\Excel Source.Outputs[Excel Source Error Output].Columns[ErrorCode]"
+                      lineageId="Package\DF_Anio\Excel Source.Outputs[Excel Source Error Output].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\DF_Indicador\Excel Source.Outputs[Excel Source Error Output].Columns[ErrorColumn]"
+                      refId="Package\DF_Anio\Excel Source.Outputs[Excel Source Error Output].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\DF_Indicador\Excel Source.Outputs[Excel Source Error Output].Columns[ErrorColumn]"
+                      lineageId="Package\DF_Anio\Excel Source.Outputs[Excel Source Error Output].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
+                    <outputColumn
+                      refId="Package\DF_Anio\Excel Source.Outputs[Excel Source Error Output].Columns[genero]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\DF_Anio\Excel Source.Outputs[Excel Source Error Output].Columns[genero]"
+                      name="genero" />
+                    <outputColumn
+                      refId="Package\DF_Anio\Excel Source.Outputs[Excel Source Error Output].Columns[agrupa]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\DF_Anio\Excel Source.Outputs[Excel Source Error Output].Columns[agrupa]"
+                      name="agrupa" />
+                    <outputColumn
+                      refId="Package\DF_Anio\Excel Source.Outputs[Excel Source Error Output].Columns[valor]"
+                      dataType="r8"
+                      lineageId="Package\DF_Anio\Excel Source.Outputs[Excel Source Error Output].Columns[valor]"
+                      name="valor" />
+                    <outputColumn
+                      refId="Package\DF_Anio\Excel Source.Outputs[Excel Source Error Output].Columns[mes]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\DF_Anio\Excel Source.Outputs[Excel Source Error Output].Columns[mes]"
+                      name="mes" />
+                    <outputColumn
+                      refId="Package\DF_Anio\Excel Source.Outputs[Excel Source Error Output].Columns[indicador]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\DF_Anio\Excel Source.Outputs[Excel Source Error Output].Columns[indicador]"
+                      name="indicador" />
+                    <outputColumn
+                      refId="Package\DF_Anio\Excel Source.Outputs[Excel Source Error Output].Columns[año]"
+                      dataType="r8"
+                      lineageId="Package\DF_Anio\Excel Source.Outputs[Excel Source Error Output].Columns[año]"
+                      name="año" />
+                    <outputColumn
+                      refId="Package\DF_Anio\Excel Source.Outputs[Excel Source Error Output].Columns[area]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\DF_Anio\Excel Source.Outputs[Excel Source Error Output].Columns[area]"
+                      name="area" />
+                    <outputColumn
+                      refId="Package\DF_Anio\Excel Source.Outputs[Excel Source Error Output].Columns[categoria]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\DF_Anio\Excel Source.Outputs[Excel Source Error Output].Columns[categoria]"
+                      name="categoria" />
                   </outputColumns>
                   <externalMetadataColumns />
                 </output>
               </outputs>
             </component>
             <component
-              refId="Package\DF_Indicador\OLE DB Destination"
+              refId="Package\DF_Anio\OLE DB Destination"
               componentClassID="Microsoft.OLEDBDestination"
               contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
               description="OLE DB Destination"
@@ -598,7 +591,7 @@
                 <property
                   dataType="System.String"
                   description="Specifies the name of the database object used to open a rowset."
-                  name="OpenRowset">[dbo].[Dim_Indicador]</property>
+                  name="OpenRowset">[dbo].[Dim_Anio]</property>
                 <property
                   dataType="System.String"
                   description="Specifies the variable that contains the name of the database object used to open a rowset."
@@ -640,7 +633,7 @@
               </properties>
               <connections>
                 <connection
-                  refId="Package\DF_Indicador\OLE DB Destination.Connections[OleDbConnection]"
+                  refId="Package\DF_Anio\OLE DB Destination.Connections[OleDbConnection]"
                   connectionManagerID="Package.ConnectionManagers[DESKTOP-54L8G8U.OBSERVATORIO_MUNICIPIOS]"
                   connectionManagerRefId="Package.ConnectionManagers[DESKTOP-54L8G8U.OBSERVATORIO_MUNICIPIOS]"
                   description="The OLE DB runtime connection used to access the database."
@@ -648,54 +641,51 @@
               </connections>
               <inputs>
                 <input
-                  refId="Package\DF_Indicador\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  refId="Package\DF_Anio\OLE DB Destination.Inputs[OLE DB Destination Input]"
                   errorOrTruncationOperation="Insert"
                   errorRowDisposition="FailComponent"
                   hasSideEffects="true"
                   name="OLE DB Destination Input">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\DF_Indicador\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[indicador_transf]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="70"
-                      cachedName="indicador_transf"
-                      externalMetadataColumnId="Package\DF_Indicador\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Indicador_Nombre]"
-                      lineageId="Package\DF_Indicador\Data Conversion.Outputs[Data Conversion Output].Columns[indicador_transf]" />
+                      refId="Package\DF_Anio\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[anio_transf]"
+                      cachedDataType="r8"
+                      cachedName="anio_transf"
+                      cachedSortKeyPosition="1"
+                      externalMetadataColumnId="Package\DF_Anio\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Anio]"
+                      lineageId="Package\DF_Anio\Sort 1.Outputs[Sort Output].Columns[anio_transf]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
                     <externalMetadataColumn
-                      refId="Package\DF_Indicador\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Indicador_SKey]"
+                      refId="Package\DF_Anio\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Anio_SKey]"
                       dataType="i4"
-                      name="Indicador_SKey" />
+                      name="Anio_SKey" />
                     <externalMetadataColumn
-                      refId="Package\DF_Indicador\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Indicador_Nombre]"
-                      codePage="1252"
-                      dataType="str"
-                      length="70"
-                      name="Indicador_Nombre" />
+                      refId="Package\DF_Anio\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Anio]"
+                      dataType="i4"
+                      name="Anio" />
                   </externalMetadataColumns>
                 </input>
               </inputs>
               <outputs>
                 <output
-                  refId="Package\DF_Indicador\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                  refId="Package\DF_Anio\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
                   exclusionGroup="1"
                   isErrorOut="true"
                   name="OLE DB Destination Error Output"
-                  synchronousInputId="Package\DF_Indicador\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                  synchronousInputId="Package\DF_Anio\OLE DB Destination.Inputs[OLE DB Destination Input]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\DF_Indicador\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      refId="Package\DF_Anio\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\DF_Indicador\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      lineageId="Package\DF_Anio\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\DF_Indicador\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      refId="Package\DF_Anio\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\DF_Indicador\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      lineageId="Package\DF_Anio\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -704,7 +694,7 @@
               </outputs>
             </component>
             <component
-              refId="Package\DF_Indicador\Sort"
+              refId="Package\DF_Anio\Sort"
               componentClassID="Microsoft.Sort"
               contactInfo="Sort;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
               description="Sorts input data in ascending or descending order when it cannot be sorted at its source. For example, sort sales data by 'customer id' before it is written to a flat file and delivered to another department. Note: We do not recommend this transformation for large data flows."
@@ -723,15 +713,15 @@
               </properties>
               <inputs>
                 <input
-                  refId="Package\DF_Indicador\Sort.Inputs[Sort Input]"
+                  refId="Package\DF_Anio\Sort.Inputs[Sort Input]"
                   name="Sort Input">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\DF_Indicador\Sort.Inputs[Sort Input].Columns[area]"
+                      refId="Package\DF_Anio\Sort.Inputs[Sort Input].Columns[area]"
                       cachedDataType="wstr"
                       cachedLength="255"
                       cachedName="area"
-                      lineageId="Package\DF_Indicador\Excel Source.Outputs[Excel Source Output].Columns[area]">
+                      lineageId="Package\DF_Anio\Excel Source.Outputs[Excel Source Output].Columns[area]">
                       <properties>
                         <property
                           dataType="System.Int32"
@@ -744,11 +734,11 @@
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\DF_Indicador\Sort.Inputs[Sort Input].Columns[categoria]"
+                      refId="Package\DF_Anio\Sort.Inputs[Sort Input].Columns[categoria]"
                       cachedDataType="wstr"
                       cachedLength="255"
                       cachedName="categoria"
-                      lineageId="Package\DF_Indicador\Excel Source.Outputs[Excel Source Output].Columns[categoria]">
+                      lineageId="Package\DF_Anio\Excel Source.Outputs[Excel Source Output].Columns[categoria]">
                       <properties>
                         <property
                           dataType="System.Int32"
@@ -761,11 +751,11 @@
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\DF_Indicador\Sort.Inputs[Sort Input].Columns[genero]"
+                      refId="Package\DF_Anio\Sort.Inputs[Sort Input].Columns[genero]"
                       cachedDataType="wstr"
                       cachedLength="255"
                       cachedName="genero"
-                      lineageId="Package\DF_Indicador\Excel Source.Outputs[Excel Source Output].Columns[genero]">
+                      lineageId="Package\DF_Anio\Excel Source.Outputs[Excel Source Output].Columns[genero]">
                       <properties>
                         <property
                           dataType="System.Int32"
@@ -778,11 +768,11 @@
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\DF_Indicador\Sort.Inputs[Sort Input].Columns[agrupa]"
+                      refId="Package\DF_Anio\Sort.Inputs[Sort Input].Columns[agrupa]"
                       cachedDataType="wstr"
                       cachedLength="255"
                       cachedName="agrupa"
-                      lineageId="Package\DF_Indicador\Excel Source.Outputs[Excel Source Output].Columns[agrupa]">
+                      lineageId="Package\DF_Anio\Excel Source.Outputs[Excel Source Output].Columns[agrupa]">
                       <properties>
                         <property
                           dataType="System.Int32"
@@ -795,10 +785,10 @@
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\DF_Indicador\Sort.Inputs[Sort Input].Columns[valor]"
+                      refId="Package\DF_Anio\Sort.Inputs[Sort Input].Columns[valor]"
                       cachedDataType="r8"
                       cachedName="valor"
-                      lineageId="Package\DF_Indicador\Excel Source.Outputs[Excel Source Output].Columns[valor]">
+                      lineageId="Package\DF_Anio\Excel Source.Outputs[Excel Source Output].Columns[valor]">
                       <properties>
                         <property
                           dataType="System.Int32"
@@ -811,11 +801,11 @@
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\DF_Indicador\Sort.Inputs[Sort Input].Columns[mes]"
+                      refId="Package\DF_Anio\Sort.Inputs[Sort Input].Columns[mes]"
                       cachedDataType="wstr"
                       cachedLength="255"
                       cachedName="mes"
-                      lineageId="Package\DF_Indicador\Excel Source.Outputs[Excel Source Output].Columns[mes]">
+                      lineageId="Package\DF_Anio\Excel Source.Outputs[Excel Source Output].Columns[mes]">
                       <properties>
                         <property
                           dataType="System.Int32"
@@ -828,11 +818,27 @@
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\DF_Indicador\Sort.Inputs[Sort Input].Columns[indicador]"
+                      refId="Package\DF_Anio\Sort.Inputs[Sort Input].Columns[indicador]"
                       cachedDataType="wstr"
                       cachedLength="255"
                       cachedName="indicador"
-                      lineageId="Package\DF_Indicador\Excel Source.Outputs[Excel Source Output].Columns[indicador]">
+                      lineageId="Package\DF_Anio\Excel Source.Outputs[Excel Source Output].Columns[indicador]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DF_Anio\Sort.Inputs[Sort Input].Columns[año]"
+                      cachedDataType="r8"
+                      cachedName="año"
+                      lineageId="Package\DF_Anio\Excel Source.Outputs[Excel Source Output].Columns[año]">
                       <properties>
                         <property
                           dataType="System.Int32"
@@ -844,11 +850,160 @@
                           name="NewSortKeyPosition">1</property>
                       </properties>
                     </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DF_Anio\Sort.Outputs[Sort Output]"
+                  isSorted="true"
+                  name="Sort Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DF_Anio\Sort.Outputs[Sort Output].Columns[area]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\DF_Anio\Sort.Outputs[Sort Output].Columns[area]"
+                      name="area">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\DF_Anio\Excel Source.Outputs[Excel Source Output].Columns[area]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DF_Anio\Sort.Outputs[Sort Output].Columns[categoria]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\DF_Anio\Sort.Outputs[Sort Output].Columns[categoria]"
+                      name="categoria">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\DF_Anio\Excel Source.Outputs[Excel Source Output].Columns[categoria]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DF_Anio\Sort.Outputs[Sort Output].Columns[genero]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\DF_Anio\Sort.Outputs[Sort Output].Columns[genero]"
+                      name="genero">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\DF_Anio\Excel Source.Outputs[Excel Source Output].Columns[genero]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DF_Anio\Sort.Outputs[Sort Output].Columns[agrupa]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\DF_Anio\Sort.Outputs[Sort Output].Columns[agrupa]"
+                      name="agrupa">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\DF_Anio\Excel Source.Outputs[Excel Source Output].Columns[agrupa]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DF_Anio\Sort.Outputs[Sort Output].Columns[valor]"
+                      dataType="r8"
+                      lineageId="Package\DF_Anio\Sort.Outputs[Sort Output].Columns[valor]"
+                      name="valor">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\DF_Anio\Excel Source.Outputs[Excel Source Output].Columns[valor]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DF_Anio\Sort.Outputs[Sort Output].Columns[mes]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\DF_Anio\Sort.Outputs[Sort Output].Columns[mes]"
+                      name="mes">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\DF_Anio\Excel Source.Outputs[Excel Source Output].Columns[mes]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DF_Anio\Sort.Outputs[Sort Output].Columns[indicador]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\DF_Anio\Sort.Outputs[Sort Output].Columns[indicador]"
+                      name="indicador">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\DF_Anio\Excel Source.Outputs[Excel Source Output].Columns[indicador]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DF_Anio\Sort.Outputs[Sort Output].Columns[año]"
+                      dataType="r8"
+                      lineageId="Package\DF_Anio\Sort.Outputs[Sort Output].Columns[año]"
+                      name="año"
+                      sortKeyPosition="1">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\DF_Anio\Excel Source.Outputs[Excel Source Output].Columns[año]}</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DF_Anio\Sort 1"
+              componentClassID="Microsoft.Sort"
+              contactInfo="Sort;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Sorts input data in ascending or descending order when it cannot be sorted at its source. For example, sort sales data by 'customer id' before it is written to a flat file and delivered to another department. Note: We do not recommend this transformation for large data flows."
+              name="Sort 1"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the Sort transformation removes rows with duplicate sort values."
+                  name="EliminateDuplicates">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the maximum number of threads to use for sorting."
+                  expressionType="Notify"
+                  name="MaximumThreads">-1</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\DF_Anio\Sort 1.Inputs[Sort Input]"
+                  name="Sort Input">
+                  <inputColumns>
                     <inputColumn
-                      refId="Package\DF_Indicador\Sort.Inputs[Sort Input].Columns[año]"
+                      refId="Package\DF_Anio\Sort 1.Inputs[Sort Input].Columns[anio_transf]"
                       cachedDataType="r8"
-                      cachedName="año"
-                      lineageId="Package\DF_Indicador\Excel Source.Outputs[Excel Source Output].Columns[año]">
+                      cachedName="anio_transf"
+                      lineageId="Package\DF_Anio\Data Conversion.Outputs[Data Conversion Output].Columns[anio_transf]">
                       <properties>
                         <property
                           dataType="System.Int32"
@@ -857,7 +1012,7 @@
                         <property
                           dataType="System.Int32"
                           description="Specifies the sort order of the column."
-                          name="NewSortKeyPosition">0</property>
+                          name="NewSortKeyPosition">1</property>
                       </properties>
                     </inputColumn>
                   </inputColumns>
@@ -866,119 +1021,22 @@
               </inputs>
               <outputs>
                 <output
-                  refId="Package\DF_Indicador\Sort.Outputs[Sort Output]"
+                  refId="Package\DF_Anio\Sort 1.Outputs[Sort Output]"
                   isSorted="true"
                   name="Sort Output">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\DF_Indicador\Sort.Outputs[Sort Output].Columns[area]"
-                      dataType="wstr"
-                      length="255"
-                      lineageId="Package\DF_Indicador\Sort.Outputs[Sort Output].Columns[area]"
-                      name="area">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Specifies the lineage identifier of the input column that is associated with this output column."
-                          name="SortColumnId">#{Package\DF_Indicador\Excel Source.Outputs[Excel Source Output].Columns[area]}</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\DF_Indicador\Sort.Outputs[Sort Output].Columns[categoria]"
-                      dataType="wstr"
-                      length="255"
-                      lineageId="Package\DF_Indicador\Sort.Outputs[Sort Output].Columns[categoria]"
-                      name="categoria">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Specifies the lineage identifier of the input column that is associated with this output column."
-                          name="SortColumnId">#{Package\DF_Indicador\Excel Source.Outputs[Excel Source Output].Columns[categoria]}</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\DF_Indicador\Sort.Outputs[Sort Output].Columns[genero]"
-                      dataType="wstr"
-                      length="255"
-                      lineageId="Package\DF_Indicador\Sort.Outputs[Sort Output].Columns[genero]"
-                      name="genero">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Specifies the lineage identifier of the input column that is associated with this output column."
-                          name="SortColumnId">#{Package\DF_Indicador\Excel Source.Outputs[Excel Source Output].Columns[genero]}</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\DF_Indicador\Sort.Outputs[Sort Output].Columns[agrupa]"
-                      dataType="wstr"
-                      length="255"
-                      lineageId="Package\DF_Indicador\Sort.Outputs[Sort Output].Columns[agrupa]"
-                      name="agrupa">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Specifies the lineage identifier of the input column that is associated with this output column."
-                          name="SortColumnId">#{Package\DF_Indicador\Excel Source.Outputs[Excel Source Output].Columns[agrupa]}</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\DF_Indicador\Sort.Outputs[Sort Output].Columns[valor]"
+                      refId="Package\DF_Anio\Sort 1.Outputs[Sort Output].Columns[anio_transf]"
                       dataType="r8"
-                      lineageId="Package\DF_Indicador\Sort.Outputs[Sort Output].Columns[valor]"
-                      name="valor">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Specifies the lineage identifier of the input column that is associated with this output column."
-                          name="SortColumnId">#{Package\DF_Indicador\Excel Source.Outputs[Excel Source Output].Columns[valor]}</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\DF_Indicador\Sort.Outputs[Sort Output].Columns[mes]"
-                      dataType="wstr"
-                      length="255"
-                      lineageId="Package\DF_Indicador\Sort.Outputs[Sort Output].Columns[mes]"
-                      name="mes">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Specifies the lineage identifier of the input column that is associated with this output column."
-                          name="SortColumnId">#{Package\DF_Indicador\Excel Source.Outputs[Excel Source Output].Columns[mes]}</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\DF_Indicador\Sort.Outputs[Sort Output].Columns[indicador]"
-                      dataType="wstr"
-                      length="255"
-                      lineageId="Package\DF_Indicador\Sort.Outputs[Sort Output].Columns[indicador]"
-                      name="indicador"
+                      lineageId="Package\DF_Anio\Sort 1.Outputs[Sort Output].Columns[anio_transf]"
+                      name="anio_transf"
                       sortKeyPosition="1">
                       <properties>
                         <property
                           containsID="true"
                           dataType="System.Int32"
                           description="Specifies the lineage identifier of the input column that is associated with this output column."
-                          name="SortColumnId">#{Package\DF_Indicador\Excel Source.Outputs[Excel Source Output].Columns[indicador]}</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\DF_Indicador\Sort.Outputs[Sort Output].Columns[año]"
-                      dataType="r8"
-                      lineageId="Package\DF_Indicador\Sort.Outputs[Sort Output].Columns[año]"
-                      name="año">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Specifies the lineage identifier of the input column that is associated with this output column."
-                          name="SortColumnId">#{Package\DF_Indicador\Excel Source.Outputs[Excel Source Output].Columns[año]}</property>
+                          name="SortColumnId">#{Package\DF_Anio\Data Conversion.Outputs[Data Conversion Output].Columns[anio_transf]}</property>
                       </properties>
                     </outputColumn>
                   </outputColumns>
@@ -989,30 +1047,35 @@
           </components>
           <paths>
             <path
-              refId="Package\DF_Indicador.Paths[Aggregate Output 1]"
-              endId="Package\DF_Indicador\Data Conversion.Inputs[Data Conversion Input]"
+              refId="Package\DF_Anio.Paths[Aggregate Output 1]"
+              endId="Package\DF_Anio\Data Conversion.Inputs[Data Conversion Input]"
               name="Aggregate Output 1"
-              startId="Package\DF_Indicador\Aggregate.Outputs[Aggregate Output 1]" />
+              startId="Package\DF_Anio\Aggregate.Outputs[Aggregate Output 1]" />
             <path
-              refId="Package\DF_Indicador.Paths[Case 2]"
-              endId="Package\DF_Indicador\OLE DB Destination.Inputs[OLE DB Destination Input]"
+              refId="Package\DF_Anio.Paths[Case 2]"
+              endId="Package\DF_Anio\Sort 1.Inputs[Sort Input]"
               name="Case 2"
-              startId="Package\DF_Indicador\Conditional Split.Outputs[Case 1]" />
+              startId="Package\DF_Anio\Conditional Split.Outputs[Case 2]" />
             <path
-              refId="Package\DF_Indicador.Paths[Data Conversion Output]"
-              endId="Package\DF_Indicador\Conditional Split.Inputs[Conditional Split Input]"
+              refId="Package\DF_Anio.Paths[Data Conversion Output]"
+              endId="Package\DF_Anio\Conditional Split.Inputs[Conditional Split Input]"
               name="Data Conversion Output"
-              startId="Package\DF_Indicador\Data Conversion.Outputs[Data Conversion Output]" />
+              startId="Package\DF_Anio\Data Conversion.Outputs[Data Conversion Output]" />
             <path
-              refId="Package\DF_Indicador.Paths[Excel Source Output]"
-              endId="Package\DF_Indicador\Sort.Inputs[Sort Input]"
+              refId="Package\DF_Anio.Paths[Excel Source Output]"
+              endId="Package\DF_Anio\Sort.Inputs[Sort Input]"
               name="Excel Source Output"
-              startId="Package\DF_Indicador\Excel Source.Outputs[Excel Source Output]" />
+              startId="Package\DF_Anio\Excel Source.Outputs[Excel Source Output]" />
             <path
-              refId="Package\DF_Indicador.Paths[Sort Output]"
-              endId="Package\DF_Indicador\Aggregate.Inputs[Aggregate Input 1]"
+              refId="Package\DF_Anio.Paths[Sort Output]"
+              endId="Package\DF_Anio\Aggregate.Inputs[Aggregate Input 1]"
               name="Sort Output"
-              startId="Package\DF_Indicador\Sort.Outputs[Sort Output]" />
+              startId="Package\DF_Anio\Sort.Outputs[Sort Output]" />
+            <path
+              refId="Package\DF_Anio.Paths[Sort Output1]"
+              endId="Package\DF_Anio\OLE DB Destination.Inputs[OLE DB Destination Input]"
+              name="Sort Output"
+              startId="Package\DF_Anio\Sort 1.Outputs[Sort Output]" />
           </paths>
         </pipeline>
       </DTS:ObjectData>
@@ -1021,7 +1084,7 @@
       DTS:refId="Package\TMP_DELETE"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="Execute SQL Task"
-      DTS:DTSID="{bdfd23e8-d838-474f-9382-483a7abdfc21}"
+      DTS:DTSID="{F6889A50-DAE1-4299-B915-D490002BAFA3}"
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="TMP_DELETE"
@@ -1030,8 +1093,8 @@
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
-          SQLTask:Connection="{FE04E231-22DE-4BB5-A868-FE9205CC0B6E}"
-          SQLTask:SqlStatementSource="DBCC CHECKIDENT ('Dim_Indicador', RESEED, 0);&#xA;&#xA;DELETE FROM Dim_Indicador;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          SQLTask:Connection="{280BCF61-D7A3-4E84-8662-D6B256C9E058}"
+          SQLTask:SqlStatementSource="DBCC CHECKIDENT ('Dim_Anio', RESEED, 0);&#xA;&#xA;DELETE FROM Dim_Anio;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
   </DTS:Executables>
@@ -1039,11 +1102,11 @@
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint]"
       DTS:CreationName=""
-      DTS:DTSID="{DEB1C9AD-C007-45BE-B638-23F1FD3E2B42}"
+      DTS:DTSID="{17418DCD-5DFF-476B-A34D-7FD8F43B5540}"
       DTS:From="Package\TMP_DELETE"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint"
-      DTS:To="Package\DF_Indicador" />
+      DTS:To="Package\DF_Anio" />
   </DTS:PrecedenceConstraints>
   <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
 <!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
@@ -1058,39 +1121,39 @@
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="144,42.6666666666667"
-          Id="Package\DF_Indicador"
-          TopLeft="278.124995855615,171.052634798589" />
+          Size="121.333333333334,42.6666666666667"
+          Id="Package\DF_Anio"
+          TopLeft="298.124995557592,175.842108572949" />
         <NodeLayout
-          Size="149.333333333334,42.6666666666667"
+          Size="149.333333333334,42"
           Id="Package\TMP_DELETE"
-          TopLeft="291.249995660037,76.6666661772812" />
+          TopLeft="297.499995566905,46.5263166652161" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint]"
-          TopLeft="365.916662326704,119.333332843948">
+          TopLeft="372.166662233572,88.5263166652161">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-15.7916664710889,51.7193019546411"
+              EndConnector="-13.375000009313,87.3157919077329"
               Start="0,0"
-              End="-15.7916664710889,44.2193019546411">
+              End="-13.375000009313,79.8157919077329">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,21.8596509773206" />
+                    End="0,39.6578959538665" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,21.8596509773206"
-                    Point2="0,25.8596509773206"
-                    Point3="-4,25.8596509773206" />
+                    Point1="0,39.6578959538665"
+                    Point2="0,43.6578959538665"
+                    Point3="-4,43.6578959538665" />
                   <mssgle:LineSegment
-                    End="-11.7916664710889,25.8596509773206" />
+                    End="-9.375000009313,43.6578959538665" />
                   <mssgle:CubicBezierSegment
-                    Point1="-11.7916664710889,25.8596509773206"
-                    Point2="-15.7916664710889,25.8596509773206"
-                    Point3="-15.7916664710889,29.8596509773206" />
+                    Point1="-9.375000009313,43.6578959538665"
+                    Point2="-13.375000009313,43.6578959538665"
+                    Point3="-13.375000009313,47.6578959538665" />
                   <mssgle:LineSegment
-                    End="-15.7916664710889,44.2193019546411" />
+                    End="-13.375000009313,79.8157919077329" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -1103,48 +1166,64 @@
     </LayoutInfo>
   </Package>
   <TaskHost
-    design-time-name="Package\DF_Indicador">
+    design-time-name="Package\DF_Anio">
     <LayoutInfo>
       <GraphLayout
         Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="158.666666666667,42.6666666666667"
-          Id="Package\DF_Indicador\Data Conversion"
-          TopLeft="420.533002391578,350.216077071177" />
+          Id="Package\DF_Anio\Data Conversion"
+          TopLeft="433.033002205314,362.531866776675" />
         <NodeLayout
           Size="98.6666666666667,42.6666666666667"
-          Id="Package\DF_Indicador\Sort"
+          Id="Package\DF_Anio\Sort"
           TopLeft="452.222215483586,160.775654275538" />
         <NodeLayout
           Size="174.666666666667,42.6666666666667"
-          Id="Package\DF_Indicador\OLE DB Destination"
-          TopLeft="415.488810547552,526.197397312274" />
+          Id="Package\DF_Anio\OLE DB Destination"
+          TopLeft="364.863811301923,628.828978191428" />
         <NodeLayout
           Size="142.666666666667,42.6666666666667"
-          Id="Package\DF_Indicador\Excel Source"
+          Id="Package\DF_Anio\Excel Source"
           TopLeft="426.78029667078,40.4098891178727" />
         <NodeLayout
+          Size="108,42.6666666666667"
+          Id="Package\DF_Anio\Sort 1"
+          TopLeft="412.499993853271,547.368425972244" />
+        <NodeLayout
           Size="129.333333333334,42.6666666666667"
-          Id="Package\DF_Indicador\Aggregate"
-          TopLeft="440.568175253205,248.444449120794" />
+          Id="Package\DF_Anio\Aggregate"
+          TopLeft="444.943175188012,267.602344218236" />
         <NodeLayout
           Size="157.333333333334,42.6666666666667"
-          Id="Package\DF_Indicador\Conditional Split"
-          TopLeft="421.874993713572,432.421060281447" />
+          Id="Package\DF_Anio\Conditional Split"
+          TopLeft="426.24999364838,454.315797535666" />
         <EdgeLayout
-          Id="Package\DF_Indicador.Paths[Sort Output]"
-          TopLeft="503.395195368395,203.442320942205">
+          Id="Package\DF_Anio.Paths[Sort Output1]"
+          TopLeft="466.499993853271,590.03509263891">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,45.002128178589"
+              EndConnector="-14.3028492180148,38.7938855525173"
               Start="0,0"
-              End="0,37.502128178589">
+              End="-14.3028492180148,31.2938855525173">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,37.502128178589" />
+                    End="0,15.3969427762586" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,15.3969427762586"
+                    Point2="0,19.3969427762586"
+                    Point3="-4,19.3969427762586" />
+                  <mssgle:LineSegment
+                    End="-10.3028492180148,19.3969427762586" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-10.3028492180148,19.3969427762586"
+                    Point2="-14.3028492180148,19.3969427762586"
+                    Point3="-14.3028492180148,23.3969427762586" />
+                  <mssgle:LineSegment
+                    End="-14.3028492180148,31.2938855525173" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -1154,7 +1233,41 @@
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\DF_Indicador.Paths[Excel Source Output]"
+          Id="Package\DF_Anio.Paths[Sort Output]"
+          TopLeft="501.555548816919,203.442320942205">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="8.05429303775935,64.160023276031"
+              Start="0,0"
+              End="8.05429303775935,56.660023276031">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,28.0800116380155" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,28.0800116380155"
+                    Point2="0,32.0800116380155"
+                    Point3="4,32.0800116380155" />
+                  <mssgle:LineSegment
+                    End="4.05429303775935,32.0800116380155" />
+                  <mssgle:CubicBezierSegment
+                    Point1="4.05429303775935,32.0800116380155"
+                    Point2="8.05429303775935,32.0800116380155"
+                    Point3="8.05429303775935,36.0800116380155" />
+                  <mssgle:LineSegment
+                    End="8.05429303775935,56.660023276031" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DF_Anio.Paths[Excel Source Output]"
           TopLeft="499.834589410516,83.0765557845394">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -1176,19 +1289,19 @@
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\DF_Indicador.Paths[Data Conversion Output]"
-          TopLeft="500.203998052575,392.882743737843">
+          Id="Package\DF_Anio.Paths[Data Conversion Output]"
+          TopLeft="508.641497926847,405.198533443342">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,39.5383165436033"
+              EndConnector="0,49.1172640923248"
               Start="0,0"
-              End="0,32.0383165436033">
+              End="0,41.6172640923248">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,32.0383165436033" />
+                    End="0,41.6172640923248" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -1198,43 +1311,55 @@
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\DF_Indicador.Paths[Case 2]"
-          TopLeft="501.681902130562,475.087726948113">
+          Id="Package\DF_Anio.Paths[Case 2]"
+          TopLeft="504.916660315047,496.982464202333">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,51.1096703641611"
+              EndConnector="-38.4166664617754,50.385961769911"
               Start="0,0"
-              End="0,43.6096703641611">
+              End="-38.4166664617754,42.885961769911">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,43.6096703641611" />
+                    End="0,21.1929808849555" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,21.1929808849555"
+                    Point2="0,25.1929808849555"
+                    Point3="-4,25.1929808849555" />
+                  <mssgle:LineSegment
+                    End="-34.4166664617754,25.1929808849555" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-34.4166664617754,25.1929808849555"
+                    Point2="-38.4166664617754,25.1929808849555"
+                    Point3="-38.4166664617754,29.1929808849555" />
+                  <mssgle:LineSegment
+                    End="-38.4166664617754,42.885961769911" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-15.2180859375,17.0279797133306,30.436171875,9.5537109375"
+              BoundingBox="-34.6119660433877,30.1929808849555,30.807265625,9.5732421875"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\DF_Indicador.Paths[Aggregate Output 1]"
-          TopLeft="502.550588822392,291.11111578746">
+          Id="Package\DF_Anio.Paths[Aggregate Output 1]"
+          TopLeft="510.988088696663,310.269010884902">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,59.1049612837163"
+              EndConnector="0,52.2628558917726"
               Start="0,0"
-              End="0,51.6049612837163">
+              End="0,44.7628558917726">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,51.6049612837163" />
+                    End="0,44.7628558917726" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -1247,7 +1372,7 @@
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\DF_Indicador\OLE DB Destination">
+    design-time-name="Package\DF_Anio\OLE DB Destination">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -1260,7 +1385,7 @@
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\DF_Indicador\Excel Source">
+    design-time-name="Package\DF_Anio\Excel Source">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
