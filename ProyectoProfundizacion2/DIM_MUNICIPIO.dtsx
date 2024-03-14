@@ -11,8 +11,8 @@
   DTS:LocaleID="9226"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionBuild="39"
-  DTS:VersionGUID="{62374E3F-A3EA-4082-B8EB-C95F32174195}">
+  DTS:VersionBuild="44"
+  DTS:VersionGUID="{A3D7A805-C9DA-494A-97AE-12A1C90EEA82}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -31,13 +31,13 @@
     <DTS:ConnectionManager
       DTS:refId="Package.ConnectionManagers[Excel Connection Manager]"
       DTS:CreationName="EXCEL"
-      DTS:DTSID="{1DF9E991-C6ED-4369-9A40-6BD77E90C0E9}"
+      DTS:DTSID="{51D53410-C68D-4303-9F73-AB425260852F}"
       DTS:ObjectName="Excel Connection Manager">
       <DTS:ObjectData>
         <DTS:ConnectionManager
           DTS:ConnectRetryCount="0"
           DTS:ConnectRetryInterval="0"
-          DTS:ConnectionString="Provider=Microsoft.Jet.OLEDB.4.0;Data Source=C:\Users\Cristian\source\repos\ProyectoProfundizacion2\Sources\observatirio-municipios.xls;Extended Properties=&quot;EXCEL 8.0;HDR=YES&quot;;" />
+          DTS:ConnectionString="Provider=Microsoft.Jet.OLEDB.4.0;Data Source=C:\Users\Cristian\source\repos\ProyectoProfundizacion2\Sources\observatorio-municipios.xls;Extended Properties=&quot;Excel 8.0;HDR=YES&quot;;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
   </DTS:ConnectionManagers>
@@ -118,7 +118,7 @@
                       cachedLength="255"
                       cachedName="Area"
                       cachedSortKeyPosition="1"
-                      lineageId="Package\DF_Municipio\Sort.Outputs[Sort Output].Columns[Area]" />
+                      lineageId="Package\DF_Municipio\Sort Municipio.Outputs[Sort Output].Columns[Area]" />
                   </inputColumns>
                   <externalMetadataColumns />
                 </input>
@@ -150,7 +150,7 @@
                           containsID="true"
                           dataType="System.Int32"
                           description="Specifies the ID of the input column used in the aggregation."
-                          name="AggregationColumnId">#{Package\DF_Municipio\Sort.Outputs[Sort Output].Columns[Area]}</property>
+                          name="AggregationColumnId">#{Package\DF_Municipio\Sort Municipio.Outputs[Sort Output].Columns[Area]}</property>
                         <property
                           dataType="System.Int32"
                           description="Specifies the type of aggregation."
@@ -196,12 +196,12 @@
               </inputs>
               <outputs>
                 <output
-                  refId="Package\DF_Municipio\Conditional Split.Outputs[Case 1]"
+                  refId="Package\DF_Municipio\Conditional Split.Outputs[CheckArea]"
                   description="Output 1 of the Conditional Split Transformation"
                   errorOrTruncationOperation="Computation"
                   errorRowDisposition="FailComponent"
                   exclusionGroup="1"
-                  name="Case 1"
+                  name="CheckArea"
                   synchronousInputId="Package\DF_Municipio\Conditional Split.Inputs[Conditional Split Input]"
                   truncationRowDisposition="FailComponent">
                   <properties>
@@ -661,7 +661,7 @@
                       cachedName="Municipio"
                       cachedSortKeyPosition="1"
                       externalMetadataColumnId="Package\DF_Municipio\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Municipio_Nombre]"
-                      lineageId="Package\DF_Municipio\Sort 1.Outputs[Sort Output].Columns[Municipio]" />
+                      lineageId="Package\DF_Municipio\Srt Municipio.Outputs[Sort Output].Columns[Municipio]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -704,11 +704,11 @@
               </outputs>
             </component>
             <component
-              refId="Package\DF_Municipio\Sort"
+              refId="Package\DF_Municipio\Sort Municipio"
               componentClassID="Microsoft.Sort"
               contactInfo="Sort;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
               description="Sorts input data in ascending or descending order when it cannot be sorted at its source. For example, sort sales data by 'customer id' before it is written to a flat file and delivered to another department. Note: We do not recommend this transformation for large data flows."
-              name="Sort"
+              name="Sort Municipio"
               version="1">
               <properties>
                 <property
@@ -723,11 +723,11 @@
               </properties>
               <inputs>
                 <input
-                  refId="Package\DF_Municipio\Sort.Inputs[Sort Input]"
+                  refId="Package\DF_Municipio\Sort Municipio.Inputs[Sort Input]"
                   name="Sort Input">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\DF_Municipio\Sort.Inputs[Sort Input].Columns[area]"
+                      refId="Package\DF_Municipio\Sort Municipio.Inputs[Sort Input].Columns[area]"
                       cachedDataType="wstr"
                       cachedLength="255"
                       cachedName="area"
@@ -744,7 +744,7 @@
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\DF_Municipio\Sort.Inputs[Sort Input].Columns[categoria]"
+                      refId="Package\DF_Municipio\Sort Municipio.Inputs[Sort Input].Columns[categoria]"
                       cachedDataType="wstr"
                       cachedLength="255"
                       cachedName="categoria"
@@ -761,7 +761,7 @@
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\DF_Municipio\Sort.Inputs[Sort Input].Columns[genero]"
+                      refId="Package\DF_Municipio\Sort Municipio.Inputs[Sort Input].Columns[genero]"
                       cachedDataType="wstr"
                       cachedLength="255"
                       cachedName="genero"
@@ -778,7 +778,7 @@
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\DF_Municipio\Sort.Inputs[Sort Input].Columns[agrupa]"
+                      refId="Package\DF_Municipio\Sort Municipio.Inputs[Sort Input].Columns[agrupa]"
                       cachedDataType="wstr"
                       cachedLength="255"
                       cachedName="agrupa"
@@ -795,7 +795,7 @@
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\DF_Municipio\Sort.Inputs[Sort Input].Columns[valor]"
+                      refId="Package\DF_Municipio\Sort Municipio.Inputs[Sort Input].Columns[valor]"
                       cachedDataType="r8"
                       cachedName="valor"
                       lineageId="Package\DF_Municipio\Excel Source.Outputs[Excel Source Output].Columns[valor]">
@@ -811,7 +811,7 @@
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\DF_Municipio\Sort.Inputs[Sort Input].Columns[mes]"
+                      refId="Package\DF_Municipio\Sort Municipio.Inputs[Sort Input].Columns[mes]"
                       cachedDataType="wstr"
                       cachedLength="255"
                       cachedName="mes"
@@ -828,7 +828,7 @@
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\DF_Municipio\Sort.Inputs[Sort Input].Columns[indicador]"
+                      refId="Package\DF_Municipio\Sort Municipio.Inputs[Sort Input].Columns[indicador]"
                       cachedDataType="wstr"
                       cachedLength="255"
                       cachedName="indicador"
@@ -845,7 +845,7 @@
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\DF_Municipio\Sort.Inputs[Sort Input].Columns[año]"
+                      refId="Package\DF_Municipio\Sort Municipio.Inputs[Sort Input].Columns[año]"
                       cachedDataType="r8"
                       cachedName="año"
                       lineageId="Package\DF_Municipio\Excel Source.Outputs[Excel Source Output].Columns[año]">
@@ -866,15 +866,15 @@
               </inputs>
               <outputs>
                 <output
-                  refId="Package\DF_Municipio\Sort.Outputs[Sort Output]"
+                  refId="Package\DF_Municipio\Sort Municipio.Outputs[Sort Output]"
                   isSorted="true"
                   name="Sort Output">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\DF_Municipio\Sort.Outputs[Sort Output].Columns[Area]"
+                      refId="Package\DF_Municipio\Sort Municipio.Outputs[Sort Output].Columns[Area]"
                       dataType="wstr"
                       length="255"
-                      lineageId="Package\DF_Municipio\Sort.Outputs[Sort Output].Columns[Area]"
+                      lineageId="Package\DF_Municipio\Sort Municipio.Outputs[Sort Output].Columns[Area]"
                       name="Area"
                       sortKeyPosition="1">
                       <properties>
@@ -886,10 +886,10 @@
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\DF_Municipio\Sort.Outputs[Sort Output].Columns[categoria]"
+                      refId="Package\DF_Municipio\Sort Municipio.Outputs[Sort Output].Columns[categoria]"
                       dataType="wstr"
                       length="255"
-                      lineageId="Package\DF_Municipio\Sort.Outputs[Sort Output].Columns[categoria]"
+                      lineageId="Package\DF_Municipio\Sort Municipio.Outputs[Sort Output].Columns[categoria]"
                       name="categoria">
                       <properties>
                         <property
@@ -900,10 +900,10 @@
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\DF_Municipio\Sort.Outputs[Sort Output].Columns[genero]"
+                      refId="Package\DF_Municipio\Sort Municipio.Outputs[Sort Output].Columns[genero]"
                       dataType="wstr"
                       length="255"
-                      lineageId="Package\DF_Municipio\Sort.Outputs[Sort Output].Columns[genero]"
+                      lineageId="Package\DF_Municipio\Sort Municipio.Outputs[Sort Output].Columns[genero]"
                       name="genero">
                       <properties>
                         <property
@@ -914,10 +914,10 @@
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\DF_Municipio\Sort.Outputs[Sort Output].Columns[agrupa]"
+                      refId="Package\DF_Municipio\Sort Municipio.Outputs[Sort Output].Columns[agrupa]"
                       dataType="wstr"
                       length="255"
-                      lineageId="Package\DF_Municipio\Sort.Outputs[Sort Output].Columns[agrupa]"
+                      lineageId="Package\DF_Municipio\Sort Municipio.Outputs[Sort Output].Columns[agrupa]"
                       name="agrupa">
                       <properties>
                         <property
@@ -928,9 +928,9 @@
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\DF_Municipio\Sort.Outputs[Sort Output].Columns[valor]"
+                      refId="Package\DF_Municipio\Sort Municipio.Outputs[Sort Output].Columns[valor]"
                       dataType="r8"
-                      lineageId="Package\DF_Municipio\Sort.Outputs[Sort Output].Columns[valor]"
+                      lineageId="Package\DF_Municipio\Sort Municipio.Outputs[Sort Output].Columns[valor]"
                       name="valor">
                       <properties>
                         <property
@@ -941,10 +941,10 @@
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\DF_Municipio\Sort.Outputs[Sort Output].Columns[mes]"
+                      refId="Package\DF_Municipio\Sort Municipio.Outputs[Sort Output].Columns[mes]"
                       dataType="wstr"
                       length="255"
-                      lineageId="Package\DF_Municipio\Sort.Outputs[Sort Output].Columns[mes]"
+                      lineageId="Package\DF_Municipio\Sort Municipio.Outputs[Sort Output].Columns[mes]"
                       name="mes">
                       <properties>
                         <property
@@ -955,10 +955,10 @@
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\DF_Municipio\Sort.Outputs[Sort Output].Columns[indicador]"
+                      refId="Package\DF_Municipio\Sort Municipio.Outputs[Sort Output].Columns[indicador]"
                       dataType="wstr"
                       length="255"
-                      lineageId="Package\DF_Municipio\Sort.Outputs[Sort Output].Columns[indicador]"
+                      lineageId="Package\DF_Municipio\Sort Municipio.Outputs[Sort Output].Columns[indicador]"
                       name="indicador">
                       <properties>
                         <property
@@ -969,9 +969,9 @@
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\DF_Municipio\Sort.Outputs[Sort Output].Columns[año]"
+                      refId="Package\DF_Municipio\Sort Municipio.Outputs[Sort Output].Columns[año]"
                       dataType="r8"
-                      lineageId="Package\DF_Municipio\Sort.Outputs[Sort Output].Columns[año]"
+                      lineageId="Package\DF_Municipio\Sort Municipio.Outputs[Sort Output].Columns[año]"
                       name="año">
                       <properties>
                         <property
@@ -987,11 +987,11 @@
               </outputs>
             </component>
             <component
-              refId="Package\DF_Municipio\Sort 1"
+              refId="Package\DF_Municipio\Srt Municipio"
               componentClassID="Microsoft.Sort"
               contactInfo="Sort;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
               description="Sorts input data in ascending or descending order when it cannot be sorted at its source. For example, sort sales data by 'customer id' before it is written to a flat file and delivered to another department. Note: We do not recommend this transformation for large data flows."
-              name="Sort 1"
+              name="Srt Municipio"
               version="1">
               <properties>
                 <property
@@ -1006,11 +1006,11 @@
               </properties>
               <inputs>
                 <input
-                  refId="Package\DF_Municipio\Sort 1.Inputs[Sort Input]"
+                  refId="Package\DF_Municipio\Srt Municipio.Inputs[Sort Input]"
                   name="Sort Input">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\DF_Municipio\Sort 1.Inputs[Sort Input].Columns[Area]"
+                      refId="Package\DF_Municipio\Srt Municipio.Inputs[Sort Input].Columns[Area]"
                       cachedDataType="wstr"
                       cachedLength="255"
                       cachedName="Area"
@@ -1027,7 +1027,7 @@
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\DF_Municipio\Sort 1.Inputs[Sort Input].Columns[Municipio]"
+                      refId="Package\DF_Municipio\Srt Municipio.Inputs[Sort Input].Columns[Municipio]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="40"
@@ -1050,15 +1050,15 @@
               </inputs>
               <outputs>
                 <output
-                  refId="Package\DF_Municipio\Sort 1.Outputs[Sort Output]"
+                  refId="Package\DF_Municipio\Srt Municipio.Outputs[Sort Output]"
                   isSorted="true"
                   name="Sort Output">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\DF_Municipio\Sort 1.Outputs[Sort Output].Columns[Area]"
+                      refId="Package\DF_Municipio\Srt Municipio.Outputs[Sort Output].Columns[Area]"
                       dataType="wstr"
                       length="255"
-                      lineageId="Package\DF_Municipio\Sort 1.Outputs[Sort Output].Columns[Area]"
+                      lineageId="Package\DF_Municipio\Srt Municipio.Outputs[Sort Output].Columns[Area]"
                       name="Area">
                       <properties>
                         <property
@@ -1069,11 +1069,11 @@
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\DF_Municipio\Sort 1.Outputs[Sort Output].Columns[Municipio]"
+                      refId="Package\DF_Municipio\Srt Municipio.Outputs[Sort Output].Columns[Municipio]"
                       codePage="1252"
                       dataType="str"
                       length="40"
-                      lineageId="Package\DF_Municipio\Sort 1.Outputs[Sort Output].Columns[Municipio]"
+                      lineageId="Package\DF_Municipio\Srt Municipio.Outputs[Sort Output].Columns[Municipio]"
                       name="Municipio"
                       sortKeyPosition="1">
                       <properties>
@@ -1098,12 +1098,12 @@
               startId="Package\DF_Municipio\Aggregate.Outputs[Aggregate Output 1]" />
             <path
               refId="Package\DF_Municipio.Paths[Case 1]"
-              endId="Package\DF_Municipio\Sort.Inputs[Sort Input]"
+              endId="Package\DF_Municipio\Sort Municipio.Inputs[Sort Input]"
               name="Case 1"
-              startId="Package\DF_Municipio\Conditional Split.Outputs[Case 1]" />
+              startId="Package\DF_Municipio\Conditional Split.Outputs[CheckArea]" />
             <path
               refId="Package\DF_Municipio.Paths[Data Conversion Output]"
-              endId="Package\DF_Municipio\Sort 1.Inputs[Sort Input]"
+              endId="Package\DF_Municipio\Srt Municipio.Inputs[Sort Input]"
               name="Data Conversion Output"
               startId="Package\DF_Municipio\Data Conversion.Outputs[Data Conversion Output]" />
             <path
@@ -1115,12 +1115,12 @@
               refId="Package\DF_Municipio.Paths[Sort Output]"
               endId="Package\DF_Municipio\Aggregate.Inputs[Aggregate Input 1]"
               name="Sort Output"
-              startId="Package\DF_Municipio\Sort.Outputs[Sort Output]" />
+              startId="Package\DF_Municipio\Sort Municipio.Outputs[Sort Output]" />
             <path
               refId="Package\DF_Municipio.Paths[Sort Output1]"
               endId="Package\DF_Municipio\OLE DB Destination.Inputs[OLE DB Destination Input]"
               name="Sort Output"
-              startId="Package\DF_Municipio\Sort 1.Outputs[Sort Output]" />
+              startId="Package\DF_Municipio\Srt Municipio.Outputs[Sort Output]" />
           </paths>
         </pipeline>
       </DTS:ObjectData>
@@ -1139,7 +1139,7 @@
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{A0D1EE68-7BC6-4A3B-B227-27CE8B52B22F}"
-          SQLTask:SqlStatementSource="DBCC CHECKIDENT ('Dim_Municipio', RESEED, 0);&#xA;&#xA;DELETE FROM Dim_Municipio;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          SQLTask:SqlStatementSource="DBCC CHECKIDENT ('Dim_Municipio', RESEED, 0);&#xA;&#xA;DELETE FROM Municipio_Stats;&#xA;DELETE FROM Dim_Municipio;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
   </DTS:Executables>
@@ -1206,53 +1206,79 @@
         <NodeLayout
           Size="158.666666666667,42.6666666666667"
           Id="Package\DF_Municipio\Data Conversion"
-          TopLeft="414.283002484711,407.689762363503" />
+          TopLeft="397.408002736168,378.268709178146" />
         <NodeLayout
-          Size="98.6666666666667,42.6666666666667"
-          Id="Package\DF_Municipio\Sort"
-          TopLeft="463.472215315948,170.354601824259" />
+          Size="146.666666666667,42.6666666666667"
+          Id="Package\DF_Municipio\Sort Municipio"
+          TopLeft="414.72221604238,199.091444470422" />
         <NodeLayout
           Size="174.666666666667,42.6666666666667"
           Id="Package\DF_Municipio\OLE DB Destination"
-          TopLeft="297.988812298438,572.039503438296" />
+          TopLeft="342.988811627886,578.197398291045" />
         <NodeLayout
           Size="142.666666666667,42.6666666666667"
           Id="Package\DF_Municipio\Excel Source"
           TopLeft="441.155296456576,30.1467310299574" />
         <NodeLayout
+          Size="141.333333333334,42.6666666666667"
+          Id="Package\DF_Municipio\Srt Municipio"
+          TopLeft="389.374994197861,475.754390678467" />
+        <NodeLayout
           Size="129.333333333334,42.6666666666667"
           Id="Package\DF_Municipio\Aggregate"
-          TopLeft="439.318175271831,271.023396914208" />
+          TopLeft="421.818175532601,273.076028531791" />
         <NodeLayout
           Size="157.333333333334,42.6666666666667"
           Id="Package\DF_Municipio\Conditional Split"
-          TopLeft="368.749994505197,97.9298259780457" />
+          TopLeft="408.124993918464,105.456141909184" />
         <EdgeLayout
-          Id="Package\DF_Municipio.Paths[Sort Output]"
-          TopLeft="512.805548649281,213.021268490926">
+          Id="Package\DF_Municipio.Paths[Sort Output1]"
+          TopLeft="460.041660864528,518.421057345134">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-8.82070671078316,58.0021284232828"
+              EndConnector="-29.7195159033087,59.7763409459111"
               Start="0,0"
-              End="-8.82070671078316,50.5021284232828">
+              End="-29.7195159033087,52.2763409459111">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,25.0010642116414" />
+                    End="0,25.8881704729556" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,25.0010642116414"
-                    Point2="0,29.0010642116414"
-                    Point3="-4,29.0010642116414" />
+                    Point1="0,25.8881704729556"
+                    Point2="0,29.8881704729556"
+                    Point3="-4,29.8881704729556" />
                   <mssgle:LineSegment
-                    End="-4.82070671078316,29.0010642116414" />
+                    End="-25.7195159033087,29.8881704729556" />
                   <mssgle:CubicBezierSegment
-                    Point1="-4.82070671078316,29.0010642116414"
-                    Point2="-8.82070671078316,29.0010642116414"
-                    Point3="-8.82070671078316,33.0010642116414" />
+                    Point1="-25.7195159033087,29.8881704729556"
+                    Point2="-29.7195159033087,29.8881704729556"
+                    Point3="-29.7195159033087,33.8881704729556" />
                   <mssgle:LineSegment
-                    End="-8.82070671078316,50.5021284232828" />
+                    End="-29.7195159033087,52.2763409459111" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DF_Municipio.Paths[Sort Output]"
+          TopLeft="487.27019578749,241.758111137089">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,31.3179173947024"
+              Start="0,0"
+              End="0,23.8179173947024">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,23.8179173947024" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -1267,26 +1293,60 @@
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-65.0719686180459,25.1164282814217"
+              EndConnector="-25.6969692047791,32.6427442125595"
               Start="0,0"
-              End="-65.0719686180459,17.6164282814217">
+              End="-25.6969692047791,25.1427442125595">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,8.55821414071084" />
+                    End="0,12.3213721062798" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,8.55821414071084"
-                    Point2="0,12.5582141407108"
-                    Point3="-4,12.5582141407108" />
+                    Point1="0,12.3213721062798"
+                    Point2="0,16.3213721062798"
+                    Point3="-4,16.3213721062798" />
                   <mssgle:LineSegment
-                    End="-61.0719686180459,12.5582141407108" />
+                    End="-21.6969692047791,16.3213721062798" />
                   <mssgle:CubicBezierSegment
-                    Point1="-61.0719686180459,12.5582141407108"
-                    Point2="-65.0719686180459,12.5582141407108"
-                    Point3="-65.0719686180459,16.5582141407108" />
+                    Point1="-21.6969692047791,16.3213721062798"
+                    Point2="-25.6969692047791,16.3213721062798"
+                    Point3="-25.6969692047791,20.3213721062798" />
                   <mssgle:LineSegment
-                    End="-65.0719686180459,17.6164282814217" />
+                    End="-25.6969692047791,25.1427442125595" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DF_Municipio.Paths[Data Conversion Output]"
+          TopLeft="476.741336069501,420.935375844812">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-16.6996752049737,54.819014833655"
+              Start="0,0"
+              End="-16.6996752049737,47.319014833655">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,23.4095074168275" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,23.4095074168275"
+                    Point2="0,27.4095074168275"
+                    Point3="-4,27.4095074168275" />
+                  <mssgle:LineSegment
+                    End="-12.6996752049737,27.4095074168275" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-12.6996752049737,27.4095074168275"
+                    Point2="-16.6996752049737,27.4095074168275"
+                    Point3="-16.6996752049737,31.4095074168275" />
+                  <mssgle:LineSegment
+                    End="-16.6996752049737,47.319014833655" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -1297,138 +1357,54 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package\DF_Municipio.Paths[Case 1]"
-          TopLeft="447.416661171864,140.596492644712">
+          TopLeft="487.423604980422,148.12280857585">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="65.3888874774178,29.7581091795465"
+              EndConnector="0,50.9686358945716"
               Start="0,0"
-              End="65.3888874774178,22.2581091795465">
+              End="0,43.4686358945716">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,10.8790545897732" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,10.8790545897732"
-                    Point2="0,14.8790545897732"
-                    Point3="4,14.8790545897732" />
-                  <mssgle:LineSegment
-                    End="61.3888874774178,14.8790545897732" />
-                  <mssgle:CubicBezierSegment
-                    Point1="61.3888874774178,14.8790545897732"
-                    Point2="65.3888874774178,14.8790545897732"
-                    Point3="65.3888874774178,18.8790545897732" />
-                  <mssgle:LineSegment
-                    End="65.3888874774178,22.2581091795465" />
+                    End="0,43.4686358945716" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="17.4763578012089,19.8790545897732,30.436171875,9.5537109375"
+              BoundingBox="-23.80087890625,16.8598062285358,47.6017578125,9.7490234375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\DF_Municipio.Paths[Aggregate Output 1]"
-          TopLeft="503.984841938498,313.690063580875">
+          TopLeft="486.484842199268,315.742695198458">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-10.3685061204542,93.999698782628"
+              EndConnector="-9.74350612976662,62.5260139796881"
               Start="0,0"
-              End="-10.3685061204542,86.499698782628">
+              End="-9.74350612976662,55.0260139796881">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,42.999849391314" />
+                    End="0,27.263006989844" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,42.999849391314"
-                    Point2="0,46.999849391314"
-                    Point3="-4,46.999849391314" />
+                    Point1="0,27.263006989844"
+                    Point2="0,31.263006989844"
+                    Point3="-4,31.263006989844" />
                   <mssgle:LineSegment
-                    End="-6.36850612045419,46.999849391314" />
+                    End="-5.74350612976662,31.263006989844" />
                   <mssgle:CubicBezierSegment
-                    Point1="-6.36850612045419,46.999849391314"
-                    Point2="-10.3685061204542,46.999849391314"
-                    Point3="-10.3685061204542,50.999849391314" />
+                    Point1="-5.74350612976662,31.263006989844"
+                    Point2="-9.74350612976662,31.263006989844"
+                    Point3="-9.74350612976662,35.263006989844" />
                   <mssgle:LineSegment
-                    End="-10.3685061204542,86.499698782628" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="108,42.6666666666667"
-          Id="Package\DF_Municipio\Sort 1"
-          TopLeft="378.124994365499,482.596496070411" />
-        <EdgeLayout
-          Id="Package\DF_Municipio.Paths[Data Conversion Output]"
-          TopLeft="493.616335818044,450.35642903017">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-61.4913414525457,32.2400670402413"
-              Start="0,0"
-              End="-61.4913414525457,24.7400670402413">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,12.1200335201207" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,12.1200335201207"
-                    Point2="0,16.1200335201207"
-                    Point3="-4,16.1200335201207" />
-                  <mssgle:LineSegment
-                    End="-57.4913414525457,16.1200335201207" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-57.4913414525457,16.1200335201207"
-                    Point2="-61.4913414525457,16.1200335201207"
-                    Point3="-61.4913414525457,20.1200335201207" />
-                  <mssgle:LineSegment
-                    End="-61.4913414525457,24.7400670402413" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\DF_Municipio.Paths[Sort Output1]"
-          TopLeft="432.124994365499,525.263162737078">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-46.8028487337275,46.7763407012183"
-              Start="0,0"
-              End="-46.8028487337275,39.2763407012183">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,19.3881703506091" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,19.3881703506091"
-                    Point2="0,23.3881703506091"
-                    Point3="-4,23.3881703506091" />
-                  <mssgle:LineSegment
-                    End="-42.8028487337275,23.3881703506091" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-42.8028487337275,23.3881703506091"
-                    Point2="-46.8028487337275,23.3881703506091"
-                    Point3="-46.8028487337275,27.3881703506091" />
-                  <mssgle:LineSegment
-                    End="-46.8028487337275,39.2763407012183" />
+                    End="-9.74350612976662,55.0260139796881" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>

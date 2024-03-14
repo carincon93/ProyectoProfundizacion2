@@ -11,8 +11,8 @@
   DTS:LocaleID="9226"
   DTS:ObjectName="DIM_MES"
   DTS:PackageType="5"
-  DTS:VersionBuild="43"
-  DTS:VersionGUID="{40F73E2C-4DC8-42C3-ABD1-52035A238211}">
+  DTS:VersionBuild="48"
+  DTS:VersionGUID="{1296ACD4-078A-47CB-B159-D608B2D1CBE5}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -31,13 +31,13 @@
     <DTS:ConnectionManager
       DTS:refId="Package.ConnectionManagers[Excel Connection Manager]"
       DTS:CreationName="EXCEL"
-      DTS:DTSID="{055D4FA5-F8D9-4F1E-964B-218F59651CAB}"
+      DTS:DTSID="{AAF969E0-198F-4CAC-A8DF-8812BC6D187F}"
       DTS:ObjectName="Excel Connection Manager">
       <DTS:ObjectData>
         <DTS:ConnectionManager
           DTS:ConnectRetryCount="0"
           DTS:ConnectRetryInterval="0"
-          DTS:ConnectionString="Provider=Microsoft.Jet.OLEDB.4.0;Data Source=C:\Users\Cristian\source\repos\ProyectoProfundizacion2\Sources\observatirio-municipios.xls;Extended Properties=&quot;EXCEL 8.0;HDR=YES&quot;;" />
+          DTS:ConnectionString="Provider=Microsoft.Jet.OLEDB.4.0;Data Source=C:\Users\Cristian\source\repos\ProyectoProfundizacion2\Sources\observatorio-municipios.xls;Extended Properties=&quot;Excel 8.0;HDR=YES&quot;;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
   </DTS:ConnectionManagers>
@@ -118,7 +118,7 @@
                       cachedLength="255"
                       cachedName="mes"
                       cachedSortKeyPosition="1"
-                      lineageId="Package\DF_Mes\Sort.Outputs[Sort Output].Columns[mes]" />
+                      lineageId="Package\DF_Mes\Sort Mes.Outputs[Sort Output].Columns[mes]" />
                   </inputColumns>
                   <externalMetadataColumns />
                 </input>
@@ -150,7 +150,7 @@
                           containsID="true"
                           dataType="System.Int32"
                           description="Specifies the ID of the input column used in the aggregation."
-                          name="AggregationColumnId">#{Package\DF_Mes\Sort.Outputs[Sort Output].Columns[mes]}</property>
+                          name="AggregationColumnId">#{Package\DF_Mes\Sort Mes.Outputs[Sort Output].Columns[mes]}</property>
                         <property
                           dataType="System.Int32"
                           description="Specifies the type of aggregation."
@@ -197,12 +197,12 @@
               </inputs>
               <outputs>
                 <output
-                  refId="Package\DF_Mes\Conditional Split.Outputs[Case 2]"
+                  refId="Package\DF_Mes\Conditional Split.Outputs[CheckMes]"
                   description="Output 2 of the Conditional Split Transformation"
                   errorOrTruncationOperation="Computation"
                   errorRowDisposition="FailComponent"
                   exclusionGroup="1"
-                  name="Case 2"
+                  name="CheckMes"
                   synchronousInputId="Package\DF_Mes\Conditional Split.Inputs[Conditional Split Input]"
                   truncationRowDisposition="FailComponent">
                   <properties>
@@ -662,7 +662,7 @@
                       cachedName="mes_transf"
                       cachedSortKeyPosition="1"
                       externalMetadataColumnId="Package\DF_Mes\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Mes]"
-                      lineageId="Package\DF_Mes\Sort 1.Outputs[Sort Output].Columns[mes_transf]" />
+                      lineageId="Package\DF_Mes\Srt Mes.Outputs[Sort Output].Columns[mes_transf]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -705,11 +705,11 @@
               </outputs>
             </component>
             <component
-              refId="Package\DF_Mes\Sort"
+              refId="Package\DF_Mes\Sort Mes"
               componentClassID="Microsoft.Sort"
               contactInfo="Sort;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
               description="Sorts input data in ascending or descending order when it cannot be sorted at its source. For example, sort sales data by 'customer id' before it is written to a flat file and delivered to another department. Note: We do not recommend this transformation for large data flows."
-              name="Sort"
+              name="Sort Mes"
               version="1">
               <properties>
                 <property
@@ -724,11 +724,11 @@
               </properties>
               <inputs>
                 <input
-                  refId="Package\DF_Mes\Sort.Inputs[Sort Input]"
+                  refId="Package\DF_Mes\Sort Mes.Inputs[Sort Input]"
                   name="Sort Input">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\DF_Mes\Sort.Inputs[Sort Input].Columns[area]"
+                      refId="Package\DF_Mes\Sort Mes.Inputs[Sort Input].Columns[area]"
                       cachedDataType="wstr"
                       cachedLength="255"
                       cachedName="area"
@@ -745,7 +745,7 @@
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\DF_Mes\Sort.Inputs[Sort Input].Columns[categoria]"
+                      refId="Package\DF_Mes\Sort Mes.Inputs[Sort Input].Columns[categoria]"
                       cachedDataType="wstr"
                       cachedLength="255"
                       cachedName="categoria"
@@ -762,7 +762,7 @@
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\DF_Mes\Sort.Inputs[Sort Input].Columns[genero]"
+                      refId="Package\DF_Mes\Sort Mes.Inputs[Sort Input].Columns[genero]"
                       cachedDataType="wstr"
                       cachedLength="255"
                       cachedName="genero"
@@ -779,7 +779,7 @@
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\DF_Mes\Sort.Inputs[Sort Input].Columns[agrupa]"
+                      refId="Package\DF_Mes\Sort Mes.Inputs[Sort Input].Columns[agrupa]"
                       cachedDataType="wstr"
                       cachedLength="255"
                       cachedName="agrupa"
@@ -796,7 +796,7 @@
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\DF_Mes\Sort.Inputs[Sort Input].Columns[valor]"
+                      refId="Package\DF_Mes\Sort Mes.Inputs[Sort Input].Columns[valor]"
                       cachedDataType="r8"
                       cachedName="valor"
                       lineageId="Package\DF_Mes\Excel Source.Outputs[Excel Source Output].Columns[valor]">
@@ -812,7 +812,7 @@
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\DF_Mes\Sort.Inputs[Sort Input].Columns[mes]"
+                      refId="Package\DF_Mes\Sort Mes.Inputs[Sort Input].Columns[mes]"
                       cachedDataType="wstr"
                       cachedLength="255"
                       cachedName="mes"
@@ -829,7 +829,7 @@
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\DF_Mes\Sort.Inputs[Sort Input].Columns[indicador]"
+                      refId="Package\DF_Mes\Sort Mes.Inputs[Sort Input].Columns[indicador]"
                       cachedDataType="wstr"
                       cachedLength="255"
                       cachedName="indicador"
@@ -846,7 +846,7 @@
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\DF_Mes\Sort.Inputs[Sort Input].Columns[año]"
+                      refId="Package\DF_Mes\Sort Mes.Inputs[Sort Input].Columns[año]"
                       cachedDataType="r8"
                       cachedName="año"
                       lineageId="Package\DF_Mes\Excel Source.Outputs[Excel Source Output].Columns[año]">
@@ -867,15 +867,15 @@
               </inputs>
               <outputs>
                 <output
-                  refId="Package\DF_Mes\Sort.Outputs[Sort Output]"
+                  refId="Package\DF_Mes\Sort Mes.Outputs[Sort Output]"
                   isSorted="true"
                   name="Sort Output">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\DF_Mes\Sort.Outputs[Sort Output].Columns[area]"
+                      refId="Package\DF_Mes\Sort Mes.Outputs[Sort Output].Columns[area]"
                       dataType="wstr"
                       length="255"
-                      lineageId="Package\DF_Mes\Sort.Outputs[Sort Output].Columns[area]"
+                      lineageId="Package\DF_Mes\Sort Mes.Outputs[Sort Output].Columns[area]"
                       name="area">
                       <properties>
                         <property
@@ -886,10 +886,10 @@
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\DF_Mes\Sort.Outputs[Sort Output].Columns[categoria]"
+                      refId="Package\DF_Mes\Sort Mes.Outputs[Sort Output].Columns[categoria]"
                       dataType="wstr"
                       length="255"
-                      lineageId="Package\DF_Mes\Sort.Outputs[Sort Output].Columns[categoria]"
+                      lineageId="Package\DF_Mes\Sort Mes.Outputs[Sort Output].Columns[categoria]"
                       name="categoria">
                       <properties>
                         <property
@@ -900,10 +900,10 @@
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\DF_Mes\Sort.Outputs[Sort Output].Columns[genero]"
+                      refId="Package\DF_Mes\Sort Mes.Outputs[Sort Output].Columns[genero]"
                       dataType="wstr"
                       length="255"
-                      lineageId="Package\DF_Mes\Sort.Outputs[Sort Output].Columns[genero]"
+                      lineageId="Package\DF_Mes\Sort Mes.Outputs[Sort Output].Columns[genero]"
                       name="genero">
                       <properties>
                         <property
@@ -914,10 +914,10 @@
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\DF_Mes\Sort.Outputs[Sort Output].Columns[agrupa]"
+                      refId="Package\DF_Mes\Sort Mes.Outputs[Sort Output].Columns[agrupa]"
                       dataType="wstr"
                       length="255"
-                      lineageId="Package\DF_Mes\Sort.Outputs[Sort Output].Columns[agrupa]"
+                      lineageId="Package\DF_Mes\Sort Mes.Outputs[Sort Output].Columns[agrupa]"
                       name="agrupa">
                       <properties>
                         <property
@@ -928,9 +928,9 @@
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\DF_Mes\Sort.Outputs[Sort Output].Columns[valor]"
+                      refId="Package\DF_Mes\Sort Mes.Outputs[Sort Output].Columns[valor]"
                       dataType="r8"
-                      lineageId="Package\DF_Mes\Sort.Outputs[Sort Output].Columns[valor]"
+                      lineageId="Package\DF_Mes\Sort Mes.Outputs[Sort Output].Columns[valor]"
                       name="valor">
                       <properties>
                         <property
@@ -941,10 +941,10 @@
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\DF_Mes\Sort.Outputs[Sort Output].Columns[mes]"
+                      refId="Package\DF_Mes\Sort Mes.Outputs[Sort Output].Columns[mes]"
                       dataType="wstr"
                       length="255"
-                      lineageId="Package\DF_Mes\Sort.Outputs[Sort Output].Columns[mes]"
+                      lineageId="Package\DF_Mes\Sort Mes.Outputs[Sort Output].Columns[mes]"
                       name="mes"
                       sortKeyPosition="1">
                       <properties>
@@ -956,10 +956,10 @@
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\DF_Mes\Sort.Outputs[Sort Output].Columns[indicador]"
+                      refId="Package\DF_Mes\Sort Mes.Outputs[Sort Output].Columns[indicador]"
                       dataType="wstr"
                       length="255"
-                      lineageId="Package\DF_Mes\Sort.Outputs[Sort Output].Columns[indicador]"
+                      lineageId="Package\DF_Mes\Sort Mes.Outputs[Sort Output].Columns[indicador]"
                       name="indicador">
                       <properties>
                         <property
@@ -970,9 +970,9 @@
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\DF_Mes\Sort.Outputs[Sort Output].Columns[año]"
+                      refId="Package\DF_Mes\Sort Mes.Outputs[Sort Output].Columns[año]"
                       dataType="r8"
-                      lineageId="Package\DF_Mes\Sort.Outputs[Sort Output].Columns[año]"
+                      lineageId="Package\DF_Mes\Sort Mes.Outputs[Sort Output].Columns[año]"
                       name="año">
                       <properties>
                         <property
@@ -988,11 +988,11 @@
               </outputs>
             </component>
             <component
-              refId="Package\DF_Mes\Sort 1"
+              refId="Package\DF_Mes\Srt Mes"
               componentClassID="Microsoft.Sort"
               contactInfo="Sort;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
               description="Sorts input data in ascending or descending order when it cannot be sorted at its source. For example, sort sales data by 'customer id' before it is written to a flat file and delivered to another department. Note: We do not recommend this transformation for large data flows."
-              name="Sort 1"
+              name="Srt Mes"
               version="1">
               <properties>
                 <property
@@ -1007,11 +1007,11 @@
               </properties>
               <inputs>
                 <input
-                  refId="Package\DF_Mes\Sort 1.Inputs[Sort Input]"
+                  refId="Package\DF_Mes\Srt Mes.Inputs[Sort Input]"
                   name="Sort Input">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\DF_Mes\Sort 1.Inputs[Sort Input].Columns[mes]"
+                      refId="Package\DF_Mes\Srt Mes.Inputs[Sort Input].Columns[mes]"
                       cachedDataType="wstr"
                       cachedLength="255"
                       cachedName="mes"
@@ -1028,7 +1028,7 @@
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\DF_Mes\Sort 1.Inputs[Sort Input].Columns[mes_transf]"
+                      refId="Package\DF_Mes\Srt Mes.Inputs[Sort Input].Columns[mes_transf]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="20"
@@ -1051,15 +1051,15 @@
               </inputs>
               <outputs>
                 <output
-                  refId="Package\DF_Mes\Sort 1.Outputs[Sort Output]"
+                  refId="Package\DF_Mes\Srt Mes.Outputs[Sort Output]"
                   isSorted="true"
                   name="Sort Output">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\DF_Mes\Sort 1.Outputs[Sort Output].Columns[mes]"
+                      refId="Package\DF_Mes\Srt Mes.Outputs[Sort Output].Columns[mes]"
                       dataType="wstr"
                       length="255"
-                      lineageId="Package\DF_Mes\Sort 1.Outputs[Sort Output].Columns[mes]"
+                      lineageId="Package\DF_Mes\Srt Mes.Outputs[Sort Output].Columns[mes]"
                       name="mes">
                       <properties>
                         <property
@@ -1070,11 +1070,11 @@
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\DF_Mes\Sort 1.Outputs[Sort Output].Columns[mes_transf]"
+                      refId="Package\DF_Mes\Srt Mes.Outputs[Sort Output].Columns[mes_transf]"
                       codePage="1252"
                       dataType="str"
                       length="20"
-                      lineageId="Package\DF_Mes\Sort 1.Outputs[Sort Output].Columns[mes_transf]"
+                      lineageId="Package\DF_Mes\Srt Mes.Outputs[Sort Output].Columns[mes_transf]"
                       name="mes_transf"
                       sortKeyPosition="1">
                       <properties>
@@ -1099,9 +1099,9 @@
               startId="Package\DF_Mes\Aggregate.Outputs[Aggregate Output 1]" />
             <path
               refId="Package\DF_Mes.Paths[Case 2]"
-              endId="Package\DF_Mes\Sort 1.Inputs[Sort Input]"
+              endId="Package\DF_Mes\Srt Mes.Inputs[Sort Input]"
               name="Case 2"
-              startId="Package\DF_Mes\Conditional Split.Outputs[Case 2]" />
+              startId="Package\DF_Mes\Conditional Split.Outputs[CheckMes]" />
             <path
               refId="Package\DF_Mes.Paths[Data Conversion Output]"
               endId="Package\DF_Mes\Conditional Split.Inputs[Conditional Split Input]"
@@ -1109,19 +1109,19 @@
               startId="Package\DF_Mes\Data Conversion.Outputs[Data Conversion Output]" />
             <path
               refId="Package\DF_Mes.Paths[Excel Source Output]"
-              endId="Package\DF_Mes\Sort.Inputs[Sort Input]"
+              endId="Package\DF_Mes\Sort Mes.Inputs[Sort Input]"
               name="Excel Source Output"
               startId="Package\DF_Mes\Excel Source.Outputs[Excel Source Output]" />
             <path
               refId="Package\DF_Mes.Paths[Sort Output]"
               endId="Package\DF_Mes\Aggregate.Inputs[Aggregate Input 1]"
               name="Sort Output"
-              startId="Package\DF_Mes\Sort.Outputs[Sort Output]" />
+              startId="Package\DF_Mes\Sort Mes.Outputs[Sort Output]" />
             <path
               refId="Package\DF_Mes.Paths[Sort Output1]"
               endId="Package\DF_Mes\OLE DB Destination.Inputs[OLE DB Destination Input]"
               name="Sort Output"
-              startId="Package\DF_Mes\Sort 1.Outputs[Sort Output]" />
+              startId="Package\DF_Mes\Srt Mes.Outputs[Sort Output]" />
           </paths>
         </pipeline>
       </DTS:ObjectData>
@@ -1140,7 +1140,7 @@
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{6901C38A-C23E-4DBE-8130-03B22109D5C0}"
-          SQLTask:SqlStatementSource="DBCC CHECKIDENT ('Dim_Mes', RESEED, 0);&#xA;&#xA;DELETE FROM Dim_Mes;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          SQLTask:SqlStatementSource="DBCC CHECKIDENT ('Dim_Mes', RESEED, 0);&#xA;&#xA;DELETE FROM Municipio_Stats;&#xA;DELETE FROM Dim_Mes;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
   </DTS:Executables>
@@ -1221,8 +1221,8 @@
           Id="Package\DF_Mes\Data Conversion"
           TopLeft="433.033002205314,362.531866776675" />
         <NodeLayout
-          Size="98.6666666666667,42.6666666666667"
-          Id="Package\DF_Mes\Sort"
+          Size="122.666666666667,42.6666666666667"
+          Id="Package\DF_Mes\Sort Mes"
           TopLeft="452.222215483586,160.775654275538" />
         <NodeLayout
           Size="174.666666666667,42.6666666666667"
@@ -1233,6 +1233,10 @@
           Id="Package\DF_Mes\Excel Source"
           TopLeft="426.78029667078,40.4098891178727" />
         <NodeLayout
+          Size="116,42.6666666666667"
+          Id="Package\DF_Mes\Srt Mes"
+          TopLeft="412.499993853271,547.368425972244" />
+        <NodeLayout
           Size="129.333333333334,42.6666666666667"
           Id="Package\DF_Mes\Aggregate"
           TopLeft="444.943175188012,267.602344218236" />
@@ -1241,31 +1245,53 @@
           Id="Package\DF_Mes\Conditional Split"
           TopLeft="426.24999364838,454.315797535666" />
         <EdgeLayout
-          Id="Package\DF_Mes.Paths[Sort Output]"
-          TopLeft="501.555548816919,203.442320942205">
+          Id="Package\DF_Mes.Paths[Sort Output1]"
+          TopLeft="470.499993853271,590.035092638911">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="8.05429303775935,64.160023276031"
+              EndConnector="-18.3028492180147,38.7938855525173"
               Start="0,0"
-              End="8.05429303775935,56.660023276031">
+              End="-18.3028492180147,31.2938855525173">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,28.0800116380155" />
+                    End="0,15.3969427762586" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,28.0800116380155"
-                    Point2="0,32.0800116380155"
-                    Point3="4,32.0800116380155" />
+                    Point1="0,15.3969427762586"
+                    Point2="0,19.3969427762586"
+                    Point3="-4,19.3969427762586" />
                   <mssgle:LineSegment
-                    End="4.05429303775935,32.0800116380155" />
+                    End="-14.3028492180147,19.3969427762586" />
                   <mssgle:CubicBezierSegment
-                    Point1="4.05429303775935,32.0800116380155"
-                    Point2="8.05429303775935,32.0800116380155"
-                    Point3="8.05429303775935,36.0800116380155" />
+                    Point1="-14.3028492180147,19.3969427762586"
+                    Point2="-18.3028492180147,19.3969427762586"
+                    Point3="-18.3028492180147,23.3969427762586" />
                   <mssgle:LineSegment
-                    End="8.05429303775935,56.660023276031" />
+                    End="-18.3028492180147,31.2938855525173" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DF_Mes.Paths[Sort Output]"
+          TopLeft="511.582695335799,203.442320942205">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,64.1600232760314"
+              Start="0,0"
+              End="0,56.6600232760314">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,56.6600232760314" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -1276,18 +1302,30 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package\DF_Mes.Paths[Excel Source Output]"
-          TopLeft="499.834589410516,83.0765557845394">
+          TopLeft="498.113630004113,83.0765557845394">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,77.6990984909986"
+              EndConnector="15.4419188128061,77.6990984909986"
               Start="0,0"
-              End="0,70.1990984909986">
+              End="15.4419188128061,70.1990984909986">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,70.1990984909986" />
+                    End="0,34.8495492454993" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,34.8495492454993"
+                    Point2="0,38.8495492454993"
+                    Point3="4,38.8495492454993" />
+                  <mssgle:LineSegment
+                    End="11.4419188128061,38.8495492454993" />
+                  <mssgle:CubicBezierSegment
+                    Point1="11.4419188128061,38.8495492454993"
+                    Point2="15.4419188128061,38.8495492454993"
+                    Point3="15.4419188128061,42.8495492454993" />
+                  <mssgle:LineSegment
+                    End="15.4419188128061,70.1990984909986" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -1319,6 +1357,42 @@
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
+          Id="Package\DF_Mes.Paths[Case 2]"
+          TopLeft="504.916660315047,496.982464202333">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-34.4166664617757,50.3859617699114"
+              Start="0,0"
+              End="-34.4166664617757,42.8859617699114">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,21.1929808849557" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,21.1929808849557"
+                    Point2="0,25.1929808849557"
+                    Point3="-4,25.1929808849557" />
+                  <mssgle:LineSegment
+                    End="-30.4166664617757,25.1929808849557" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-30.4166664617757,25.1929808849557"
+                    Point2="-34.4166664617757,25.1929808849557"
+                    Point3="-34.4166664617757,29.1929808849557" />
+                  <mssgle:LineSegment
+                    End="-34.4166664617757,42.8859617699114" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-39.8884308871378,30.1929808849557,45.3601953125,9.7294921875"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
           Id="Package\DF_Mes.Paths[Aggregate Output 1]"
           TopLeft="510.988088696663,310.269010884902">
           <EdgeLayout.Curve>
@@ -1332,80 +1406,6 @@
                   Capacity="5">
                   <mssgle:LineSegment
                     End="0,44.7628558917726" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="108,42.6666666666667"
-          Id="Package\DF_Mes\Sort 1"
-          TopLeft="412.499993853271,547.368425972244" />
-        <EdgeLayout
-          Id="Package\DF_Mes.Paths[Case 2]"
-          TopLeft="504.916660315047,496.982464202333">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-38.4166664617754,50.385961769911"
-              Start="0,0"
-              End="-38.4166664617754,42.885961769911">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,21.1929808849555" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,21.1929808849555"
-                    Point2="0,25.1929808849555"
-                    Point3="-4,25.1929808849555" />
-                  <mssgle:LineSegment
-                    End="-34.4166664617754,25.1929808849555" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-34.4166664617754,25.1929808849555"
-                    Point2="-38.4166664617754,25.1929808849555"
-                    Point3="-38.4166664617754,29.1929808849555" />
-                  <mssgle:LineSegment
-                    End="-38.4166664617754,42.885961769911" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-34.6119660433877,30.1929808849555,30.807265625,9.5732421875"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\DF_Mes.Paths[Sort Output1]"
-          TopLeft="466.499993853271,590.03509263891">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-14.3028492180148,38.7938855525173"
-              Start="0,0"
-              End="-14.3028492180148,31.2938855525173">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,15.3969427762586" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,15.3969427762586"
-                    Point2="0,19.3969427762586"
-                    Point3="-4,19.3969427762586" />
-                  <mssgle:LineSegment
-                    End="-10.3028492180148,19.3969427762586" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-10.3028492180148,19.3969427762586"
-                    Point2="-14.3028492180148,19.3969427762586"
-                    Point3="-14.3028492180148,23.3969427762586" />
-                  <mssgle:LineSegment
-                    End="-14.3028492180148,31.2938855525173" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>

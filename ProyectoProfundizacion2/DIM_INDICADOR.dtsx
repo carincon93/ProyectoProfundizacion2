@@ -11,8 +11,8 @@
   DTS:LocaleID="9226"
   DTS:ObjectName="DIM_INDICADOR"
   DTS:PackageType="5"
-  DTS:VersionBuild="40"
-  DTS:VersionGUID="{0FECA9B6-0798-4998-BF3C-875FB7615345}">
+  DTS:VersionBuild="44"
+  DTS:VersionGUID="{884D7FF4-1AA7-4AFC-909A-01CAF92F50BE}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -31,13 +31,13 @@
     <DTS:ConnectionManager
       DTS:refId="Package.ConnectionManagers[Excel Connection Manager]"
       DTS:CreationName="EXCEL"
-      DTS:DTSID="{AB4B759A-CF63-4A7A-B360-2396EAB526E0}"
+      DTS:DTSID="{4570A052-72D8-47C5-BC22-B14B0EF20748}"
       DTS:ObjectName="Excel Connection Manager">
       <DTS:ObjectData>
         <DTS:ConnectionManager
           DTS:ConnectRetryCount="0"
           DTS:ConnectRetryInterval="0"
-          DTS:ConnectionString="Provider=Microsoft.Jet.OLEDB.4.0;Data Source=C:\Users\Cristian\source\repos\ProyectoProfundizacion2\Sources\observatirio-municipios.xls;Extended Properties=&quot;EXCEL 8.0;HDR=YES&quot;;" />
+          DTS:ConnectionString="Provider=Microsoft.Jet.OLEDB.4.0;Data Source=C:\Users\Cristian\source\repos\ProyectoProfundizacion2\Sources\observatorio-municipios.xls;Extended Properties=&quot;Excel 8.0;HDR=YES&quot;;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
   </DTS:ConnectionManagers>
@@ -118,7 +118,7 @@
                       cachedLength="255"
                       cachedName="indicador"
                       cachedSortKeyPosition="1"
-                      lineageId="Package\DF_Indicador\Sort.Outputs[Sort Output].Columns[indicador]" />
+                      lineageId="Package\DF_Indicador\Sort Indicador.Outputs[Sort Output].Columns[indicador]" />
                   </inputColumns>
                   <externalMetadataColumns />
                 </input>
@@ -150,7 +150,7 @@
                           containsID="true"
                           dataType="System.Int32"
                           description="Specifies the ID of the input column used in the aggregation."
-                          name="AggregationColumnId">#{Package\DF_Indicador\Sort.Outputs[Sort Output].Columns[indicador]}</property>
+                          name="AggregationColumnId">#{Package\DF_Indicador\Sort Indicador.Outputs[Sort Output].Columns[indicador]}</property>
                         <property
                           dataType="System.Int32"
                           description="Specifies the type of aggregation."
@@ -704,11 +704,11 @@
               </outputs>
             </component>
             <component
-              refId="Package\DF_Indicador\Sort"
+              refId="Package\DF_Indicador\Sort Indicador"
               componentClassID="Microsoft.Sort"
               contactInfo="Sort;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
               description="Sorts input data in ascending or descending order when it cannot be sorted at its source. For example, sort sales data by 'customer id' before it is written to a flat file and delivered to another department. Note: We do not recommend this transformation for large data flows."
-              name="Sort"
+              name="Sort Indicador"
               version="1">
               <properties>
                 <property
@@ -723,11 +723,11 @@
               </properties>
               <inputs>
                 <input
-                  refId="Package\DF_Indicador\Sort.Inputs[Sort Input]"
+                  refId="Package\DF_Indicador\Sort Indicador.Inputs[Sort Input]"
                   name="Sort Input">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\DF_Indicador\Sort.Inputs[Sort Input].Columns[area]"
+                      refId="Package\DF_Indicador\Sort Indicador.Inputs[Sort Input].Columns[area]"
                       cachedDataType="wstr"
                       cachedLength="255"
                       cachedName="area"
@@ -744,7 +744,7 @@
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\DF_Indicador\Sort.Inputs[Sort Input].Columns[categoria]"
+                      refId="Package\DF_Indicador\Sort Indicador.Inputs[Sort Input].Columns[categoria]"
                       cachedDataType="wstr"
                       cachedLength="255"
                       cachedName="categoria"
@@ -761,7 +761,7 @@
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\DF_Indicador\Sort.Inputs[Sort Input].Columns[genero]"
+                      refId="Package\DF_Indicador\Sort Indicador.Inputs[Sort Input].Columns[genero]"
                       cachedDataType="wstr"
                       cachedLength="255"
                       cachedName="genero"
@@ -778,7 +778,7 @@
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\DF_Indicador\Sort.Inputs[Sort Input].Columns[agrupa]"
+                      refId="Package\DF_Indicador\Sort Indicador.Inputs[Sort Input].Columns[agrupa]"
                       cachedDataType="wstr"
                       cachedLength="255"
                       cachedName="agrupa"
@@ -795,7 +795,7 @@
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\DF_Indicador\Sort.Inputs[Sort Input].Columns[valor]"
+                      refId="Package\DF_Indicador\Sort Indicador.Inputs[Sort Input].Columns[valor]"
                       cachedDataType="r8"
                       cachedName="valor"
                       lineageId="Package\DF_Indicador\Excel Source.Outputs[Excel Source Output].Columns[valor]">
@@ -811,7 +811,7 @@
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\DF_Indicador\Sort.Inputs[Sort Input].Columns[mes]"
+                      refId="Package\DF_Indicador\Sort Indicador.Inputs[Sort Input].Columns[mes]"
                       cachedDataType="wstr"
                       cachedLength="255"
                       cachedName="mes"
@@ -828,7 +828,7 @@
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\DF_Indicador\Sort.Inputs[Sort Input].Columns[indicador]"
+                      refId="Package\DF_Indicador\Sort Indicador.Inputs[Sort Input].Columns[indicador]"
                       cachedDataType="wstr"
                       cachedLength="255"
                       cachedName="indicador"
@@ -845,7 +845,7 @@
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\DF_Indicador\Sort.Inputs[Sort Input].Columns[año]"
+                      refId="Package\DF_Indicador\Sort Indicador.Inputs[Sort Input].Columns[año]"
                       cachedDataType="r8"
                       cachedName="año"
                       lineageId="Package\DF_Indicador\Excel Source.Outputs[Excel Source Output].Columns[año]">
@@ -866,15 +866,15 @@
               </inputs>
               <outputs>
                 <output
-                  refId="Package\DF_Indicador\Sort.Outputs[Sort Output]"
+                  refId="Package\DF_Indicador\Sort Indicador.Outputs[Sort Output]"
                   isSorted="true"
                   name="Sort Output">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\DF_Indicador\Sort.Outputs[Sort Output].Columns[area]"
+                      refId="Package\DF_Indicador\Sort Indicador.Outputs[Sort Output].Columns[area]"
                       dataType="wstr"
                       length="255"
-                      lineageId="Package\DF_Indicador\Sort.Outputs[Sort Output].Columns[area]"
+                      lineageId="Package\DF_Indicador\Sort Indicador.Outputs[Sort Output].Columns[area]"
                       name="area">
                       <properties>
                         <property
@@ -885,10 +885,10 @@
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\DF_Indicador\Sort.Outputs[Sort Output].Columns[categoria]"
+                      refId="Package\DF_Indicador\Sort Indicador.Outputs[Sort Output].Columns[categoria]"
                       dataType="wstr"
                       length="255"
-                      lineageId="Package\DF_Indicador\Sort.Outputs[Sort Output].Columns[categoria]"
+                      lineageId="Package\DF_Indicador\Sort Indicador.Outputs[Sort Output].Columns[categoria]"
                       name="categoria">
                       <properties>
                         <property
@@ -899,10 +899,10 @@
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\DF_Indicador\Sort.Outputs[Sort Output].Columns[genero]"
+                      refId="Package\DF_Indicador\Sort Indicador.Outputs[Sort Output].Columns[genero]"
                       dataType="wstr"
                       length="255"
-                      lineageId="Package\DF_Indicador\Sort.Outputs[Sort Output].Columns[genero]"
+                      lineageId="Package\DF_Indicador\Sort Indicador.Outputs[Sort Output].Columns[genero]"
                       name="genero">
                       <properties>
                         <property
@@ -913,10 +913,10 @@
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\DF_Indicador\Sort.Outputs[Sort Output].Columns[agrupa]"
+                      refId="Package\DF_Indicador\Sort Indicador.Outputs[Sort Output].Columns[agrupa]"
                       dataType="wstr"
                       length="255"
-                      lineageId="Package\DF_Indicador\Sort.Outputs[Sort Output].Columns[agrupa]"
+                      lineageId="Package\DF_Indicador\Sort Indicador.Outputs[Sort Output].Columns[agrupa]"
                       name="agrupa">
                       <properties>
                         <property
@@ -927,9 +927,9 @@
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\DF_Indicador\Sort.Outputs[Sort Output].Columns[valor]"
+                      refId="Package\DF_Indicador\Sort Indicador.Outputs[Sort Output].Columns[valor]"
                       dataType="r8"
-                      lineageId="Package\DF_Indicador\Sort.Outputs[Sort Output].Columns[valor]"
+                      lineageId="Package\DF_Indicador\Sort Indicador.Outputs[Sort Output].Columns[valor]"
                       name="valor">
                       <properties>
                         <property
@@ -940,10 +940,10 @@
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\DF_Indicador\Sort.Outputs[Sort Output].Columns[mes]"
+                      refId="Package\DF_Indicador\Sort Indicador.Outputs[Sort Output].Columns[mes]"
                       dataType="wstr"
                       length="255"
-                      lineageId="Package\DF_Indicador\Sort.Outputs[Sort Output].Columns[mes]"
+                      lineageId="Package\DF_Indicador\Sort Indicador.Outputs[Sort Output].Columns[mes]"
                       name="mes">
                       <properties>
                         <property
@@ -954,10 +954,10 @@
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\DF_Indicador\Sort.Outputs[Sort Output].Columns[indicador]"
+                      refId="Package\DF_Indicador\Sort Indicador.Outputs[Sort Output].Columns[indicador]"
                       dataType="wstr"
                       length="255"
-                      lineageId="Package\DF_Indicador\Sort.Outputs[Sort Output].Columns[indicador]"
+                      lineageId="Package\DF_Indicador\Sort Indicador.Outputs[Sort Output].Columns[indicador]"
                       name="indicador"
                       sortKeyPosition="1">
                       <properties>
@@ -969,9 +969,9 @@
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\DF_Indicador\Sort.Outputs[Sort Output].Columns[año]"
+                      refId="Package\DF_Indicador\Sort Indicador.Outputs[Sort Output].Columns[año]"
                       dataType="r8"
-                      lineageId="Package\DF_Indicador\Sort.Outputs[Sort Output].Columns[año]"
+                      lineageId="Package\DF_Indicador\Sort Indicador.Outputs[Sort Output].Columns[año]"
                       name="año">
                       <properties>
                         <property
@@ -1005,14 +1005,14 @@
               startId="Package\DF_Indicador\Data Conversion.Outputs[Data Conversion Output]" />
             <path
               refId="Package\DF_Indicador.Paths[Excel Source Output]"
-              endId="Package\DF_Indicador\Sort.Inputs[Sort Input]"
+              endId="Package\DF_Indicador\Sort Indicador.Inputs[Sort Input]"
               name="Excel Source Output"
               startId="Package\DF_Indicador\Excel Source.Outputs[Excel Source Output]" />
             <path
               refId="Package\DF_Indicador.Paths[Sort Output]"
               endId="Package\DF_Indicador\Aggregate.Inputs[Aggregate Input 1]"
               name="Sort Output"
-              startId="Package\DF_Indicador\Sort.Outputs[Sort Output]" />
+              startId="Package\DF_Indicador\Sort Indicador.Outputs[Sort Output]" />
           </paths>
         </pipeline>
       </DTS:ObjectData>
@@ -1031,7 +1031,7 @@
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{FE04E231-22DE-4BB5-A868-FE9205CC0B6E}"
-          SQLTask:SqlStatementSource="DBCC CHECKIDENT ('Dim_Indicador', RESEED, 0);&#xA;&#xA;DELETE FROM Dim_Indicador;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          SQLTask:SqlStatementSource="DBCC CHECKIDENT ('Dim_Indicador', RESEED, 0);&#xA;&#xA;DELETE FROM Municipio_Stats;&#xA;DELETE FROM Dim_Indicador;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
   </DTS:Executables>
@@ -1112,9 +1112,9 @@
           Id="Package\DF_Indicador\Data Conversion"
           TopLeft="420.533002391578,350.216077071177" />
         <NodeLayout
-          Size="98.6666666666667,42.6666666666667"
-          Id="Package\DF_Indicador\Sort"
-          TopLeft="452.222215483586,160.775654275538" />
+          Size="146.666666666667,42.6666666666667"
+          Id="Package\DF_Indicador\Sort Indicador"
+          TopLeft="423.472215911995,155.301969961983" />
         <NodeLayout
           Size="174.666666666667,42.6666666666667"
           Id="Package\DF_Indicador\OLE DB Destination"
@@ -1133,18 +1133,30 @@
           TopLeft="421.874993713572,432.421060281447" />
         <EdgeLayout
           Id="Package\DF_Indicador.Paths[Sort Output]"
-          TopLeft="503.395195368395,203.442320942205">
+          TopLeft="496.805549245328,197.96863662865">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,45.002128178589"
+              EndConnector="8.42929267454389,50.4758124921441"
               Start="0,0"
-              End="0,37.502128178589">
+              End="8.42929267454389,42.9758124921441">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,37.502128178589" />
+                    End="0,21.2379062460721" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,21.2379062460721"
+                    Point2="0,25.2379062460721"
+                    Point3="4,25.2379062460721" />
+                  <mssgle:LineSegment
+                    End="4.42929267454389,25.2379062460721" />
+                  <mssgle:CubicBezierSegment
+                    Point1="4.42929267454389,25.2379062460721"
+                    Point2="8.42929267454389,25.2379062460721"
+                    Point3="8.42929267454389,29.2379062460721" />
+                  <mssgle:LineSegment
+                    End="8.42929267454389,42.9758124921441" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -1155,18 +1167,18 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package\DF_Indicador.Paths[Excel Source Output]"
-          TopLeft="499.834589410516,83.0765557845394">
+          TopLeft="497.459589624721,83.0765557845394">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,77.6990984909986"
+              EndConnector="0,72.2254141774438"
               Start="0,0"
-              End="0,70.1990984909986">
+              End="0,64.7254141774438">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,70.1990984909986" />
+                    End="0,64.7254141774438" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>

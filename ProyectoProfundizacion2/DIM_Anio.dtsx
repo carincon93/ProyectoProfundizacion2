@@ -11,8 +11,8 @@
   DTS:LocaleID="9226"
   DTS:ObjectName="DIM_ANIO"
   DTS:PackageType="5"
-  DTS:VersionBuild="49"
-  DTS:VersionGUID="{04CB1F7A-750B-4944-8C2E-E373C5F911B7}">
+  DTS:VersionBuild="54"
+  DTS:VersionGUID="{A83C7C17-C04B-49D9-8D8B-7102254C8FEC}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -31,13 +31,13 @@
     <DTS:ConnectionManager
       DTS:refId="Package.ConnectionManagers[Excel Connection Manager]"
       DTS:CreationName="EXCEL"
-      DTS:DTSID="{BBB3D86D-9569-4860-BEDC-EB12C21A89B7}"
+      DTS:DTSID="{7D2E5ED6-063E-4684-967F-891B8FB7651D}"
       DTS:ObjectName="Excel Connection Manager">
       <DTS:ObjectData>
         <DTS:ConnectionManager
           DTS:ConnectRetryCount="0"
           DTS:ConnectRetryInterval="0"
-          DTS:ConnectionString="Provider=Microsoft.Jet.OLEDB.4.0;Data Source=C:\Users\Cristian\source\repos\ProyectoProfundizacion2\Sources\observatirio-municipios.xls;Extended Properties=&quot;EXCEL 8.0;HDR=YES&quot;;" />
+          DTS:ConnectionString="Provider=Microsoft.Jet.OLEDB.4.0;Data Source=C:\Users\Cristian\source\repos\ProyectoProfundizacion2\Sources\observatorio-municipios.xls;Extended Properties=&quot;Excel 8.0;HDR=YES&quot;;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
   </DTS:ConnectionManagers>
@@ -117,7 +117,7 @@
                       cachedDataType="r8"
                       cachedName="año"
                       cachedSortKeyPosition="1"
-                      lineageId="Package\DF_Anio\Sort.Outputs[Sort Output].Columns[año]" />
+                      lineageId="Package\DF_Anio\Sort Año.Outputs[Sort Output].Columns[año]" />
                   </inputColumns>
                   <externalMetadataColumns />
                 </input>
@@ -148,7 +148,7 @@
                           containsID="true"
                           dataType="System.Int32"
                           description="Specifies the ID of the input column used in the aggregation."
-                          name="AggregationColumnId">#{Package\DF_Anio\Sort.Outputs[Sort Output].Columns[año]}</property>
+                          name="AggregationColumnId">#{Package\DF_Anio\Sort Año.Outputs[Sort Output].Columns[año]}</property>
                         <property
                           dataType="System.Int32"
                           description="Specifies the type of aggregation."
@@ -193,12 +193,12 @@
               </inputs>
               <outputs>
                 <output
-                  refId="Package\DF_Anio\Conditional Split.Outputs[Case 2]"
+                  refId="Package\DF_Anio\Conditional Split.Outputs[CheckAnio]"
                   description="Output 2 of the Conditional Split Transformation"
                   errorOrTruncationOperation="Computation"
                   errorRowDisposition="FailComponent"
                   exclusionGroup="1"
-                  name="Case 2"
+                  name="CheckAnio"
                   synchronousInputId="Package\DF_Anio\Conditional Split.Inputs[Conditional Split Input]"
                   truncationRowDisposition="FailComponent">
                   <properties>
@@ -653,7 +653,7 @@
                       cachedName="anio_transf"
                       cachedSortKeyPosition="1"
                       externalMetadataColumnId="Package\DF_Anio\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Anio]"
-                      lineageId="Package\DF_Anio\Sort 1.Outputs[Sort Output].Columns[anio_transf]" />
+                      lineageId="Package\DF_Anio\Srt Año.Outputs[Sort Output].Columns[anio_transf]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -694,11 +694,11 @@
               </outputs>
             </component>
             <component
-              refId="Package\DF_Anio\Sort"
+              refId="Package\DF_Anio\Sort Año"
               componentClassID="Microsoft.Sort"
               contactInfo="Sort;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
               description="Sorts input data in ascending or descending order when it cannot be sorted at its source. For example, sort sales data by 'customer id' before it is written to a flat file and delivered to another department. Note: We do not recommend this transformation for large data flows."
-              name="Sort"
+              name="Sort Año"
               version="1">
               <properties>
                 <property
@@ -713,11 +713,11 @@
               </properties>
               <inputs>
                 <input
-                  refId="Package\DF_Anio\Sort.Inputs[Sort Input]"
+                  refId="Package\DF_Anio\Sort Año.Inputs[Sort Input]"
                   name="Sort Input">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\DF_Anio\Sort.Inputs[Sort Input].Columns[area]"
+                      refId="Package\DF_Anio\Sort Año.Inputs[Sort Input].Columns[area]"
                       cachedDataType="wstr"
                       cachedLength="255"
                       cachedName="area"
@@ -734,7 +734,7 @@
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\DF_Anio\Sort.Inputs[Sort Input].Columns[categoria]"
+                      refId="Package\DF_Anio\Sort Año.Inputs[Sort Input].Columns[categoria]"
                       cachedDataType="wstr"
                       cachedLength="255"
                       cachedName="categoria"
@@ -751,7 +751,7 @@
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\DF_Anio\Sort.Inputs[Sort Input].Columns[genero]"
+                      refId="Package\DF_Anio\Sort Año.Inputs[Sort Input].Columns[genero]"
                       cachedDataType="wstr"
                       cachedLength="255"
                       cachedName="genero"
@@ -768,7 +768,7 @@
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\DF_Anio\Sort.Inputs[Sort Input].Columns[agrupa]"
+                      refId="Package\DF_Anio\Sort Año.Inputs[Sort Input].Columns[agrupa]"
                       cachedDataType="wstr"
                       cachedLength="255"
                       cachedName="agrupa"
@@ -785,7 +785,7 @@
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\DF_Anio\Sort.Inputs[Sort Input].Columns[valor]"
+                      refId="Package\DF_Anio\Sort Año.Inputs[Sort Input].Columns[valor]"
                       cachedDataType="r8"
                       cachedName="valor"
                       lineageId="Package\DF_Anio\Excel Source.Outputs[Excel Source Output].Columns[valor]">
@@ -801,7 +801,7 @@
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\DF_Anio\Sort.Inputs[Sort Input].Columns[mes]"
+                      refId="Package\DF_Anio\Sort Año.Inputs[Sort Input].Columns[mes]"
                       cachedDataType="wstr"
                       cachedLength="255"
                       cachedName="mes"
@@ -818,7 +818,7 @@
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\DF_Anio\Sort.Inputs[Sort Input].Columns[indicador]"
+                      refId="Package\DF_Anio\Sort Año.Inputs[Sort Input].Columns[indicador]"
                       cachedDataType="wstr"
                       cachedLength="255"
                       cachedName="indicador"
@@ -835,7 +835,7 @@
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\DF_Anio\Sort.Inputs[Sort Input].Columns[año]"
+                      refId="Package\DF_Anio\Sort Año.Inputs[Sort Input].Columns[año]"
                       cachedDataType="r8"
                       cachedName="año"
                       lineageId="Package\DF_Anio\Excel Source.Outputs[Excel Source Output].Columns[año]">
@@ -856,15 +856,15 @@
               </inputs>
               <outputs>
                 <output
-                  refId="Package\DF_Anio\Sort.Outputs[Sort Output]"
+                  refId="Package\DF_Anio\Sort Año.Outputs[Sort Output]"
                   isSorted="true"
                   name="Sort Output">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\DF_Anio\Sort.Outputs[Sort Output].Columns[area]"
+                      refId="Package\DF_Anio\Sort Año.Outputs[Sort Output].Columns[area]"
                       dataType="wstr"
                       length="255"
-                      lineageId="Package\DF_Anio\Sort.Outputs[Sort Output].Columns[area]"
+                      lineageId="Package\DF_Anio\Sort Año.Outputs[Sort Output].Columns[area]"
                       name="area">
                       <properties>
                         <property
@@ -875,10 +875,10 @@
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\DF_Anio\Sort.Outputs[Sort Output].Columns[categoria]"
+                      refId="Package\DF_Anio\Sort Año.Outputs[Sort Output].Columns[categoria]"
                       dataType="wstr"
                       length="255"
-                      lineageId="Package\DF_Anio\Sort.Outputs[Sort Output].Columns[categoria]"
+                      lineageId="Package\DF_Anio\Sort Año.Outputs[Sort Output].Columns[categoria]"
                       name="categoria">
                       <properties>
                         <property
@@ -889,10 +889,10 @@
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\DF_Anio\Sort.Outputs[Sort Output].Columns[genero]"
+                      refId="Package\DF_Anio\Sort Año.Outputs[Sort Output].Columns[genero]"
                       dataType="wstr"
                       length="255"
-                      lineageId="Package\DF_Anio\Sort.Outputs[Sort Output].Columns[genero]"
+                      lineageId="Package\DF_Anio\Sort Año.Outputs[Sort Output].Columns[genero]"
                       name="genero">
                       <properties>
                         <property
@@ -903,10 +903,10 @@
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\DF_Anio\Sort.Outputs[Sort Output].Columns[agrupa]"
+                      refId="Package\DF_Anio\Sort Año.Outputs[Sort Output].Columns[agrupa]"
                       dataType="wstr"
                       length="255"
-                      lineageId="Package\DF_Anio\Sort.Outputs[Sort Output].Columns[agrupa]"
+                      lineageId="Package\DF_Anio\Sort Año.Outputs[Sort Output].Columns[agrupa]"
                       name="agrupa">
                       <properties>
                         <property
@@ -917,9 +917,9 @@
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\DF_Anio\Sort.Outputs[Sort Output].Columns[valor]"
+                      refId="Package\DF_Anio\Sort Año.Outputs[Sort Output].Columns[valor]"
                       dataType="r8"
-                      lineageId="Package\DF_Anio\Sort.Outputs[Sort Output].Columns[valor]"
+                      lineageId="Package\DF_Anio\Sort Año.Outputs[Sort Output].Columns[valor]"
                       name="valor">
                       <properties>
                         <property
@@ -930,10 +930,10 @@
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\DF_Anio\Sort.Outputs[Sort Output].Columns[mes]"
+                      refId="Package\DF_Anio\Sort Año.Outputs[Sort Output].Columns[mes]"
                       dataType="wstr"
                       length="255"
-                      lineageId="Package\DF_Anio\Sort.Outputs[Sort Output].Columns[mes]"
+                      lineageId="Package\DF_Anio\Sort Año.Outputs[Sort Output].Columns[mes]"
                       name="mes">
                       <properties>
                         <property
@@ -944,10 +944,10 @@
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\DF_Anio\Sort.Outputs[Sort Output].Columns[indicador]"
+                      refId="Package\DF_Anio\Sort Año.Outputs[Sort Output].Columns[indicador]"
                       dataType="wstr"
                       length="255"
-                      lineageId="Package\DF_Anio\Sort.Outputs[Sort Output].Columns[indicador]"
+                      lineageId="Package\DF_Anio\Sort Año.Outputs[Sort Output].Columns[indicador]"
                       name="indicador">
                       <properties>
                         <property
@@ -958,9 +958,9 @@
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\DF_Anio\Sort.Outputs[Sort Output].Columns[año]"
+                      refId="Package\DF_Anio\Sort Año.Outputs[Sort Output].Columns[año]"
                       dataType="r8"
-                      lineageId="Package\DF_Anio\Sort.Outputs[Sort Output].Columns[año]"
+                      lineageId="Package\DF_Anio\Sort Año.Outputs[Sort Output].Columns[año]"
                       name="año"
                       sortKeyPosition="1">
                       <properties>
@@ -977,11 +977,11 @@
               </outputs>
             </component>
             <component
-              refId="Package\DF_Anio\Sort 1"
+              refId="Package\DF_Anio\Srt Año"
               componentClassID="Microsoft.Sort"
               contactInfo="Sort;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
               description="Sorts input data in ascending or descending order when it cannot be sorted at its source. For example, sort sales data by 'customer id' before it is written to a flat file and delivered to another department. Note: We do not recommend this transformation for large data flows."
-              name="Sort 1"
+              name="Srt Año"
               version="1">
               <properties>
                 <property
@@ -996,11 +996,11 @@
               </properties>
               <inputs>
                 <input
-                  refId="Package\DF_Anio\Sort 1.Inputs[Sort Input]"
+                  refId="Package\DF_Anio\Srt Año.Inputs[Sort Input]"
                   name="Sort Input">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\DF_Anio\Sort 1.Inputs[Sort Input].Columns[anio_transf]"
+                      refId="Package\DF_Anio\Srt Año.Inputs[Sort Input].Columns[anio_transf]"
                       cachedDataType="r8"
                       cachedName="anio_transf"
                       lineageId="Package\DF_Anio\Data Conversion.Outputs[Data Conversion Output].Columns[anio_transf]">
@@ -1021,14 +1021,14 @@
               </inputs>
               <outputs>
                 <output
-                  refId="Package\DF_Anio\Sort 1.Outputs[Sort Output]"
+                  refId="Package\DF_Anio\Srt Año.Outputs[Sort Output]"
                   isSorted="true"
                   name="Sort Output">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\DF_Anio\Sort 1.Outputs[Sort Output].Columns[anio_transf]"
+                      refId="Package\DF_Anio\Srt Año.Outputs[Sort Output].Columns[anio_transf]"
                       dataType="r8"
-                      lineageId="Package\DF_Anio\Sort 1.Outputs[Sort Output].Columns[anio_transf]"
+                      lineageId="Package\DF_Anio\Srt Año.Outputs[Sort Output].Columns[anio_transf]"
                       name="anio_transf"
                       sortKeyPosition="1">
                       <properties>
@@ -1053,9 +1053,9 @@
               startId="Package\DF_Anio\Aggregate.Outputs[Aggregate Output 1]" />
             <path
               refId="Package\DF_Anio.Paths[Case 2]"
-              endId="Package\DF_Anio\Sort 1.Inputs[Sort Input]"
+              endId="Package\DF_Anio\Srt Año.Inputs[Sort Input]"
               name="Case 2"
-              startId="Package\DF_Anio\Conditional Split.Outputs[Case 2]" />
+              startId="Package\DF_Anio\Conditional Split.Outputs[CheckAnio]" />
             <path
               refId="Package\DF_Anio.Paths[Data Conversion Output]"
               endId="Package\DF_Anio\Conditional Split.Inputs[Conditional Split Input]"
@@ -1063,19 +1063,19 @@
               startId="Package\DF_Anio\Data Conversion.Outputs[Data Conversion Output]" />
             <path
               refId="Package\DF_Anio.Paths[Excel Source Output]"
-              endId="Package\DF_Anio\Sort.Inputs[Sort Input]"
+              endId="Package\DF_Anio\Sort Año.Inputs[Sort Input]"
               name="Excel Source Output"
               startId="Package\DF_Anio\Excel Source.Outputs[Excel Source Output]" />
             <path
               refId="Package\DF_Anio.Paths[Sort Output]"
               endId="Package\DF_Anio\Aggregate.Inputs[Aggregate Input 1]"
               name="Sort Output"
-              startId="Package\DF_Anio\Sort.Outputs[Sort Output]" />
+              startId="Package\DF_Anio\Sort Año.Outputs[Sort Output]" />
             <path
               refId="Package\DF_Anio.Paths[Sort Output1]"
               endId="Package\DF_Anio\OLE DB Destination.Inputs[OLE DB Destination Input]"
               name="Sort Output"
-              startId="Package\DF_Anio\Sort 1.Outputs[Sort Output]" />
+              startId="Package\DF_Anio\Srt Año.Outputs[Sort Output]" />
           </paths>
         </pipeline>
       </DTS:ObjectData>
@@ -1094,7 +1094,7 @@
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{280BCF61-D7A3-4E84-8662-D6B256C9E058}"
-          SQLTask:SqlStatementSource="DBCC CHECKIDENT ('Dim_Anio', RESEED, 0);&#xA;&#xA;DELETE FROM Dim_Anio;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          SQLTask:SqlStatementSource="DBCC CHECKIDENT ('Dim_Anio', RESEED, 0);&#xA;&#xA;DELETE FROM Municipio_Stats;&#xA;DELETE FROM Dim_Anio;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
   </DTS:Executables>
@@ -1175,21 +1175,21 @@
           Id="Package\DF_Anio\Data Conversion"
           TopLeft="433.033002205314,362.531866776675" />
         <NodeLayout
-          Size="98.6666666666667,42.6666666666667"
-          Id="Package\DF_Anio\Sort"
+          Size="121.333333333334,42.6666666666667"
+          Id="Package\DF_Anio\Sort Año"
           TopLeft="452.222215483586,160.775654275538" />
         <NodeLayout
           Size="174.666666666667,42.6666666666667"
           Id="Package\DF_Anio\OLE DB Destination"
-          TopLeft="364.863811301923,628.828978191428" />
+          TopLeft="412.363810594118,620.618451721096" />
         <NodeLayout
           Size="142.666666666667,42.6666666666667"
           Id="Package\DF_Anio\Excel Source"
           TopLeft="426.78029667078,40.4098891178727" />
         <NodeLayout
-          Size="108,42.6666666666667"
-          Id="Package\DF_Anio\Sort 1"
-          TopLeft="412.499993853271,547.368425972244" />
+          Size="114.666666666667,42.6666666666667"
+          Id="Package\DF_Anio\Srt Año"
+          TopLeft="448.124993322417,534.368425727551" />
         <NodeLayout
           Size="129.333333333334,42.6666666666667"
           Id="Package\DF_Anio\Aggregate"
@@ -1199,31 +1199,41 @@
           Id="Package\DF_Anio\Conditional Split"
           TopLeft="426.24999364838,454.315797535666" />
         <EdgeLayout
-          Id="Package\DF_Anio.Paths[Sort Output1]"
-          TopLeft="466.499993853271,590.03509263891">
+          Id="Package\DF_Anio.Paths[Aggregate Output 1]"
+          TopLeft="510.988088696663,310.269010884902">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-14.3028492180148,38.7938855525173"
+              EndConnector="0,52.2628558917726"
               Start="0,0"
-              End="-14.3028492180148,31.2938855525173">
+              End="0,44.7628558917726">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,15.3969427762586" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,15.3969427762586"
-                    Point2="0,19.3969427762586"
-                    Point3="-4,19.3969427762586" />
+                    End="0,44.7628558917726" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DF_Anio.Paths[Sort Output1]"
+          TopLeft="502.577735291601,577.035092394218">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,43.5833593268778"
+              Start="0,0"
+              End="0,36.0833593268778">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
                   <mssgle:LineSegment
-                    End="-10.3028492180148,19.3969427762586" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-10.3028492180148,19.3969427762586"
-                    Point2="-14.3028492180148,19.3969427762586"
-                    Point3="-14.3028492180148,23.3969427762586" />
-                  <mssgle:LineSegment
-                    End="-14.3028492180148,31.2938855525173" />
+                    End="0,36.0833593268778" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -1234,30 +1244,18 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package\DF_Anio.Paths[Sort Output]"
-          TopLeft="501.555548816919,203.442320942205">
+          TopLeft="511.249362002466,203.442320942205">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="8.05429303775935,64.160023276031"
+              EndConnector="0,64.1600232760314"
               Start="0,0"
-              End="8.05429303775935,56.660023276031">
+              End="0,56.6600232760314">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,28.0800116380155" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,28.0800116380155"
-                    Point2="0,32.0800116380155"
-                    Point3="4,32.0800116380155" />
-                  <mssgle:LineSegment
-                    End="4.05429303775935,32.0800116380155" />
-                  <mssgle:CubicBezierSegment
-                    Point1="4.05429303775935,32.0800116380155"
-                    Point2="8.05429303775935,32.0800116380155"
-                    Point3="8.05429303775935,36.0800116380155" />
-                  <mssgle:LineSegment
-                    End="8.05429303775935,56.660023276031" />
+                    End="0,56.6600232760314" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -1268,18 +1266,30 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package\DF_Anio.Paths[Excel Source Output]"
-          TopLeft="499.834589410516,83.0765557845394">
+          TopLeft="498.113630004113,83.0765557845394">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,77.6990984909986"
+              EndConnector="14.7752521461394,77.6990984909986"
               Start="0,0"
-              End="0,70.1990984909986">
+              End="14.7752521461394,70.1990984909986">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,70.1990984909986" />
+                    End="0,34.8495492454993" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,34.8495492454993"
+                    Point2="0,38.8495492454993"
+                    Point3="4,38.8495492454993" />
+                  <mssgle:LineSegment
+                    End="10.7752521461394,38.8495492454993" />
+                  <mssgle:CubicBezierSegment
+                    Point1="10.7752521461394,38.8495492454993"
+                    Point2="14.7752521461394,38.8495492454993"
+                    Point3="14.7752521461394,42.8495492454993" />
+                  <mssgle:LineSegment
+                    End="14.7752521461394,70.1990984909986" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -1312,60 +1322,26 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package\DF_Anio.Paths[Case 2]"
-          TopLeft="504.916660315047,496.982464202333">
+          TopLeft="505.187493485399,496.982464202333">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-38.4166664617754,50.385961769911"
+              EndConnector="0,37.3859615252186"
               Start="0,0"
-              End="-38.4166664617754,42.885961769911">
+              End="0,29.8859615252186">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,21.1929808849555" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,21.1929808849555"
-                    Point2="0,25.1929808849555"
-                    Point3="-4,25.1929808849555" />
-                  <mssgle:LineSegment
-                    End="-34.4166664617754,25.1929808849555" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-34.4166664617754,25.1929808849555"
-                    Point2="-38.4166664617754,25.1929808849555"
-                    Point3="-38.4166664617754,29.1929808849555" />
-                  <mssgle:LineSegment
-                    End="-38.4166664617754,42.885961769911" />
+                    End="0,29.8859615252186" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-34.6119660433877,30.1929808849555,30.807265625,9.5732421875"
+              BoundingBox="-23.56955078125,10.0684690438593,47.1391015625,9.7490234375"
               RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\DF_Anio.Paths[Aggregate Output 1]"
-          TopLeft="510.988088696663,310.269010884902">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,52.2628558917726"
-              Start="0,0"
-              End="0,44.7628558917726">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,44.7628558917726" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>

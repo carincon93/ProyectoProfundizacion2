@@ -11,8 +11,8 @@
   DTS:LocaleID="9226"
   DTS:ObjectName="DIM_AGRUPACION"
   DTS:PackageType="5"
-  DTS:VersionBuild="47"
-  DTS:VersionGUID="{2806DDA8-DB07-4202-8DDF-01249BA40F50}">
+  DTS:VersionBuild="50"
+  DTS:VersionGUID="{CB1908CA-44A8-445C-B81D-F2E5B3264503}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -31,13 +31,13 @@
     <DTS:ConnectionManager
       DTS:refId="Package.ConnectionManagers[Excel Connection Manager]"
       DTS:CreationName="EXCEL"
-      DTS:DTSID="{46DA0C9D-1946-4285-8D52-88AF482CD842}"
+      DTS:DTSID="{57313DF8-2CCF-4C5E-9250-D7E8182016EA}"
       DTS:ObjectName="Excel Connection Manager">
       <DTS:ObjectData>
         <DTS:ConnectionManager
           DTS:ConnectRetryCount="0"
           DTS:ConnectRetryInterval="0"
-          DTS:ConnectionString="Provider=Microsoft.Jet.OLEDB.4.0;Data Source=C:\Users\Cristian\source\repos\ProyectoProfundizacion2\Sources\observatirio-municipios.xls;Extended Properties=&quot;EXCEL 8.0;HDR=YES&quot;;" />
+          DTS:ConnectionString="Provider=Microsoft.Jet.OLEDB.4.0;Data Source=C:\Users\Cristian\source\repos\ProyectoProfundizacion2\Sources\observatorio-municipios.xls;Extended Properties=&quot;EXCEL 8.0;HDR=YES&quot;;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
   </DTS:ConnectionManagers>
@@ -1155,7 +1155,7 @@
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{237AC2E2-70DC-4DF6-8C37-216A681AE29C}"
-          SQLTask:SqlStatementSource="DBCC CHECKIDENT ('Dim_Agrupacion', RESEED, 0);&#xA;&#xA;DELETE FROM Dim_Agrupacion;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          SQLTask:SqlStatementSource="DBCC CHECKIDENT ('Dim_Agrupacion', RESEED, 0);&#xA;&#xA;DELETE FROM Municipio_Stats;&#xA;DELETE FROM Dim_Agrupacion;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
   </DTS:Executables>
@@ -1194,6 +1194,10 @@
           Id="Package\DF_Agrupacion"
           TopLeft="298.124995557592,175.842108572949" />
         <NodeLayout
+          Size="168,42.6666666666667"
+          Id="Package\Execute SQL Task"
+          TopLeft="264.374996060506,289.421058079212" />
+        <NodeLayout
           Size="149.333333333334,42"
           Id="Package\TMP_DELETE"
           TopLeft="297.499995566905,46.5263166652161" />
@@ -1219,10 +1223,6 @@
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="168,42.6666666666667"
-          Id="Package\Execute SQL Task"
-          TopLeft="264.374996060506,289.421058079212" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 1]"
           TopLeft="374.791662224259,218.508775239616">
@@ -1268,7 +1268,15 @@
         <NodeLayout
           Size="158.666666666667,42.6666666666667"
           Id="Package\DF_Agrupacion\Data Conversion"
-          TopLeft="433.033002205314,362.531866776675" />
+          TopLeft="404.908002624409,417.952920451418" />
+        <NodeLayout
+          Size="142.666666666667,42.6666666666667"
+          Id="Package\DF_Agrupacion\Excel Source"
+          TopLeft="426.78029667078,40.4098891178727" />
+        <NodeLayout
+          Size="156,42.6666666666667"
+          Id="Package\DF_Agrupacion\Derived Column"
+          TopLeft="229.999996572733,349.175439459355" />
         <NodeLayout
           Size="98.6666666666667,42.6666666666667"
           Id="Package\DF_Agrupacion\Sort"
@@ -1277,10 +1285,6 @@
           Size="174.666666666667,42.6666666666667"
           Id="Package\DF_Agrupacion\OLE DB Destination"
           TopLeft="395.488810845575,636.355294122566" />
-        <NodeLayout
-          Size="142.666666666667,42.6666666666667"
-          Id="Package\DF_Agrupacion\Excel Source"
-          TopLeft="426.78029667078,40.4098891178727" />
         <NodeLayout
           Size="129.333333333334,42.6666666666667"
           Id="Package\DF_Agrupacion\Aggregate"
@@ -1346,6 +1350,74 @@
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
+          Id="Package\DF_Agrupacion.Paths[Derived Column Output]"
+          TopLeft="307.999996572733,391.842106126022">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="176.24133938501,26.110814325396"
+              Start="0,0"
+              End="176.24133938501,18.610814325396">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,9.05540716269797" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,9.05540716269797"
+                    Point2="0,13.055407162698"
+                    Point3="4,13.055407162698" />
+                  <mssgle:LineSegment
+                    End="172.24133938501,13.055407162698" />
+                  <mssgle:CubicBezierSegment
+                    Point1="172.24133938501,13.055407162698"
+                    Point2="176.24133938501,13.055407162698"
+                    Point3="176.24133938501,17.055407162698" />
+                  <mssgle:LineSegment
+                    End="176.24133938501,18.610814325396" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DF_Agrupacion.Paths[Data Conversion Output]"
+          TopLeft="484.241335957743,460.619587118084">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-18.0746750652759,83.3277910520425"
+              Start="0,0"
+              End="-18.0746750652759,75.8277910520425">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,37.6638955260213" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,37.6638955260213"
+                    Point2="0,41.6638955260213"
+                    Point3="-4,41.6638955260213" />
+                  <mssgle:LineSegment
+                    End="-14.0746750652759,41.6638955260213" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-14.0746750652759,41.6638955260213"
+                    Point2="-18.0746750652759,41.6638955260213"
+                    Point3="-18.0746750652759,45.6638955260213" />
+                  <mssgle:LineSegment
+                    End="-18.0746750652759,75.8277910520425" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
           Id="Package\DF_Agrupacion.Paths[Case 2]"
           TopLeft="466.166660892467,586.614044836793">
           <EdgeLayout.Curve>
@@ -1381,104 +1453,32 @@
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="156,42.6666666666667"
-          Id="Package\DF_Agrupacion\Derived Column"
-          TopLeft="164.999997541308,335.491228675468" />
         <EdgeLayout
           Id="Package\DF_Agrupacion.Paths[Aggregate Output 1]"
           TopLeft="509.609841854679,310.953221424097">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-266.60984431337,24.5380072513713"
+              EndConnector="-201.609845281946,38.2222180352584"
               Start="0,0"
-              End="-266.60984431337,17.0380072513713">
+              End="-201.609845281946,30.7222180352584">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,8.26900362568563" />
+                    End="0,15.1111090176292" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,8.26900362568563"
-                    Point2="0,12.2690036256856"
-                    Point3="-4,12.2690036256856" />
+                    Point1="0,15.1111090176292"
+                    Point2="0,19.1111090176292"
+                    Point3="-4,19.1111090176292" />
                   <mssgle:LineSegment
-                    End="-262.60984431337,12.2690036256856" />
+                    End="-197.609845281946,19.1111090176292" />
                   <mssgle:CubicBezierSegment
-                    Point1="-262.60984431337,12.2690036256856"
-                    Point2="-266.60984431337,12.2690036256856"
-                    Point3="-266.60984431337,16.2690036256856" />
+                    Point1="-197.609845281946,19.1111090176292"
+                    Point2="-201.609845281946,19.1111090176292"
+                    Point3="-201.609845281946,23.1111090176292" />
                   <mssgle:LineSegment
-                    End="-266.60984431337,17.0380072513713" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\DF_Agrupacion.Paths[Derived Column Output]"
-          TopLeft="320.999997541308,356.824562008801">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="112.033004664006,27.040638101207"
-              Start="0,0"
-              End="104.533004664006,27.040638101207">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="52.0165023320028,0" />
-                  <mssgle:CubicBezierSegment
-                    Point1="52.0165023320028,0"
-                    Point2="56.0165023320028,0"
-                    Point3="56.0165023320028,4" />
-                  <mssgle:LineSegment
-                    End="56.0165023320028,23.040638101207" />
-                  <mssgle:CubicBezierSegment
-                    Point1="56.0165023320028,23.040638101207"
-                    Point2="56.0165023320028,27.040638101207"
-                    Point3="60.0165023320028,27.040638101207" />
-                  <mssgle:LineSegment
-                    End="104.533004664006,27.040638101207" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\DF_Agrupacion.Paths[Data Conversion Output]"
-          TopLeft="512.366335538647,405.198533443342">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-46.1996746461804,138.748844726785"
-              Start="0,0"
-              End="-46.1996746461804,131.248844726785">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,65.3744223633924" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,65.3744223633924"
-                    Point2="0,69.3744223633924"
-                    Point3="-4,69.3744223633924" />
-                  <mssgle:LineSegment
-                    End="-42.1996746461804,69.3744223633924" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-42.1996746461804,69.3744223633924"
-                    Point2="-46.1996746461804,69.3744223633924"
-                    Point3="-46.1996746461804,73.3744223633924" />
-                  <mssgle:LineSegment
-                    End="-46.1996746461804,131.248844726785" />
+                    End="-201.609845281946,30.7222180352584" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -1491,7 +1491,7 @@
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\DF_Agrupacion\OLE DB Destination">
+    design-time-name="Package\DF_Agrupacion\Excel Source">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -1504,7 +1504,7 @@
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\DF_Agrupacion\Excel Source">
+    design-time-name="Package\DF_Agrupacion\OLE DB Destination">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>

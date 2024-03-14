@@ -11,8 +11,8 @@
   DTS:LocaleID="9226"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="116"
-  DTS:VersionGUID="{CBD7FEDE-4E2B-4F01-8A92-685B9B1D6C8D}">
+  DTS:VersionBuild="120"
+  DTS:VersionGUID="{597DECF0-2032-4B44-8852-3022482BAB53}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -31,37 +31,13 @@
     <DTS:ConnectionManager
       DTS:refId="Package.ConnectionManagers[Excel Connection Manager]"
       DTS:CreationName="EXCEL"
-      DTS:DTSID="{E8D895CF-86BF-46B3-BF3D-E998D5787E35}"
+      DTS:DTSID="{48B4066C-2500-4831-BE70-24D0B088BEE1}"
       DTS:ObjectName="Excel Connection Manager">
       <DTS:ObjectData>
         <DTS:ConnectionManager
           DTS:ConnectRetryCount="0"
           DTS:ConnectRetryInterval="0"
-          DTS:ConnectionString="Provider=Microsoft.Jet.OLEDB.4.0;Data Source=C:\Users\Cristian\source\repos\ProyectoProfundizacion2\Sources\observatirio-municipios.xls;Extended Properties=&quot;EXCEL 8.0;HDR=YES&quot;;" />
-      </DTS:ObjectData>
-    </DTS:ConnectionManager>
-    <DTS:ConnectionManager
-      DTS:refId="Package.ConnectionManagers[Excel Connection Manager 1]"
-      DTS:CreationName="EXCEL"
-      DTS:DTSID="{FF7F9D3E-F74C-4EBC-A122-C2537E1259F2}"
-      DTS:ObjectName="Excel Connection Manager 1">
-      <DTS:ObjectData>
-        <DTS:ConnectionManager
-          DTS:ConnectRetryCount="0"
-          DTS:ConnectRetryInterval="0"
-          DTS:ConnectionString="Provider=Microsoft.Jet.OLEDB.4.0;Data Source=C:\Users\Cristian\Downloads\Test.xls;Extended Properties=&quot;EXCEL 8.0;HDR=YES&quot;;" />
-      </DTS:ObjectData>
-    </DTS:ConnectionManager>
-    <DTS:ConnectionManager
-      DTS:refId="Package.ConnectionManagers[Excel Connection Manager 2]"
-      DTS:CreationName="EXCEL"
-      DTS:DTSID="{D808F667-4E28-4014-9DA5-18A77BD947CD}"
-      DTS:ObjectName="Excel Connection Manager 2">
-      <DTS:ObjectData>
-        <DTS:ConnectionManager
-          DTS:ConnectRetryCount="0"
-          DTS:ConnectRetryInterval="0"
-          DTS:ConnectionString="Provider=Microsoft.Jet.OLEDB.4.0;Data Source=C:\Users\Cristian\Downloads\Book1.xls;Extended Properties=&quot;EXCEL 8.0;HDR=YES&quot;;" />
+          DTS:ConnectionString="Provider=Microsoft.Jet.OLEDB.4.0;Data Source=C:\Users\Cristian\source\repos\ProyectoProfundizacion2\Sources\observatorio-municipios.xls;Extended Properties=&quot;Excel 8.0;HDR=YES&quot;;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
     <DTS:ConnectionManager
@@ -3356,33 +3332,21 @@ where [refTable].[Municipio_Nombre] = ?</property>
         <NodeLayout
           Size="149.333333333334,42.6666666666667"
           Id="Package\TMP_DELETE"
-          TopLeft="361.874994607643,96.5087718139174" />
+          TopLeft="381.249994318933,93.77192965714" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint]"
-          TopLeft="436.541661274309,139.175438480584">
+          TopLeft="456.312494407409,136.438596323807">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="20.1666665549079,57.1929862681959"
+              EndConnector="0,59.9298284249733"
               Start="0,0"
-              End="20.1666665549079,49.6929862681959">
+              End="0,52.4298284249733">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,24.596493134098" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,24.596493134098"
-                    Point2="0,28.596493134098"
-                    Point3="4,28.596493134098" />
-                  <mssgle:LineSegment
-                    End="16.1666665549079,28.596493134098" />
-                  <mssgle:CubicBezierSegment
-                    Point1="16.1666665549079,28.596493134098"
-                    Point2="20.1666665549079,28.596493134098"
-                    Point3="20.1666665549079,32.596493134098" />
-                  <mssgle:LineSegment
-                    End="20.1666665549079,49.6929862681959" />
+                    End="0,52.4298284249733" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -3402,11 +3366,11 @@ where [refTable].[Municipio_Nombre] = ?</property>
         <NodeLayout
           Size="156,42.6666666666667"
           Id="Package\DF_Municipio_Stats\Derived Column"
-          TopLeft="103.749998454004,171.736845337783" />
+          TopLeft="91.2499986402685,225.789477934137" />
         <NodeLayout
           Size="158.666666666667,42.6666666666667"
           Id="Package\DF_Municipio_Stats\Data Conversion"
-          TopLeft="475.624992912635,186.789477200059" />
+          TopLeft="329.999995082617,225.105267394943" />
         <NodeLayout
           Size="98.6666666666667,42.6666666666667"
           Id="Package\DF_Municipio_Stats\Sort"
@@ -3422,7 +3386,7 @@ where [refTable].[Municipio_Nombre] = ?</property>
         <NodeLayout
           Size="157.333333333334,42.6666666666667"
           Id="Package\DF_Municipio_Stats\Conditional Split"
-          TopLeft="164.999997541308,102.649122794139" />
+          TopLeft="296.249995585531,93.0701752454184" />
         <NodeLayout
           Size="200,42.6666666666667"
           Id="Package\DF_Municipio_Stats\Lookup Agrupacion SKey"
@@ -3438,7 +3402,7 @@ where [refTable].[Municipio_Nombre] = ?</property>
         <NodeLayout
           Size="142.666666666667,42.6666666666667"
           Id="Package\DF_Municipio_Stats\Excel Source"
-          TopLeft="353.124994738028,49.947369361188" />
+          TopLeft="362.49999459833,6.84210539194361" />
         <NodeLayout
           Size="166.666666666667,42.6666666666667"
           Id="Package\DF_Municipio_Stats\Lookup Anio SKey"
@@ -3731,30 +3695,30 @@ where [refTable].[Municipio_Nombre] = ?</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\DF_Municipio_Stats.Paths[Excel Source Output]"
-          TopLeft="353.124994738028,71.2807026945213">
+          TopLeft="433.833327931663,49.5087720586103">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-30.7916638633862,52.701753432951"
+              EndConnector="-58.9166656794653,43.5614031868081"
               Start="0,0"
-              End="-23.2916638633862,52.701753432951">
+              End="-58.9166656794653,36.0614031868081">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="-11.3958319316931,0" />
+                    End="0,17.7807015934041" />
                   <mssgle:CubicBezierSegment
-                    Point1="-11.3958319316931,0"
-                    Point2="-15.3958319316931,0"
-                    Point3="-15.3958319316931,4" />
+                    Point1="0,17.7807015934041"
+                    Point2="0,21.7807015934041"
+                    Point3="-4,21.7807015934041" />
                   <mssgle:LineSegment
-                    End="-15.3958319316931,48.701753432951" />
+                    End="-54.9166656794653,21.7807015934041" />
                   <mssgle:CubicBezierSegment
-                    Point1="-15.3958319316931,48.701753432951"
-                    Point2="-15.3958319316931,52.701753432951"
-                    Point3="-19.3958319316931,52.701753432951" />
+                    Point1="-54.9166656794653,21.7807015934041"
+                    Point2="-58.9166656794653,21.7807015934041"
+                    Point3="-58.9166656794653,25.7807015934041" />
                   <mssgle:LineSegment
-                    End="-23.2916638633862,52.701753432951" />
+                    End="-58.9166656794653,36.0614031868081" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -3765,30 +3729,18 @@ where [refTable].[Municipio_Nombre] = ?</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\DF_Municipio_Stats.Paths[Derived Column Output]"
-          TopLeft="259.749998454004,193.070178671117">
+          TopLeft="247.249998640269,246.780705997873">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="215.874994458631,9.27485408449797"
+              EndConnector="82.7499964423481,0"
               Start="0,0"
-              End="208.374994458631,9.27485408449797">
+              End="75.2499964423481,0">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="120.843370289329,0" />
-                  <mssgle:CubicBezierSegment
-                    Point1="120.843370289329,0"
-                    Point2="124.843370289329,0"
-                    Point3="124.843370289329,4" />
-                  <mssgle:LineSegment
-                    End="124.843370289329,5.27485408449797" />
-                  <mssgle:CubicBezierSegment
-                    Point1="124.843370289329,5.27485408449797"
-                    Point2="124.843370289329,9.27485408449797"
-                    Point3="128.843370289329,9.27485408449797" />
-                  <mssgle:LineSegment
-                    End="208.374994458631,9.27485408449797" />
+                    End="75.2499964423481,0" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -3799,30 +3751,30 @@ where [refTable].[Municipio_Nombre] = ?</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\DF_Municipio_Stats.Paths[Data Conversion Output]"
-          TopLeft="554.958326245969,229.456143866726">
+          TopLeft="488.666661749283,246.438600728276">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="92.2499988637869,49.0000007340781"
+              EndConnector="63.2083300271388,53.3508772058611"
               Start="0,0"
-              End="92.2499988637869,41.5000007340781">
+              End="55.7083300271388,53.3508772058611">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,20.500000367039" />
+                    End="27.6041650135694,0" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,20.500000367039"
-                    Point2="0,24.500000367039"
-                    Point3="4,24.500000367039" />
+                    Point1="27.6041650135694,0"
+                    Point2="31.6041650135694,0"
+                    Point3="31.6041650135694,4" />
                   <mssgle:LineSegment
-                    End="88.2499988637869,24.500000367039" />
+                    End="31.6041650135694,49.3508772058611" />
                   <mssgle:CubicBezierSegment
-                    Point1="88.2499988637869,24.500000367039"
-                    Point2="92.2499988637869,24.500000367039"
-                    Point3="92.2499988637869,28.500000367039" />
+                    Point1="31.6041650135694,49.3508772058611"
+                    Point2="31.6041650135694,53.3508772058611"
+                    Point3="35.6041650135694,53.3508772058611" />
                   <mssgle:LineSegment
-                    End="92.2499988637869,41.5000007340781" />
+                    End="55.7083300271388,53.3508772058611" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -3833,37 +3785,37 @@ where [refTable].[Municipio_Nombre] = ?</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\DF_Municipio_Stats.Paths[Conditional Split Default Output]"
-          TopLeft="243.666664207975,145.315789460806">
+          TopLeft="374.916662252198,135.736841912085">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-61.9166657539707,26.4210558769776"
+              EndConnector="-205.666663611929,90.052636022052"
               Start="0,0"
-              End="-61.9166657539707,18.9210558769776">
+              End="-205.666663611929,82.552636022052">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,9.21052793848882" />
+                    End="0,41.026318011026" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,9.21052793848882"
-                    Point2="0,13.2105279384888"
-                    Point3="-4,13.2105279384888" />
+                    Point1="0,41.026318011026"
+                    Point2="0,45.026318011026"
+                    Point3="-4,45.026318011026" />
                   <mssgle:LineSegment
-                    End="-57.9166657539707,13.2105279384888" />
+                    End="-201.666663611929,45.026318011026" />
                   <mssgle:CubicBezierSegment
-                    Point1="-57.9166657539707,13.2105279384888"
-                    Point2="-61.9166657539707,13.2105279384888"
-                    Point3="-61.9166657539707,17.2105279384888" />
+                    Point1="-201.666663611929,45.026318011026"
+                    Point2="-205.666663611929,45.026318011026"
+                    Point3="-205.666663611929,49.026318011026" />
                   <mssgle:LineSegment
-                    End="-61.9166657539707,18.9210558769776" />
+                    End="-205.666663611929,82.552636022052" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-101.572239126985,18.2105279384888,141.2278125,11.658203125"
+              BoundingBox="-173.447238055965,50.026318011026,141.2278125,11.658203125"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>

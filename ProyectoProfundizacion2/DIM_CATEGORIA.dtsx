@@ -11,8 +11,8 @@
   DTS:LocaleID="9226"
   DTS:ObjectName="DIM_CATEGORIA"
   DTS:PackageType="5"
-  DTS:VersionBuild="38"
-  DTS:VersionGUID="{A520D411-C5DE-482A-89CE-05613E54A4E2}">
+  DTS:VersionBuild="41"
+  DTS:VersionGUID="{D872F082-E966-4FFC-9AFF-EE6722C242D5}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -31,13 +31,13 @@
     <DTS:ConnectionManager
       DTS:refId="Package.ConnectionManagers[Excel Connection Manager]"
       DTS:CreationName="EXCEL"
-      DTS:DTSID="{A962772F-E9FB-432E-93B7-1FF26A4F4CB1}"
+      DTS:DTSID="{85C378B4-2C11-4A44-8C18-DEDEB44EA630}"
       DTS:ObjectName="Excel Connection Manager">
       <DTS:ObjectData>
         <DTS:ConnectionManager
           DTS:ConnectRetryCount="0"
           DTS:ConnectRetryInterval="0"
-          DTS:ConnectionString="Provider=Microsoft.Jet.OLEDB.4.0;Data Source=C:\Users\Cristian\source\repos\ProyectoProfundizacion2\Sources\observatirio-municipios.xls;Extended Properties=&quot;EXCEL 8.0;HDR=YES&quot;;" />
+          DTS:ConnectionString="Provider=Microsoft.Jet.OLEDB.4.0;Data Source=C:\Users\Cristian\source\repos\ProyectoProfundizacion2\Sources\observatorio-municipios.xls;Extended Properties=&quot;Excel 8.0;HDR=YES&quot;;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
   </DTS:ConnectionManagers>
@@ -118,7 +118,7 @@
                       cachedLength="255"
                       cachedName="categoria"
                       cachedSortKeyPosition="1"
-                      lineageId="Package\DF_Categoria\Sort.Outputs[Sort Output].Columns[categoria]" />
+                      lineageId="Package\DF_Categoria\Sort Categoria.Outputs[Sort Output].Columns[categoria]" />
                   </inputColumns>
                   <externalMetadataColumns />
                 </input>
@@ -150,7 +150,7 @@
                           containsID="true"
                           dataType="System.Int32"
                           description="Specifies the ID of the input column used in the aggregation."
-                          name="AggregationColumnId">#{Package\DF_Categoria\Sort.Outputs[Sort Output].Columns[categoria]}</property>
+                          name="AggregationColumnId">#{Package\DF_Categoria\Sort Categoria.Outputs[Sort Output].Columns[categoria]}</property>
                         <property
                           dataType="System.Int32"
                           description="Specifies the type of aggregation."
@@ -196,12 +196,12 @@
               </inputs>
               <outputs>
                 <output
-                  refId="Package\DF_Categoria\Conditional Split.Outputs[Case 2]"
+                  refId="Package\DF_Categoria\Conditional Split.Outputs[CheckCategoria]"
                   description="Output 2 of the Conditional Split Transformation"
                   errorOrTruncationOperation="Computation"
                   errorRowDisposition="FailComponent"
                   exclusionGroup="1"
-                  name="Case 2"
+                  name="CheckCategoria"
                   synchronousInputId="Package\DF_Categoria\Conditional Split.Inputs[Conditional Split Input]"
                   truncationRowDisposition="FailComponent">
                   <properties>
@@ -703,11 +703,11 @@
               </outputs>
             </component>
             <component
-              refId="Package\DF_Categoria\Sort"
+              refId="Package\DF_Categoria\Sort Categoria"
               componentClassID="Microsoft.Sort"
               contactInfo="Sort;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
               description="Sorts input data in ascending or descending order when it cannot be sorted at its source. For example, sort sales data by 'customer id' before it is written to a flat file and delivered to another department. Note: We do not recommend this transformation for large data flows."
-              name="Sort"
+              name="Sort Categoria"
               version="1">
               <properties>
                 <property
@@ -722,11 +722,11 @@
               </properties>
               <inputs>
                 <input
-                  refId="Package\DF_Categoria\Sort.Inputs[Sort Input]"
+                  refId="Package\DF_Categoria\Sort Categoria.Inputs[Sort Input]"
                   name="Sort Input">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\DF_Categoria\Sort.Inputs[Sort Input].Columns[area]"
+                      refId="Package\DF_Categoria\Sort Categoria.Inputs[Sort Input].Columns[area]"
                       cachedDataType="wstr"
                       cachedLength="255"
                       cachedName="area"
@@ -743,7 +743,7 @@
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\DF_Categoria\Sort.Inputs[Sort Input].Columns[categoria]"
+                      refId="Package\DF_Categoria\Sort Categoria.Inputs[Sort Input].Columns[categoria]"
                       cachedDataType="wstr"
                       cachedLength="255"
                       cachedName="categoria"
@@ -760,7 +760,7 @@
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\DF_Categoria\Sort.Inputs[Sort Input].Columns[genero]"
+                      refId="Package\DF_Categoria\Sort Categoria.Inputs[Sort Input].Columns[genero]"
                       cachedDataType="wstr"
                       cachedLength="255"
                       cachedName="genero"
@@ -777,7 +777,7 @@
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\DF_Categoria\Sort.Inputs[Sort Input].Columns[agrupa]"
+                      refId="Package\DF_Categoria\Sort Categoria.Inputs[Sort Input].Columns[agrupa]"
                       cachedDataType="wstr"
                       cachedLength="255"
                       cachedName="agrupa"
@@ -794,7 +794,7 @@
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\DF_Categoria\Sort.Inputs[Sort Input].Columns[valor]"
+                      refId="Package\DF_Categoria\Sort Categoria.Inputs[Sort Input].Columns[valor]"
                       cachedDataType="r8"
                       cachedName="valor"
                       lineageId="Package\DF_Categoria\Excel Source.Outputs[Excel Source Output].Columns[valor]">
@@ -810,7 +810,7 @@
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\DF_Categoria\Sort.Inputs[Sort Input].Columns[mes]"
+                      refId="Package\DF_Categoria\Sort Categoria.Inputs[Sort Input].Columns[mes]"
                       cachedDataType="wstr"
                       cachedLength="255"
                       cachedName="mes"
@@ -827,7 +827,7 @@
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\DF_Categoria\Sort.Inputs[Sort Input].Columns[indicador]"
+                      refId="Package\DF_Categoria\Sort Categoria.Inputs[Sort Input].Columns[indicador]"
                       cachedDataType="wstr"
                       cachedLength="255"
                       cachedName="indicador"
@@ -844,7 +844,7 @@
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\DF_Categoria\Sort.Inputs[Sort Input].Columns[año]"
+                      refId="Package\DF_Categoria\Sort Categoria.Inputs[Sort Input].Columns[año]"
                       cachedDataType="r8"
                       cachedName="año"
                       lineageId="Package\DF_Categoria\Excel Source.Outputs[Excel Source Output].Columns[año]">
@@ -865,15 +865,15 @@
               </inputs>
               <outputs>
                 <output
-                  refId="Package\DF_Categoria\Sort.Outputs[Sort Output]"
+                  refId="Package\DF_Categoria\Sort Categoria.Outputs[Sort Output]"
                   isSorted="true"
                   name="Sort Output">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\DF_Categoria\Sort.Outputs[Sort Output].Columns[area]"
+                      refId="Package\DF_Categoria\Sort Categoria.Outputs[Sort Output].Columns[area]"
                       dataType="wstr"
                       length="255"
-                      lineageId="Package\DF_Categoria\Sort.Outputs[Sort Output].Columns[area]"
+                      lineageId="Package\DF_Categoria\Sort Categoria.Outputs[Sort Output].Columns[area]"
                       name="area">
                       <properties>
                         <property
@@ -884,10 +884,10 @@
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\DF_Categoria\Sort.Outputs[Sort Output].Columns[categoria]"
+                      refId="Package\DF_Categoria\Sort Categoria.Outputs[Sort Output].Columns[categoria]"
                       dataType="wstr"
                       length="255"
-                      lineageId="Package\DF_Categoria\Sort.Outputs[Sort Output].Columns[categoria]"
+                      lineageId="Package\DF_Categoria\Sort Categoria.Outputs[Sort Output].Columns[categoria]"
                       name="categoria"
                       sortKeyPosition="1">
                       <properties>
@@ -899,10 +899,10 @@
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\DF_Categoria\Sort.Outputs[Sort Output].Columns[genero]"
+                      refId="Package\DF_Categoria\Sort Categoria.Outputs[Sort Output].Columns[genero]"
                       dataType="wstr"
                       length="255"
-                      lineageId="Package\DF_Categoria\Sort.Outputs[Sort Output].Columns[genero]"
+                      lineageId="Package\DF_Categoria\Sort Categoria.Outputs[Sort Output].Columns[genero]"
                       name="genero">
                       <properties>
                         <property
@@ -913,10 +913,10 @@
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\DF_Categoria\Sort.Outputs[Sort Output].Columns[agrupa]"
+                      refId="Package\DF_Categoria\Sort Categoria.Outputs[Sort Output].Columns[agrupa]"
                       dataType="wstr"
                       length="255"
-                      lineageId="Package\DF_Categoria\Sort.Outputs[Sort Output].Columns[agrupa]"
+                      lineageId="Package\DF_Categoria\Sort Categoria.Outputs[Sort Output].Columns[agrupa]"
                       name="agrupa">
                       <properties>
                         <property
@@ -927,9 +927,9 @@
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\DF_Categoria\Sort.Outputs[Sort Output].Columns[valor]"
+                      refId="Package\DF_Categoria\Sort Categoria.Outputs[Sort Output].Columns[valor]"
                       dataType="r8"
-                      lineageId="Package\DF_Categoria\Sort.Outputs[Sort Output].Columns[valor]"
+                      lineageId="Package\DF_Categoria\Sort Categoria.Outputs[Sort Output].Columns[valor]"
                       name="valor">
                       <properties>
                         <property
@@ -940,10 +940,10 @@
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\DF_Categoria\Sort.Outputs[Sort Output].Columns[mes]"
+                      refId="Package\DF_Categoria\Sort Categoria.Outputs[Sort Output].Columns[mes]"
                       dataType="wstr"
                       length="255"
-                      lineageId="Package\DF_Categoria\Sort.Outputs[Sort Output].Columns[mes]"
+                      lineageId="Package\DF_Categoria\Sort Categoria.Outputs[Sort Output].Columns[mes]"
                       name="mes">
                       <properties>
                         <property
@@ -954,10 +954,10 @@
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\DF_Categoria\Sort.Outputs[Sort Output].Columns[indicador]"
+                      refId="Package\DF_Categoria\Sort Categoria.Outputs[Sort Output].Columns[indicador]"
                       dataType="wstr"
                       length="255"
-                      lineageId="Package\DF_Categoria\Sort.Outputs[Sort Output].Columns[indicador]"
+                      lineageId="Package\DF_Categoria\Sort Categoria.Outputs[Sort Output].Columns[indicador]"
                       name="indicador">
                       <properties>
                         <property
@@ -968,9 +968,9 @@
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\DF_Categoria\Sort.Outputs[Sort Output].Columns[año]"
+                      refId="Package\DF_Categoria\Sort Categoria.Outputs[Sort Output].Columns[año]"
                       dataType="r8"
-                      lineageId="Package\DF_Categoria\Sort.Outputs[Sort Output].Columns[año]"
+                      lineageId="Package\DF_Categoria\Sort Categoria.Outputs[Sort Output].Columns[año]"
                       name="año">
                       <properties>
                         <property
@@ -996,7 +996,7 @@
               refId="Package\DF_Categoria.Paths[Case 2]"
               endId="Package\DF_Categoria\OLE DB Destination.Inputs[OLE DB Destination Input]"
               name="Case 2"
-              startId="Package\DF_Categoria\Conditional Split.Outputs[Case 2]" />
+              startId="Package\DF_Categoria\Conditional Split.Outputs[CheckCategoria]" />
             <path
               refId="Package\DF_Categoria.Paths[Data Conversion Output]"
               endId="Package\DF_Categoria\Conditional Split.Inputs[Conditional Split Input]"
@@ -1004,14 +1004,14 @@
               startId="Package\DF_Categoria\Data Conversion.Outputs[Data Conversion Output]" />
             <path
               refId="Package\DF_Categoria.Paths[Excel Source Output]"
-              endId="Package\DF_Categoria\Sort.Inputs[Sort Input]"
+              endId="Package\DF_Categoria\Sort Categoria.Inputs[Sort Input]"
               name="Excel Source Output"
               startId="Package\DF_Categoria\Excel Source.Outputs[Excel Source Output]" />
             <path
               refId="Package\DF_Categoria.Paths[Sort Output]"
               endId="Package\DF_Categoria\Aggregate.Inputs[Aggregate Input 1]"
               name="Sort Output"
-              startId="Package\DF_Categoria\Sort.Outputs[Sort Output]" />
+              startId="Package\DF_Categoria\Sort Categoria.Outputs[Sort Output]" />
           </paths>
         </pipeline>
       </DTS:ObjectData>
@@ -1030,7 +1030,7 @@
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{10E29495-1E4D-4D62-A134-6FFACB43D6F8}"
-          SQLTask:SqlStatementSource="DBCC CHECKIDENT ('Dim_Categoria', RESEED, 0);&#xA;&#xA;DELETE FROM Dim_Categoria;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          SQLTask:SqlStatementSource="DBCC CHECKIDENT ('Dim_Categoria', RESEED, 0);&#xA;&#xA;DELETE FROM Municipio_Stats;&#xA;DELETE FROM Dim_Categoria;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
   </DTS:Executables>
@@ -1095,21 +1095,21 @@
       <GraphLayout
         Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="174.666666666667,42.6666666666667"
-          Id="Package\DF_Categoria\OLE DB Destination"
-          TopLeft="423.61381042648,546.723713488105" />
-        <NodeLayout
           Size="158.666666666667,42.6666666666667"
           Id="Package\DF_Categoria\Data Conversion"
           TopLeft="433.033002205314,362.531866776675" />
         <NodeLayout
+          Size="148,42.6666666666667"
+          Id="Package\DF_Categoria\Sort Categoria"
+          TopLeft="430.972215800236,159.407233197149" />
+        <NodeLayout
+          Size="174.666666666667,42.6666666666667"
+          Id="Package\DF_Categoria\OLE DB Destination"
+          TopLeft="423.61381042648,546.723713488105" />
+        <NodeLayout
           Size="142.666666666667,42.6666666666667"
           Id="Package\DF_Categoria\Excel Source"
           TopLeft="426.78029667078,40.4098891178727" />
-        <NodeLayout
-          Size="98.6666666666667,42.6666666666667"
-          Id="Package\DF_Categoria\Sort"
-          TopLeft="452.222215483586,160.775654275538" />
         <NodeLayout
           Size="129.333333333334,42.6666666666667"
           Id="Package\DF_Categoria\Aggregate"
@@ -1117,33 +1117,21 @@
         <NodeLayout
           Size="157.333333333334,42.6666666666667"
           Id="Package\DF_Categoria\Conditional Split"
-          TopLeft="426.24999364838,454.315797535666" />
+          TopLeft="433.124993545934,438.578955134196" />
         <EdgeLayout
           Id="Package\DF_Categoria.Paths[Sort Output]"
-          TopLeft="501.555548816919,203.442320942205">
+          TopLeft="507.291028827457,202.073899863816">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="8.05429303775981,64.8442338152257"
+              EndConnector="0,66.212654893614"
               Start="0,0"
-              End="8.05429303775981,57.3442338152257">
+              End="0,58.712654893614">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,28.4221169076129" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,28.4221169076129"
-                    Point2="0,32.4221169076129"
-                    Point3="4,32.4221169076129" />
-                  <mssgle:LineSegment
-                    End="4.05429303775981,32.4221169076129" />
-                  <mssgle:CubicBezierSegment
-                    Point1="4.05429303775981,32.4221169076129"
-                    Point2="8.05429303775981,32.4221169076129"
-                    Point3="8.05429303775981,36.4221169076129" />
-                  <mssgle:LineSegment
-                    End="8.05429303775981,57.3442338152257" />
+                    End="0,58.712654893614" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -1154,18 +1142,18 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package\DF_Categoria.Paths[Excel Source Output]"
-          TopLeft="499.834589410516,83.0765557845394">
+          TopLeft="501.542922902175,83.0765557845394">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,77.6990984909986"
+              EndConnector="0,76.3306774126099"
               Start="0,0"
-              End="0,70.1990984909986">
+              End="0,68.8306774126099">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,70.1990984909986" />
+                    End="0,68.8306774126099" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -1176,18 +1164,18 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package\DF_Categoria.Paths[Data Conversion Output]"
-          TopLeft="508.641497926847,405.198533443342">
+          TopLeft="512.078997875624,405.198533443342">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,49.1172640923248"
+              EndConnector="0,33.3804216908541"
               Start="0,0"
-              End="0,41.6172640923248">
+              End="0,25.8804216908541">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,41.6172640923248" />
+                    End="0,25.8804216908541" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -1198,25 +1186,25 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package\DF_Categoria.Paths[Case 2]"
-          TopLeft="507.93190203743,496.982464202333">
+          TopLeft="511.369401986207,481.245621800862">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,49.7412492857715"
+              EndConnector="0,65.4780916872426"
               Start="0,0"
-              End="0,42.2412492857715">
+              End="0,57.9780916872426">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,42.2412492857715" />
+                    End="0,57.9780916872426" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-15.4036328125,16.3340035491358,30.807265625,9.5732421875"
+              BoundingBox="-34.72587890625,23.1575028748713,69.4517578125,11.6630859375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
